@@ -1,0 +1,163 @@
+
+/* ID Blocks */
+$wgt-id_block-border-radius: 3px
+.wgt-id-block
+	display: flex
+	height: $wgt-height
+	align-items: center
+	border-radius: $wgt-id_block-border-radius
+	min-width: 100px
+
+	&-label,
+	&-id_list,
+	&-name,
+	&-action
+		display: flex
+		align-items: center
+		height: 100%
+		box-shadow: 0 0 0 1px rgba($wgt-dropdown-background, .4)
+
+		&:last-child
+			border-top-right-radius: $wgt-id_block-border-radius
+			border-bottom-right-radius: $wgt-id_block-border-radius
+
+	&-label
+		padding-right: 10px
+		box-shadow: none
+
+	&-id_list
+		background-color: $wgt-dropdown-background
+		border-top-left-radius: $wgt-id_block-border-radius
+		border-bottom-left-radius: $wgt-id_block-border-radius
+		&:hover
+			background-color: lighten($wgt-dropdown-background, 5%)
+
+		img
+			padding: 0 5px
+			margin: auto
+
+	&-name
+		color: $wgt-input-text
+		background-color: $wgt-input-background
+		padding: 0 5px
+		flex: 1
+		min-width: 100px
+		&:hover
+			background-color: lighten($wgt-input-background, 5%)
+
+	&-action
+		color: $wgt-tool-text
+		background-color: $wgt-tool-background
+		&:hover
+			background-color: lighten($wgt-tool-background, 5%)
+
+		&:last-child
+			border-top-right-radius: $wgt-id_block-border-radius
+			border-bottom-right-radius: $wgt-id_block-border-radius
+
+		img
+			padding: 0 5px
+			margin: auto
+
+
+/* Simple menu, such as the top File, Window, Help */
+ul.wgt-menu-simple
+	list-style: none
+	margin: 0
+	padding: 0
+	white-space: nowrap
+	li
+		display: inline-block
+		margin: 0 10px
+
+/* Progress Bars */
+$wgt-progress_bar-circle-size: $wgt-height
+.wgt-progress_bar
+	&-circle
+		&__container
+			position: relative
+			margin-left: 5px
+			background-color: $color-status-success
+			border-radius: 50%
+			box-shadow: 1px 1px 2px rgba(black, .2)
+			transition: transform 150ms ease-in-out
+
+			&:hover
+				transform: scale(1.2)
+
+
+		/* Inner circle, where the values display */
+		&__inner
+			z-index: 1
+			width: $wgt-progress_bar-circle-size - 5
+			height: $wgt-progress_bar-circle-size - 5
+			border-radius: 50%
+			background-color: #445
+			+position-center-translate
+
+		/* Value */
+		&__text
+			z-index: 2
+			color: white
+			font-size: .55em
+			+position-center-translate
+
+		&__progress
+			width: 0
+			height: 0
+			transform: rotate(0)
+			border-top: $wgt-progress_bar-circle-size / 2 solid transparent
+			border-right: $wgt-progress_bar-circle-size / 2 solid transparent
+			border-left: $wgt-progress_bar-circle-size / 2 solid $color-status-error
+			border-bottom: $wgt-progress_bar-circle-size / 2 solid $color-status-error
+			border-radius: 50%
+
+			&.done_36
+				position: absolute
+				transform: rotate(45deg)
+			&.done_84
+				position: absolute
+				transform: rotate(45deg)
+			&.left_84
+				border-left: $wgt-progress_bar-circle-size / 2 solid $color-status-success
+				border-bottom: $wgt-progress_bar-circle-size / 2 solid $color-status-success
+
+
+/* Tabs */
+.tabs-bar
+	display: flex
+	height: $header-bar-primary-height
+	position: relative
+
+	&__tab
+		bottom: 0
+		position: relative
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+
+		&-title
+			position: relative
+			padding: 5px 10px 5px 10px
+			margin: 0 2px
+			+text-overflow-ellipsis
+			background-color: $tab-color-background
+			text-shadow: 1px 1px 0 rgba(white, .25)
+
+			border-top-left-radius: 3px
+			border-top-right-radius: 3px
+			border:
+				top: 3px solid darken($tab-color-background, 10%)
+				left: thin solid darken($tab-color-background, 10%)
+				right: thin solid darken($tab-color-background, 10%)
+				bottom: none
+
+			&:hover
+				background-color: lighten($tab-color-background, 5%)
+
+		&.active .tabs-bar__tab-title
+			border-top-color: $tab-active-color-text
+			background-color: $tab-active-color-background
+
+			&:hover
+				background-color: lighten($tab-active-color-background, 5%)

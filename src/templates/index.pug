@@ -1,0 +1,88 @@
+html
+	head
+		link(href="assets/css/main.css", rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700", rel="stylesheet")
+	body
+
+		section.ui-section
+			h2 Top Bar
+			#top-bar
+				#top-bar__primary
+					img.icon.blender-logo(
+						src="assets/img/icons/icon_blender.png")
+
+					ul.wgt-menu-simple
+						li.wgt-menu-simple-item File
+						li.wgt-menu-simple-item Window
+						li.wgt-menu-simple-item Help
+
+					.tabs-bar
+						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', 'Scripting', '+']
+						each tab in tabs
+							if tab == 'Animation'
+								.tabs-bar__tab.active
+									.tabs-bar__tab-title= tab
+							else
+								.tabs-bar__tab
+									.tabs-bar__tab-title= tab
+
+					.wgt-id-block
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_scene_data.png")
+						.wgt-id-block-name Scene
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_zoomin.png")
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_panel_close.png")
+
+					#window-buttons
+						#window-buttons__button.close
+						#window-buttons__button.min
+						#window-buttons__button.max
+
+				#top-bar__secondary
+					.wgt-id-block
+						.wgt-id-block-label Render Layer:
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_renderlayer.png")
+						.wgt-id-block-name Layer
+					.wgt-id-block
+						.wgt-id-block-label Layout:
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_splitscreen.png")
+						.wgt-id-block-name Default Screen
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_zoomin.png")
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_panel_close.png")
+
+
+		section.ui-section
+			h2 Status Bar
+			#status-bar
+				#status-bar__filepath
+					| */home/koro/Desktop/shouldnt_save_on_desktop.blend
+				#status-bar__stats
+					ul
+						li Verts:88,521
+						li Faces:87,202
+						li Tris:166,270
+						li Objects:1/127
+						li Lamps:0/4
+						li Mem:731.70M
+						li camrig_02
+
+				#status-bar__jobs
+					.wgt-progress_bar-circle__container
+						.wgt-progress_bar-circle__text 84%
+						.wgt-progress_bar-circle__inner
+						.wgt-progress_bar-circle__progress.done_84
+						.wgt-progress_bar-circle__progress.left_84
+
+					.wgt-progress_bar-circle__container
+						.wgt-progress_bar-circle__text 36%
+						.wgt-progress_bar-circle__inner
+						.wgt-progress_bar-circle__progress.done_36
+						.wgt-progress_bar-circle__progress
+
+
