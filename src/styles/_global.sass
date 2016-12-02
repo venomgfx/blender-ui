@@ -1,0 +1,123 @@
+
+html
+	background-color: white
+	font:
+		family: 'Droid Sans'
+		weight: 400
+
+body
+	margin: 0
+	padding: 0
+
+section.ui-section
+	margin: 20px
+	h2
+		margin-bottom: 10px
+
+	&.theme-select
+		a
+			padding: 0 5px
+
+.icon
+	width: 16px
+	height: 16px
+
+.blender-logo
+	display: block
+	width: 16px
+	height: 16px
+	margin-left: 10px
+
+#top-bar
+	display: flex
+	flex-direction: column
+	cursor: default
+	color: $header-bar-primary-color-text
+
+	background-color: $header-bar-primary-color-background
+	border: thin solid darken($header-bar-primary-color-background, 5%)
+	border-bottom: none
+	border-top-left-radius: 3px
+	border-top-right-radius: 3px
+
+	font-size: .8em
+
+	#top-bar__primary
+		height: $header-bar-primary-height
+		display: flex
+		align-items: center
+	#top-bar__secondary
+		height: $header-bar-primary-height
+		display: flex
+		align-items: center
+		background-color: $header-bar-secondary-color-background
+
+	ul.menu-simple
+		margin: 0 5px
+
+	.wgt-id-block
+		margin:
+			left: auto
+			right: 5px
+
+	#window-buttons
+		display: flex
+		margin: 0 5px
+		&__button
+			height: 15px
+			width: 15px
+			border-radius: 50%
+			margin: 0
+			box-shadow: 1px 1px 1px rgba(black, .15)
+
+			&:not(:last-child)
+				margin-right: 5px
+
+			&.close
+				background-color: #ff5e56
+			&.min
+				background-color: #ffbd30
+			&.max
+				background-color: #27c93f
+
+
+#status-bar
+	display: flex
+	align-items: center
+	cursor: default
+
+	background-color: $header-bar-primary-color-background
+	border: thin solid darken($header-bar-primary-color-background, 5%)
+	border-top: none
+	border-bottom-left-radius: 3px
+	border-bottom-right-radius: 3px
+	color: $header-bar-primary-color-text
+
+	&__filepath
+		margin-left: 10px
+		font-size: .8em
+
+	&__stats
+		margin-left: auto
+		font-size: .8em
+
+		ul
+			margin: 0
+			padding: 0
+			list-style-type: none
+			li
+				display: inline-block
+				padding-left: 4px
+				margin-left: 4px
+				&:before
+					content: '|'
+					position: relative
+					left: -4px
+					opacity: .5
+
+				&:first-child:before
+					display: none
+
+	&__jobs
+		display: flex
+		margin: 5px

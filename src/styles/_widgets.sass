@@ -1,6 +1,5 @@
 
 /* ID Blocks */
-$wgt-id_block-border-radius: 3px
 .wgt-id-block
 	display: flex
 	height: $wgt-height
@@ -141,8 +140,8 @@ $wgt-progress_bar-circle-size: $wgt-height
 			padding: 5px 10px 5px 10px
 			margin: 0 2px
 			+text-overflow-ellipsis
+			color: $tab-color-text
 			background-color: $tab-color-background
-			text-shadow: 1px 1px 0 rgba(white, .25)
 
 			border-top-left-radius: 3px
 			border-top-right-radius: 3px
@@ -156,7 +155,8 @@ $wgt-progress_bar-circle-size: $wgt-height
 				background-color: lighten($tab-color-background, 5%)
 
 		&.active .tabs-bar__tab-title
-			border-top-color: $tab-active-color-text
+			color: $tab-active-color-text
+			border-top-color: $tab-active-color-tint
 			background-color: $tab-active-color-background
 
 			&:hover

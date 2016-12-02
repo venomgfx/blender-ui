@@ -4,6 +4,11 @@ html
 		link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700", rel="stylesheet")
 	body
 
+		section.ui-section.theme-select
+			| Theme:
+			a(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Main
+			a(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Alternative
+
 		section.ui-section
 			h2 Top Bar
 			#top-bar
@@ -86,3 +91,8 @@ html
 						.wgt-progress_bar-circle__progress
 
 
+script.
+	function swapTheme(themeFile, linkIndex) {
+		var cssLink = document.getElementsByTagName("link").item(linkIndex);
+		cssLink.href = themeFile;
+	}
