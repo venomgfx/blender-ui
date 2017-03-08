@@ -4,19 +4,36 @@ html
 	font:
 		family: 'Droid Sans'
 		weight: 400
+		size: 12px
+	text-rendering: optimizeLegibility
 
 body
 	margin: 0
 	padding: 0
 
 section.ui-section
-	margin: 20px
+	margin: 20px 10px
 	h2
 		margin-bottom: 10px
 
 	&.theme-select
 		a
-			padding: 0 5px
+			margin: 0 5px
+
+			&.theme-main
+				pointer-events: none
+				text-decoration: underline
+			&.theme-alt
+				text-decoration: none
+
+body.alt
+	section.ui-section.theme-select
+		a.theme-main
+			pointer-events: initial
+			text-decoration: none
+		a.theme-alt
+			pointer-events: none
+			text-decoration: underline
 
 .icon
 	width: 16px
@@ -31,16 +48,14 @@ section.ui-section
 #top-bar
 	display: flex
 	flex-direction: column
-	cursor: default
-	color: $header-bar-primary-color-text
+	padding-top: 5px
 
-	background-color: $header-bar-primary-color-background
-	border: thin solid darken($header-bar-primary-color-background, 5%)
-	border-bottom: none
+	cursor: default
+
+	color: $global-color-text
+	background-color: darken($global-color-background, 15%)
 	border-top-left-radius: 3px
 	border-top-right-radius: 3px
-
-	font-size: .8em
 
 	#top-bar__primary
 		height: $header-bar-primary-height
@@ -50,7 +65,7 @@ section.ui-section
 		height: $header-bar-primary-height
 		display: flex
 		align-items: center
-		background-color: $header-bar-secondary-color-background
+		background-color: $global-color-background
 
 	ul.menu-simple
 		margin: 0 5px
@@ -86,20 +101,16 @@ section.ui-section
 	align-items: center
 	cursor: default
 
-	background-color: $header-bar-primary-color-background
-	border: thin solid darken($header-bar-primary-color-background, 5%)
-	border-top: none
+	background-color: $global-color-background
 	border-bottom-left-radius: 3px
 	border-bottom-right-radius: 3px
-	color: $header-bar-primary-color-text
+	color: $global-color-text
 
 	&__filepath
 		margin-left: 10px
-		font-size: .8em
 
 	&__stats
 		margin-left: auto
-		font-size: .8em
 
 		ul
 			margin: 0
@@ -121,3 +132,9 @@ section.ui-section
 	&__jobs
 		display: flex
 		margin: 5px
+
+.ui-section-widgets
+	background-color: $global-color-background
+	padding: 10px
+	width: 25%
+	position: relative

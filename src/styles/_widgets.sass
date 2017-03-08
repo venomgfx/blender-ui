@@ -1,11 +1,17 @@
 
+[class^="wgt"]
+	&.disabled
+		opacity: .5
+
 /* ID Blocks */
 .wgt-id-block
 	display: flex
-	height: $wgt-height
 	align-items: center
-	border-radius: $wgt-id_block-border-radius
-	min-width: 100px
+	height: $wgt-height
+	border-radius: $wgt-border-radius
+	min-width: 150px
+	max-width: 250px
+	margin: $wgt-margin
 
 	&-label,
 	&-id_list,
@@ -15,19 +21,22 @@
 		align-items: center
 		height: 100%
 		box-shadow: 0 0 0 1px rgba($wgt-dropdown-background, .4)
+		user-select: none
+		+wgt-shadow
 
 		&:last-child
-			border-top-right-radius: $wgt-id_block-border-radius
-			border-bottom-right-radius: $wgt-id_block-border-radius
+			border-top-right-radius: $wgt-border-radius
+			border-bottom-right-radius: $wgt-border-radius
 
 	&-label
 		padding-right: 10px
+		white-space: nowrap
 		box-shadow: none
 
 	&-id_list
 		background-color: $wgt-dropdown-background
-		border-top-left-radius: $wgt-id_block-border-radius
-		border-bottom-left-radius: $wgt-id_block-border-radius
+		border-top-left-radius: $wgt-border-radius
+		border-bottom-left-radius: $wgt-border-radius
 		&:hover
 			background-color: lighten($wgt-dropdown-background, 5%)
 
@@ -40,7 +49,9 @@
 		background-color: $wgt-input-background
 		padding: 0 5px
 		flex: 1
-		min-width: 100px
+		min-width: 80px
+		font-size: .9em
+		user-select: initial
 		&:hover
 			background-color: lighten($wgt-input-background, 5%)
 
@@ -51,8 +62,8 @@
 			background-color: lighten($wgt-tool-background, 5%)
 
 		&:last-child
-			border-top-right-radius: $wgt-id_block-border-radius
-			border-bottom-right-radius: $wgt-id_block-border-radius
+			border-top-right-radius: $wgt-border-radius
+			border-bottom-right-radius: $wgt-border-radius
 
 		img
 			padding: 0 5px
@@ -62,18 +73,92 @@
 /* Simple menu, such as the top File, Window, Help */
 ul.wgt-menu-simple
 	list-style: none
-	margin: 0
 	padding: 0
 	white-space: nowrap
+	margin: $wgt-margin
 	li
 		display: inline-block
 		margin: 0 10px
+
+
+/* Checkbox */
+.wgt-checkbox
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+
+	&-name
+		color: $global-color-text
+		padding-left: 10px
+		cursor: default
+
+	&-zone
+		display: inline-block
+		position: relative
+		background-color: $wgt-input-background
+		height: $wgt-height / 1.5
+		width: $wgt-height / 1.5
+		border-radius: $wgt-border-radius
+		+wgt-shadow
+
+	&:hover
+		.wgt-checkbox-name
+			color: lighten($global-color-text, 20%)
+
+	&.enabled
+		.wgt-checkbox-name
+			color: $global-color-text-active
+
+		.wgt-checkbox-zone
+			background-color: $global-color-accent
+			&:after
+				content: ''
+				position: absolute
+				left: 4px
+				display: block
+				width: 4px
+				height: 7px
+				border: solid $global-color-accent-active
+				border-width: 0 3px 3px 0
+				border-radius: 3px
+				transform: rotate(45deg)
+				+wgt-shadow
+
+
+/* Dropdown Menu */
+.wgt-dropdown
+
+
+/* Tool */
+.wgt-tool
+	background-color: $wgt-tool-background
+	margin: $wgt-margin
+	border-radius: $wgt-border-radius
+	+wgt-shadow
+
+	&:hover
+		background-color: lighten($wgt-tool-background, 5%)
+
+	&.enabled
+		color: $global-color-accent-active
+		background-color: $global-color-accent
+
+	&-name
+		padding: 5px 10px
+
+
+.wgt-separator
+	display: inline-block
+	margin: $wgt-margin 0
+
 
 /* Progress Bars */
 $wgt-progress_bar-circle-size: $wgt-height
 .wgt-progress_bar
 	&-circle
 		&__container
+			margin-top: 0
+			margin-bottom: 0
 			position: relative
 			margin-left: 5px
 			background-color: $color-status-success
@@ -84,7 +169,6 @@ $wgt-progress_bar-circle-size: $wgt-height
 			&:hover
 				transform: scale(1.2)
 
-
 		/* Inner circle, where the values display */
 		&__inner
 			z-index: 1
@@ -94,6 +178,10 @@ $wgt-progress_bar-circle-size: $wgt-height
 			background-color: #445
 			+position-center-translate
 
+			margin:
+				top: 0
+				bottom: 0
+
 		/* Value */
 		&__text
 			z-index: 2
@@ -101,7 +189,14 @@ $wgt-progress_bar-circle-size: $wgt-height
 			font-size: .55em
 			+position-center-translate
 
+			margin:
+				top: 0
+				bottom: 0
+
 		&__progress
+			margin:
+				top: 0
+				bottom: 0
 			width: 0
 			height: 0
 			transform: rotate(0)
@@ -129,35 +224,40 @@ $wgt-progress_bar-circle-size: $wgt-height
 	position: relative
 
 	&__tab
-		bottom: 0
 		position: relative
 		display: flex
 		flex-direction: column
 		justify-content: flex-end
 
 		&-title
+			height: 100%
+			display: flex
+			align-items: center
 			position: relative
-			padding: 5px 10px 5px 10px
-			margin: 0 2px
+			padding:
+				left: 10px
+				right: 10px
+			user-select: none
+
 			+text-overflow-ellipsis
-			color: $tab-color-text
-			background-color: $tab-color-background
+			color: $global-color-text
+			background-color: darken($global-color-background, 7.5%)
 
 			border-top-left-radius: 3px
 			border-top-right-radius: 3px
 			border:
-				top: 3px solid darken($tab-color-background, 10%)
-				left: thin solid darken($tab-color-background, 10%)
-				right: thin solid darken($tab-color-background, 10%)
+				top: thin solid darken($global-color-background, 15%)
+				left: thin solid darken($global-color-background, 15%)
+				right: thin solid darken($global-color-background, 15%)
 				bottom: none
 
 			&:hover
-				background-color: lighten($tab-color-background, 5%)
+				background-color: darken($global-color-background, 5%)
 
 		&.active .tabs-bar__tab-title
-			color: $tab-active-color-text
-			border-top-color: $tab-active-color-tint
-			background-color: $tab-active-color-background
+			color: $global-color-text-active
+			border-top-color: $global-color-accent
+			background-color: $global-color-background
 
 			&:hover
-				background-color: lighten($tab-active-color-background, 5%)
+				background-color: $global-color-background

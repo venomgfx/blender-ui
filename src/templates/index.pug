@@ -5,9 +5,45 @@ html
 	body
 
 		section.ui-section.theme-select
-			| Theme:
-			a(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Main
-			a(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Alternative
+			| Flatty Variant:
+			a.theme-main(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Main
+			a.theme-alt(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Alternative
+
+		section.ui-section
+			h2 Widgets
+			.ui-section-widgets
+				// Tool Buttons
+				.wgt-tool
+					.wgt-tool-name Shrink/Fatten
+				.wgt-tool.disabled
+					.wgt-tool-name Slide Edge
+				.wgt-tool.enabled
+					.wgt-tool-name Smooth Vertex
+
+				.wgt-separator
+
+				// Checkboxes
+				.wgt-checkbox.disabled
+					.wgt-checkbox-zone
+					.wgt-checkbox-name Wireframe
+				.wgt-checkbox
+					.wgt-checkbox-zone
+					.wgt-checkbox-name Draw All Edges
+				.wgt-checkbox.enabled
+					.wgt-checkbox-zone
+					.wgt-checkbox-name Multiple Importance
+
+				.wgt-separator
+
+				// ID Block
+				.wgt-id-block
+					.wgt-id-block-id_list
+						img.icon(src="assets/img/icons/icon_scene_data.png")
+					.wgt-id-block-name Scene
+					.wgt-id-block-action
+						img.icon(src="assets/img/icons/icon_zoomin.png")
+					.wgt-id-block-action
+						img.icon(src="assets/img/icons/icon_panel_close.png")
 
 		section.ui-section
 			h2 Top Bar
@@ -95,4 +131,10 @@ script.
 	function swapTheme(themeFile, linkIndex) {
 		var cssLink = document.getElementsByTagName("link").item(linkIndex);
 		cssLink.href = themeFile;
+
+		document.body.classList.toggle('alt');
+	}
+
+	if (window.location.search.indexOf('?theme=light') === 0){
+		swapTheme('assets/css/main_alt.css', 0);
 	}
