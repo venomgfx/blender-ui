@@ -34,18 +34,15 @@ section.ui-section
 				&.theme-main, &.theme-alt
 					margin: 0 5px
 				&.theme-main
-					pointer-events: none
 					text-decoration: underline
 				&.theme-alt
 					text-decoration: none
 
 body.alt
-	section.ui-section.theme-select
+	section.ui-section .theme-select
 		a.theme-main
-			pointer-events: initial
 			text-decoration: none
 		a.theme-alt
-			pointer-events: none
 			text-decoration: underline
 
 .icon
@@ -143,6 +140,7 @@ body.alt
 	border-bottom-left-radius: 3px
 	border-bottom-right-radius: 3px
 	color: $global-color-text
+	white-space: nowrap
 	+wgt-text-shadow
 
 	&__filepath
