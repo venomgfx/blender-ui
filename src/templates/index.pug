@@ -4,13 +4,14 @@ html
 		link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700", rel="stylesheet")
 	body
 
-		section.ui-section
-			.intro
-				p HTML+CSS UI mockups for Blender 2.8 by <a href="http://www.pablovazquez.org">Pablo Vazquez</a>
+		section.ui-section.intro
+			.theme-select| Flatty Theme Variants:
+				a.theme-main(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Dark
+				a.theme-alt(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Light
 
-		section.ui-section.theme-select| Flatty Theme Variants:
-			a.theme-main(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Dark
-			a.theme-alt(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Light
+			.credits
+				| HTML+CSS UI mockups for Blender 2.8 by <a href="http://www.pablovazquez.org">Pablo Vazquez</a>
+
 
 		section.ui-section
 			h2 Top Bar
@@ -25,7 +26,7 @@ html
 						li.wgt-menu-simple-item Help
 
 					.tabs-bar
-						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', 'Scripting', '+']
+						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', '+']
 						each tab in tabs
 							if tab == 'Animation'
 								.tabs-bar__tab.enabled
@@ -34,35 +35,60 @@ html
 								.tabs-bar__tab
 									.tabs-bar__tab-title= tab
 
-					.wgt-id-block
-						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_scene_data.png")
-						.wgt-id-block-name Scene
-						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_zoomin.png")
-						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_panel_close.png")
+					#top-bar__primary-right
+						.wgt-id-block
+							.wgt-id-block-id_list
+								img.icon(src="assets/img/icons/icon_scene_data.png")
+							.wgt-id-block-name Scene
+							.wgt-id-block-action
+								img.icon(src="assets/img/icons/icon_zoomin.png")
+							.wgt-id-block-action
+								img.icon(src="assets/img/icons/icon_panel_close.png")
 
-					#window-buttons
-						#window-buttons__button.close
-						#window-buttons__button.min
-						#window-buttons__button.max
+						#window-buttons
+							#window-buttons__button.close
+							#window-buttons__button.min
+							#window-buttons__button.max
 
 				#top-bar__secondary
-					.wgt-id-block
-						.wgt-id-block-label Render Layer:
-						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_renderlayer.png")
-						.wgt-id-block-name Layer
-					.wgt-id-block
-						.wgt-id-block-label Layout:
-						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_splitscreen.png")
-						.wgt-id-block-name Default Screen
-						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_zoomin.png")
-						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_panel_close.png")
+					#top-bar__secondary-mode
+						.wgt-dropdown
+							.wgt-dropdown-icon
+							.wgt-dropdown-name Object Mode
+							.wgt-dropdown-arrows
+
+					#top-bar__secondary-main
+						.wgt-tool
+							.wgt-tool-icon
+								img.icon(src="assets/img/icons/icon_renderlayer.png")
+							.wgt-tool-name Subdivide
+
+						.wgt-checkbox.enabled.js-bool
+							.wgt-checkbox-zone
+							.wgt-checkbox-name Multiple Importance
+						.wgt-checkbox.js-bool
+							.wgt-checkbox-zone
+							.wgt-checkbox-name Draw All Edges
+						.wgt-checkbox.disabled
+							.wgt-checkbox-zone
+							.wgt-checkbox-name Quad/Tri Mode
+
+						.wgt-tool.more
+							.wgt-tool-name More...
+
+					#top-bar__secondary-layout
+						.wgt-id-block
+							.wgt-id-block-id_list
+								img.icon(src="assets/img/icons/icon_renderlayer.png")
+							.wgt-id-block-name RenderLayer
+						.wgt-id-block
+							.wgt-id-block-id_list
+								img.icon(src="assets/img/icons/icon_splitscreen.png")
+							.wgt-id-block-name Default Layout
+							//- .wgt-id-block-action
+							//- 	img.icon(src="assets/img/icons/icon_zoomin.png")
+							//- .wgt-id-block-action
+							//- 	img.icon(src="assets/img/icons/icon_panel_close.png")
 
 
 		section.ui-section

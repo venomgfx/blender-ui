@@ -17,22 +17,27 @@ section.ui-section
 		margin-bottom: 10px
 		font-weight: 500
 
-	.intro
-		a
-			color: black
+	&.intro
+		display: flex
 		border-bottom: thin solid rgba(black, .2)
-
-	&.theme-select
-		font-size: 1.2em
 		padding-bottom: 10px
-		a
-			&.theme-main, &.theme-alt
-				margin: 0 5px
-			&.theme-main
-				pointer-events: none
-				text-decoration: underline
-			&.theme-alt
-				text-decoration: none
+		font-size: 1.2em
+
+		.credits
+			margin-left: auto
+			color: rgba(black, .5)
+			a
+				color: rgba(black, .5)
+
+		.theme-select
+			a
+				&.theme-main, &.theme-alt
+					margin: 0 5px
+				&.theme-main
+					pointer-events: none
+					text-decoration: underline
+				&.theme-alt
+					text-decoration: none
 
 body.alt
 	section.ui-section.theme-select
@@ -56,24 +61,49 @@ body.alt
 #top-bar
 	display: flex
 	flex-direction: column
-	padding-top: 5px
 
 	cursor: default
 
-	color: $global-color-text
 	background-color: darken($global-color-background, 15%)
 	border-top-left-radius: 3px
 	border-top-right-radius: 3px
 
 	#top-bar__primary
 		height: $header-bar-primary-height
+		padding-top: 5px
 		display: flex
 		align-items: center
+
+		&-right
+			display: flex
+			align-items: center
+			margin-left: auto
+
 	#top-bar__secondary
-		height: $header-bar-primary-height
 		display: flex
 		align-items: center
 		background-color: $global-color-background
+
+		&-mode, &-main, &-layout
+			display: flex
+			align-items: center
+			padding: 5px 10px
+
+		&-main
+			flex: 1
+
+			border-left: thin solid darken($global-color-background, 10%)
+			border-right: thin solid darken($global-color-background, 10%)
+
+			.wgt-tool, .wgt-checkbox
+				margin-right: 10px
+
+			.more
+				margin-left: auto
+				margin-right: 0
+
+		&-layout
+			margin-left: auto
 
 	ul.menu-simple
 		margin: 0 5px
@@ -113,6 +143,7 @@ body.alt
 	border-bottom-left-radius: 3px
 	border-bottom-right-radius: 3px
 	color: $global-color-text
+	+wgt-text-shadow
 
 	&__filepath
 		margin-left: 10px
