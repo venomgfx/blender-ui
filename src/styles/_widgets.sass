@@ -2,6 +2,7 @@
 [class^="wgt"]
 	&.disabled
 		opacity: .5
+		pointer-events: none
 
 /* ID Blocks */
 .wgt-id-block
@@ -80,12 +81,16 @@ ul.wgt-menu-simple
 		display: inline-block
 		margin: 0 10px
 
+		&:hover
+			color: $global-color-text-active
+
 
 /* Checkbox */
 .wgt-checkbox
 	display: flex
 	align-items: center
 	margin: $wgt-margin
+	user-select: none
 
 	&-name
 		color: $global-color-text
@@ -131,20 +136,25 @@ ul.wgt-menu-simple
 
 /* Tool */
 .wgt-tool
+	display: flex
+	align-items: center
 	background-color: $wgt-tool-background
 	margin: $wgt-margin
 	border-radius: $wgt-border-radius
+	padding: 5px 10px
+	user-select: none
+	cursor: default
 	+wgt-shadow
 
 	&:hover
 		background-color: lighten($wgt-tool-background, 5%)
 
-	&.enabled
+	&:active
 		color: $global-color-accent-active
 		background-color: $global-color-accent
 
-	&-name
-		padding: 5px 10px
+	&-icon
+		padding-right: 10px
 
 
 .wgt-separator
@@ -254,7 +264,7 @@ $wgt-progress_bar-circle-size: $wgt-height
 			&:hover
 				background-color: darken($global-color-background, 5%)
 
-		&.active .tabs-bar__tab-title
+		&.enabled .tabs-bar__tab-title
 			color: $global-color-text-active
 			border-top-color: $global-color-accent
 			background-color: $global-color-background

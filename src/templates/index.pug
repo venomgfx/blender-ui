@@ -15,10 +15,12 @@ html
 				// Tool Buttons
 				.wgt-tool
 					.wgt-tool-name Shrink/Fatten
+				.wgt-tool
+					.wgt-tool-icon
+						img.icon(src="assets/img/icons/icon_panel_close.png")
+					.wgt-tool-name Smooth Vertex
 				.wgt-tool.disabled
 					.wgt-tool-name Slide Edge
-				.wgt-tool.enabled
-					.wgt-tool-name Smooth Vertex
 
 				.wgt-separator
 
@@ -26,10 +28,10 @@ html
 				.wgt-checkbox.disabled
 					.wgt-checkbox-zone
 					.wgt-checkbox-name Wireframe
-				.wgt-checkbox
+				.wgt-checkbox.js-bool
 					.wgt-checkbox-zone
 					.wgt-checkbox-name Draw All Edges
-				.wgt-checkbox.enabled
+				.wgt-checkbox.enabled.js-bool
 					.wgt-checkbox-zone
 					.wgt-checkbox-name Multiple Importance
 
@@ -61,7 +63,7 @@ html
 						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', 'Scripting', '+']
 						each tab in tabs
 							if tab == 'Animation'
-								.tabs-bar__tab.active
+								.tabs-bar__tab.enabled
 									.tabs-bar__tab-title= tab
 							else
 								.tabs-bar__tab
@@ -127,14 +129,5 @@ html
 						.wgt-progress_bar-circle__progress
 
 
-script.
-	function swapTheme(themeFile, linkIndex) {
-		var cssLink = document.getElementsByTagName("link").item(linkIndex);
-		cssLink.href = themeFile;
-
-		document.body.classList.toggle('alt');
-	}
-
-	if (window.location.search.indexOf('?theme=light') === 0){
-		swapTheme('assets/css/main_alt.css', 0);
-	}
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+script(src="assets/js/tutti.min.js")

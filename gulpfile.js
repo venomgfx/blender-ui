@@ -4,6 +4,8 @@ var gulp          = require('gulp'),
     sourcemaps    = require('gulp-sourcemaps'),
     autoprefixer  = require('gulp-autoprefixer'),
     pug           = require('gulp-pug'),
+    concat        = require('gulp-concat'),
+    uglify        = require('gulp-uglify'),
     livereload    = require('gulp-livereload');
 
 /* CSS */
@@ -31,9 +33,10 @@ gulp.task('templates', function() {
 
 /* Scripts */
 gulp.task('scripts', function() {
-    gulp.src('src/scripts/uglify/**/*.js')
+    gulp.src('src/scripts/tutti/**/*.js')
         .pipe(sourcemaps.init())
-        // .pipe(uglify())
+        .pipe(concat("tutti.min.js"))
+        .pipe(uglify())
         .pipe(sourcemaps.write("./"))
         .pipe(gulp.dest('dist/assets/js'))
         .pipe(livereload());

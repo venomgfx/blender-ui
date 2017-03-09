@@ -6,4 +6,5 @@ dist/assets/css/*
 node_modules
 .sass-cache/
 *.css.map
+*.min.js
 *.js.map
