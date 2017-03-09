@@ -6,16 +6,19 @@ html
 		weight: 400
 		size: 12px
 	text-rendering: optimizeLegibility
+	min-width: 1200px
 
 body
 	margin: 0
 	padding: 0
 
+h2
+	display: inline-block
+	margin: 15px 10px 0 10px
+	font-weight: 500
+
 section.ui-section
-	margin: 20px 10px
-	h2
-		margin-bottom: 10px
-		font-weight: 500
+	margin: 10px
 
 	&.intro
 		display: flex
@@ -37,6 +40,9 @@ section.ui-section
 					text-decoration: underline
 				&.theme-alt
 					text-decoration: none
+
+	&.panels
+		display: flex
 
 body.alt
 	section.ui-section .theme-select

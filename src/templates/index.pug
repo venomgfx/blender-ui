@@ -13,8 +13,8 @@ html
 				| HTML+CSS UI mockups for Blender 2.8 by <a href="http://www.pablovazquez.org">Pablo Vazquez</a>
 
 
+		h2 Top Bar
 		section.ui-section
-			h2 Top Bar
 			#top-bar
 				#top-bar__primary
 					img.icon.blender-logo(
@@ -100,8 +100,8 @@ html
 							//- 	img.icon(src="assets/img/icons/icon_panel_close.png")
 
 
+		h2 Status Bar
 		section.ui-section
-			h2 Status Bar
 			#status-bar
 				#status-bar__filepath
 					| */home/koro/Desktop/shouldnt_save_on_desktop.blend
@@ -129,8 +129,8 @@ html
 						.wgt-progress_bar-circle__progress
 
 
-		section.ui-section
-			h2 Panels & Widgets
+		h2 Panels & Widgets
+		section.ui-section.panels
 			.wgt-panel.enabled
 				.wgt-panel-header
 					.wgt-panel-header-collapse.js-panel-collapse
@@ -173,7 +173,14 @@ html
 						.wgt-checkbox-zone
 						.wgt-checkbox-name Multiple Importance
 
-					.wgt-separator
+
+			.wgt-panel.enabled
+				.wgt-panel-header
+					.wgt-panel-header-collapse.js-panel-collapse
+					.wgt-panel-header-name Panel Title
+
+				.wgt-panel-content
+					.wgt-label Dropdowns:
 
 					// Dropdowns
 					.wgt-dropdown
@@ -189,10 +196,28 @@ html
 							.wgt-dropdown-arrows
 
 					.wgt-dropdown
-						.wgt-dropdown-label This is a Label:
+						.wgt-dropdown-label With a Label:
 						.wgt-dropdown-container
 							.wgt-dropdown-name Value!
 							.wgt-dropdown-arrows
+
+					.wgt-separator
+
+
+					.wgt-slider-number
+						.wgt-slider-number-label Num Slider:
+						.wgt-slider-number-container
+							.wgt-slider-number-arrow
+							.wgt-slider-number-value 64
+							.wgt-slider-number-arrow
+
+					.wgt-slider-number
+						.wgt-slider-number-container
+							.wgt-slider-number-arrow
+							.wgt-slider-number-name Max Steps:
+							.wgt-slider-number-value 0.000
+							.wgt-slider-number-arrow
+
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
 script(src="assets/js/tutti.min.js")

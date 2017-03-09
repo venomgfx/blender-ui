@@ -141,11 +141,16 @@ ul.wgt-menu-simple
 .wgt-dropdown
 	display: flex
 	align-items: center
+	margin: $wgt-margin
+	cursor: default
+	user-select: none
 
 	&-label
+		flex: 1
 		white-space: nowrap
 		color: $global-color-text
 		padding-right: 5px
+		+wgt-text-shadow
 
 	&-label + .wgt-dropdown-container
 		margin-left: auto
@@ -153,13 +158,12 @@ ul.wgt-menu-simple
 
 	&-container
 		display: flex
+		flex: 1
 		align-items: center
 		color: $wgt-dropdown-text
 		background-color: $wgt-dropdown-background
-		margin: $wgt-margin
 		height: $wgt-height
 		min-width: 100px
-		width: 100%
 		padding-right: 25px
 		border-radius: $wgt-border-radius
 		+wgt-box-shadow
@@ -201,8 +205,8 @@ ul.wgt-menu-simple
 	margin: $wgt-margin
 	border-radius: $wgt-border-radius
 	padding: 0 12px
-	user-select: none
 	cursor: default
+	user-select: none
 	+wgt-box-shadow
 
 	&:hover
@@ -220,9 +224,62 @@ ul.wgt-menu-simple
 		padding-right: 10px
 
 
+.wgt-label
+	color: $global-color-text
+	margin: $wgt-margin
+
 .wgt-separator
 	display: inline-block
 	margin: $wgt-margin
+
+
+/* Slider: Number */
+.wgt-slider-number
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+	cursor: default
+	user-select: none
+
+	&-label
+		flex: 1
+		color: $global-color-text
+		+wgt-text-shadow
+
+	&-container
+		position: relative
+		display: flex
+		flex: 1
+		color: $wgt-tool-text
+		background-color: $wgt-tool-background
+		border-radius: 999em
+		padding: 3px 20px
+		+wgt-box-shadow
+
+		&:hover
+			background-color: lighten($wgt-tool-background, 5%)
+
+		&:active
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+
+	&-value
+		margin-left: auto
+
+		&+ .wgt-slider-number-arrow
+			left: initial
+			right: 5px
+			border-left-color: $global-color-background
+			border-right-color: transparent
+
+	&-arrow
+		width: 0
+		height: 0
+		border: 4px solid transparent
+		border-right-color: $global-color-background
+		position: absolute
+		left: 5px
+		top: 6px
 
 
 /* Panel */
@@ -230,8 +287,9 @@ ul.wgt-menu-simple
 	display: flex
 	flex-direction: column
 	position: relative
+	min-width: 250px
 	max-width: 350px
-	+wgt-box-shadow
+	margin-right: 10px
 
 	&.enabled
 		.wgt-panel-content
@@ -275,7 +333,7 @@ ul.wgt-menu-simple
 
 	&-content
 		display: none
-		padding: 10px
+		padding: 5px 10px
 		background-color: $global-color-background
 
 		border-bottom-left-radius: $wgt-border-radius
