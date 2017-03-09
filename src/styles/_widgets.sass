@@ -55,6 +55,9 @@
 		user-select: initial
 		&:hover
 			background-color: lighten($wgt-input-background, 5%)
+		&:active span
+			color: $global-color-accent-active
+			background-color: $global-color-accent
 
 	&-action
 		color: $wgt-tool-text
@@ -139,13 +142,35 @@ ul.wgt-menu-simple
 .wgt-dropdown
 	display: flex
 	align-items: center
-	padding: 0 25px 0 10px
-	height: $wgt-height
-	min-width: 80px
-	border-radius: $wgt-border-radius
-	color: $wgt-dropdown-text
-	background-color: $wgt-dropdown-background
-	+wgt-box-shadow
+
+	&-label
+		white-space: nowrap
+		color: $global-color-text
+
+	&-label + .wgt-dropdown-container
+		margin-left: auto
+		width: auto
+
+	&-container
+		display: flex
+		align-items: center
+		color: $wgt-dropdown-text
+		background-color: $wgt-dropdown-background
+		margin: $wgt-margin
+		height: $wgt-height
+		min-width: 100px
+		width: 100%
+		padding-right: 25px
+		border-radius: $wgt-border-radius
+		+wgt-box-shadow
+		&:hover
+			background-color: lighten($wgt-dropdown-background, 5%)
+
+	&-name
+		margin-left: 5px
+
+	&-icon
+		margin: 0 5px
 
 	&-arrows
 		position: relative
@@ -290,19 +315,17 @@ $wgt-progress_bar-circle-size: $wgt-height
 			border-top-left-radius: 3px
 			border-top-right-radius: 3px
 			border:
-				top: thin solid darken($global-color-background, 15%)
 				left: thin solid darken($global-color-background, 15%)
 				right: thin solid darken($global-color-background, 15%)
-				bottom: none
+			box-shadow: inset 0 1px 0 darken($global-color-background, 15%)
 
 			&:hover
 				background-color: darken($global-color-background, 5%)
 
 		&.enabled .tabs-bar__tab-title
 			color: $global-color-text-active
-			border-top-color: lighten($global-color-accent, 5%)
 			background-color: $global-color-background
-			box-shadow: inset 0 1px 0 $global-color-accent
+			box-shadow: inset 0 2px 0 $global-color-accent
 
 			&:hover
 				background-color: $global-color-background

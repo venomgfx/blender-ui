@@ -39,7 +39,8 @@ html
 						.wgt-id-block
 							.wgt-id-block-id_list
 								img.icon(src="assets/img/icons/icon_scene_data.png")
-							.wgt-id-block-name Scene
+							.wgt-id-block-name
+								span Scene
 							.wgt-id-block-action
 								img.icon(src="assets/img/icons/icon_zoomin.png")
 							.wgt-id-block-action
@@ -53,9 +54,11 @@ html
 				#top-bar__secondary
 					#top-bar__secondary-mode
 						.wgt-dropdown
-							.wgt-dropdown-icon
-							.wgt-dropdown-name Object Mode
-							.wgt-dropdown-arrows
+							.wgt-dropdown-container
+								.wgt-dropdown-icon
+									img.icon(src="assets/img/icons/icon_scene_data.png")
+								.wgt-dropdown-name Object Mode
+								.wgt-dropdown-arrows
 
 					#top-bar__secondary-main
 						.wgt-tool
@@ -80,11 +83,13 @@ html
 						.wgt-id-block
 							.wgt-id-block-id_list
 								img.icon(src="assets/img/icons/icon_renderlayer.png")
-							.wgt-id-block-name RenderLayer
+							.wgt-id-block-name
+								span RenderLayer
 						.wgt-id-block
 							.wgt-id-block-id_list
 								img.icon(src="assets/img/icons/icon_splitscreen.png")
-							.wgt-id-block-name Default Layout
+							.wgt-id-block-name
+								span Default Layout
 							//- .wgt-id-block-action
 							//- 	img.icon(src="assets/img/icons/icon_zoomin.png")
 							//- .wgt-id-block-action
@@ -123,6 +128,19 @@ html
 		section.ui-section
 			h2 Panels & Widgets
 			.ui-section-widgets
+				// ID Block
+				.wgt-id-block
+					.wgt-id-block-id_list
+						img.icon(src="assets/img/icons/icon_scene_data.png")
+					.wgt-id-block-name
+						span Scene
+					.wgt-id-block-action
+						img.icon(src="assets/img/icons/icon_zoomin.png")
+					.wgt-id-block-action
+						img.icon(src="assets/img/icons/icon_panel_close.png")
+
+				.wgt-separator
+
 				// Tool Buttons
 				.wgt-tool
 					.wgt-tool-name Shrink/Fatten
@@ -148,16 +166,24 @@ html
 
 				.wgt-separator
 
-				// ID Block
-				.wgt-id-block
-					.wgt-id-block-id_list
-						img.icon(src="assets/img/icons/icon_scene_data.png")
-					.wgt-id-block-name Scene
-					.wgt-id-block-action
-						img.icon(src="assets/img/icons/icon_zoomin.png")
-					.wgt-id-block-action
-						img.icon(src="assets/img/icons/icon_panel_close.png")
+				// Dropdowns
+				.wgt-dropdown
+					.wgt-dropdown-container
+						.wgt-dropdown-icon
+							img.icon(src="assets/img/icons/icon_scene_data.png")
+						.wgt-dropdown-name Object Mode
+						.wgt-dropdown-arrows
 
+				.wgt-dropdown
+					.wgt-dropdown-container
+						.wgt-dropdown-name Iconless Dropdown
+						.wgt-dropdown-arrows
+
+				.wgt-dropdown
+					.wgt-dropdown-label This is a Label:
+					.wgt-dropdown-container
+						.wgt-dropdown-name Value!
+						.wgt-dropdown-arrows
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
 script(src="assets/js/tutti.min.js")
