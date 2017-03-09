@@ -123,7 +123,6 @@ ul.wgt-menu-simple
 			color: $global-color-text-active
 
 		.wgt-checkbox-zone
-			background-color: $global-color-accent
 			&:after
 				content: ''
 				position: absolute
@@ -146,6 +145,7 @@ ul.wgt-menu-simple
 	&-label
 		white-space: nowrap
 		color: $global-color-text
+		padding-right: 5px
 
 	&-label + .wgt-dropdown-container
 		margin-left: auto
@@ -223,6 +223,64 @@ ul.wgt-menu-simple
 .wgt-separator
 	display: inline-block
 	margin: $wgt-margin
+
+
+/* Panel */
+.wgt-panel
+	display: flex
+	flex-direction: column
+	position: relative
+	max-width: 350px
+	+wgt-box-shadow
+
+	&.enabled
+		.wgt-panel-content
+			display: block
+
+		.wgt-panel-header
+			border-bottom-left-radius: 0
+			border-bottom-right-radius: 0
+
+		.wgt-panel-header-collapse
+			top: 0
+			border-top-color: transparent
+			border-left-color: $global-color-text
+
+	&-header
+		background-color: lighten($global-color-background, 10%)
+
+		border-radius: $wgt-border-radius
+
+		display: flex
+		align-items: center
+		color: $global-color-text
+		padding: 5px 10px
+		font:
+			weight: 600
+
+		&-collapse
+			position: relative
+			top: 3px
+			width: 0
+			height: 0
+			border: 4px solid transparent
+			border-top-color: $global-color-text
+			margin-right: 5px
+			padding: 1px
+
+		&-name
+			cursor: default
+			user-select: none
+			+wgt-text-shadow
+
+	&-content
+		display: none
+		padding: 10px
+		background-color: $global-color-background
+
+		border-bottom-left-radius: $wgt-border-radius
+		border-bottom-right-radius: $wgt-border-radius
+		box-shadow: inset 0 1px 5px rgba(black, .15)
 
 
 /* Progress Bars */

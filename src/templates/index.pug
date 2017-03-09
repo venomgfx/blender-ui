@@ -69,12 +69,16 @@ html
 						.wgt-checkbox.enabled.js-bool
 							.wgt-checkbox-zone
 							.wgt-checkbox-name Multiple Importance
-						.wgt-checkbox.js-bool
-							.wgt-checkbox-zone
-							.wgt-checkbox-name Draw All Edges
+
 						.wgt-checkbox.disabled
 							.wgt-checkbox-zone
-							.wgt-checkbox-name Quad/Tri Mode
+							.wgt-checkbox-name Quad/Tri
+
+						.wgt-dropdown
+							.wgt-dropdown-label Quad Type:
+							.wgt-dropdown-container
+								.wgt-dropdown-name Path
+								.wgt-dropdown-arrows
 
 						.wgt-tool.more
 							.wgt-tool-name More...
@@ -127,63 +131,68 @@ html
 
 		section.ui-section
 			h2 Panels & Widgets
-			.ui-section-widgets
-				// ID Block
-				.wgt-id-block
-					.wgt-id-block-id_list
-						img.icon(src="assets/img/icons/icon_scene_data.png")
-					.wgt-id-block-name
-						span Scene
-					.wgt-id-block-action
-						img.icon(src="assets/img/icons/icon_zoomin.png")
-					.wgt-id-block-action
-						img.icon(src="assets/img/icons/icon_panel_close.png")
+			.wgt-panel.enabled
+				.wgt-panel-header
+					.wgt-panel-header-collapse.js-panel-collapse
+					.wgt-panel-header-name Color Management
 
-				.wgt-separator
-
-				// Tool Buttons
-				.wgt-tool
-					.wgt-tool-name Shrink/Fatten
-				.wgt-tool
-					.wgt-tool-icon
-						img.icon(src="assets/img/icons/icon_panel_close.png")
-					.wgt-tool-name Smooth Vertex
-				.wgt-tool.disabled
-					.wgt-tool-name Slide Edge
-
-				.wgt-separator
-
-				// Checkboxes
-				.wgt-checkbox.disabled
-					.wgt-checkbox-zone
-					.wgt-checkbox-name Wireframe
-				.wgt-checkbox.js-bool
-					.wgt-checkbox-zone
-					.wgt-checkbox-name Draw All Edges
-				.wgt-checkbox.enabled.js-bool
-					.wgt-checkbox-zone
-					.wgt-checkbox-name Multiple Importance
-
-				.wgt-separator
-
-				// Dropdowns
-				.wgt-dropdown
-					.wgt-dropdown-container
-						.wgt-dropdown-icon
+				.wgt-panel-content
+					// ID Block
+					.wgt-id-block
+						.wgt-id-block-id_list
 							img.icon(src="assets/img/icons/icon_scene_data.png")
-						.wgt-dropdown-name Object Mode
-						.wgt-dropdown-arrows
+						.wgt-id-block-name
+							span Scene
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_zoomin.png")
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_panel_close.png")
 
-				.wgt-dropdown
-					.wgt-dropdown-container
-						.wgt-dropdown-name Iconless Dropdown
-						.wgt-dropdown-arrows
+					.wgt-separator
 
-				.wgt-dropdown
-					.wgt-dropdown-label This is a Label:
-					.wgt-dropdown-container
-						.wgt-dropdown-name Value!
-						.wgt-dropdown-arrows
+					// Tool Buttons
+					.wgt-tool
+						.wgt-tool-name Shrink/Fatten
+					.wgt-tool
+						.wgt-tool-icon
+							img.icon(src="assets/img/icons/icon_panel_close.png")
+						.wgt-tool-name Smooth Vertex
+					.wgt-tool.disabled
+						.wgt-tool-name Slide Edge
+
+					.wgt-separator
+
+					// Checkboxes
+					.wgt-checkbox.disabled
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Wireframe
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Draw All Edges
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Multiple Importance
+
+					.wgt-separator
+
+					// Dropdowns
+					.wgt-dropdown
+						.wgt-dropdown-container
+							.wgt-dropdown-icon
+								img.icon(src="assets/img/icons/icon_scene_data.png")
+							.wgt-dropdown-name Object Mode
+							.wgt-dropdown-arrows
+
+					.wgt-dropdown
+						.wgt-dropdown-container
+							.wgt-dropdown-name Iconless Dropdown
+							.wgt-dropdown-arrows
+
+					.wgt-dropdown
+						.wgt-dropdown-label This is a Label:
+						.wgt-dropdown-container
+							.wgt-dropdown-name Value!
+							.wgt-dropdown-arrows
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
 script(src="assets/js/tutti.min.js")
