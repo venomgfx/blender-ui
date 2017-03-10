@@ -1,11 +1,6 @@
-
-var toggleEnabled = function() {
-    widgetCheckbox.classList.toggle('enabled');
-    console.log('sup');
-};
-
 $('.js-bool').on('click', function(){
-	$(this).toggleClass('enabled');
+	$('.js-bool').removeClass('enabled');
+	$(this).addClass('enabled');
 });
 
 $('.tabs-bar__tab').on('click', function(){

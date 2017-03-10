@@ -20,7 +20,7 @@
 		display: flex
 		align-items: center
 		height: 100%
-		box-shadow: 0 0 0 1px rgba($wgt-dropdown-background, .4)
+		box-shadow: 0 0 0 1px rgba($wgt-input-background, .4)
 		user-select: none
 		+wgt-box-shadow
 
@@ -35,11 +35,11 @@
 		box-shadow: none
 
 	&-id_list
-		background-color: $wgt-dropdown-background
+		background-color: $wgt-input-background
 		border-top-left-radius: $wgt-border-radius
 		border-bottom-left-radius: $wgt-border-radius
 		&:hover
-			background-color: lighten($wgt-dropdown-background, 5%)
+			background-color: lighten($wgt-input-background, 5%)
 
 		img
 			padding: 0 5px
@@ -99,19 +99,17 @@ ul.wgt-menu-simple
 	margin: $wgt-margin
 	padding: 0
 	list-style: none
-	color: $wgt-dropdown-text
+	color: $global-color-text
 	border-radius: $wgt-border-radius
-	border: thin solid lighten($wgt-dropdown-background, 15%)
+	border: thin solid $wgt-input-background
 	+wgt-defaults
-	+wgt-box-shadow
 	+wgt-text-shadow
 
 	li.wgt-radio-value
 		padding: 3px
 		flex: 1
 		text-align: center
-		border-left: thin solid lighten($wgt-dropdown-background, 15%)
-		background-color: $wgt-dropdown-background
+		border-left: thin solid $wgt-input-background
 
 		&:first-child
 			border-top-left-radius: 3px
@@ -124,6 +122,7 @@ ul.wgt-menu-simple
 		&.enabled
 			color: $global-color-accent-active
 			background-color: $global-color-accent
+			text-shadow: none
 
 
 /* Input Text */
@@ -141,8 +140,8 @@ ul.wgt-menu-simple
 
 	&-container
 		display: flex
-		color: $wgt-input-text
-		border-bottom: 2px solid $wgt-input-text
+		color: $global-color-text
+		border-bottom: 2px solid $global-color-text
 
 		&.enabled
 			color: $global-color-accent-active
@@ -152,7 +151,7 @@ ul.wgt-menu-simple
 		padding: 3px 0
 
 	&-placeholder
-		color: rgba($wgt-input-text, .5)
+		color: rgba($global-color-text, .5)
 
 	&-action
 		display: flex
@@ -214,6 +213,11 @@ ul.wgt-menu-simple
 	margin: $wgt-margin
 	+wgt-defaults
 
+	&.enabled
+		.wgt-dropdown-container
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+
 	&-label
 		flex: 1
 		white-space: nowrap
@@ -229,15 +233,15 @@ ul.wgt-menu-simple
 		display: flex
 		flex: 1
 		align-items: center
-		color: $wgt-dropdown-text
-		background-color: $wgt-dropdown-background
+		color: $wgt-input-text
+		background-color: $wgt-input-background
 		height: $wgt-height
 		min-width: 100px
 		padding-right: 25px
 		border-radius: $wgt-border-radius
 		+wgt-box-shadow
 		&:hover
-			background-color: lighten($wgt-dropdown-background, 5%)
+			background-color: lighten($wgt-input-background, 5%)
 
 	&-name
 		margin-left: 5px
@@ -259,10 +263,10 @@ ul.wgt-menu-simple
 			border: 3px solid transparent
 
 		&:before
-			border-top-color: $wgt-dropdown-text
+			border-top-color: $wgt-input-text
 			top: 2px
 		&:after
-			border-bottom-color: $wgt-dropdown-text
+			border-bottom-color: $wgt-input-text
 			bottom: 2px
 
 
@@ -301,6 +305,7 @@ ul.wgt-menu-simple
 	align-items: flex-end
 	+wgt-defaults
 
+
 .wgt-separator
 	display: inline-block
 	margin: $wgt-margin
@@ -324,14 +329,14 @@ ul.wgt-menu-simple
 		align-items: center
 		height: $wgt-height / 1.5
 		flex: 1
-		color: $wgt-tool-text
-		background-color: $wgt-tool-background
+		color: $wgt-input-text
+		background-color: $wgt-input-background
 		border-radius: 999em
 		padding: 3px 20px
 		+wgt-box-shadow
 
 		&:hover
-			background-color: lighten($wgt-tool-background, 5%)
+			background-color: lighten($wgt-input-background, 5%)
 
 		&:active
 			color: $global-color-accent-active
@@ -386,7 +391,7 @@ ul.wgt-menu-simple
 			height: 7px
 			border-radius: 50%
 			border: 2px solid transparent
-			background-color: $global-color-text
+			background-color: $wgt-input-background
 			+wgt-box-shadow
 
 			&:hover
@@ -446,13 +451,14 @@ ul.wgt-menu-simple
 	display: flex
 	flex-direction: column
 	position: relative
-	min-width: 250px
+	min-width: 280px
 	max-width: 350px
 	margin-right: 10px
 
 	&.enabled
 		.wgt-panel-content
 			display: block
+			min-height: 250px
 
 		.wgt-panel-header
 			border-bottom-left-radius: 0
