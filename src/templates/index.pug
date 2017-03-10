@@ -46,6 +46,12 @@ html
 							.wgt-id-block-action
 								img.icon(src="assets/img/icons/icon_panel_close.png")
 
+						#notifications-toggle
+							#notifications-toggle-icon *
+
+							.flyover
+
+					// Not for now
 						#window-buttons
 							#window-buttons__button.close
 							#window-buttons__button.min
@@ -160,6 +166,8 @@ html
 					.wgt-tool.disabled
 						.wgt-tool-name Slide Edge
 
+					.wgt-separator
+
 					// Checkboxes
 					.wgt-label Checkboxes:
 
@@ -180,7 +188,7 @@ html
 			.wgt-panel.enabled
 				.wgt-panel-header
 					.wgt-panel-header-collapse.js-panel-collapse
-					.wgt-panel-header-name Panel Title
+					.wgt-panel-header-name Dropdowns & Sliders
 
 				.wgt-panel-content
 					.wgt-label Dropdowns:
@@ -204,6 +212,7 @@ html
 							.wgt-dropdown-name Value!
 							.wgt-dropdown-arrows
 
+					.wgt-separator
 
 					.wgt-slider-number
 						.wgt-slider-number-container
@@ -221,19 +230,46 @@ html
 
 					.wgt-separator
 
+					ul.wgt-radio
+						li.wgt-radio-value.js-bool BW
+						li.wgt-radio-value.js-bool.enabled RGB
+						li.wgt-radio-value.js-bool RGBA
+
+			.wgt-panel.enabled
+				.wgt-panel-header
+					.wgt-panel-header-collapse.js-panel-collapse
+					.wgt-panel-header-name Value Slider & Text Input
+
+				.wgt-panel-content
 					.wgt-slider-value
 						.wgt-slider-value-info
-							.wgt-slider-value-label Value Slider:
-							.wgt-slider-value-value 0.652
-						.wgt-slider-value-slider.enabled
+							.wgt-slider-value-label Unmodified:
+							.wgt-slider-value-value 0%
+						.wgt-slider-value-slider
 							.wgt-slider-value-slider-manipulator
 
 					.wgt-slider-value
 						.wgt-slider-value-info
-							.wgt-slider-value-label Unmodified Values:
-							.wgt-slider-value-value 0.000
-						.wgt-slider-value-slider
+							.wgt-slider-value-label Value Modified:
+							.wgt-slider-value-value 0.652
+						.wgt-slider-value-slider.enabled
 							.wgt-slider-value-slider-manipulator
+
+					.wgt-separator
+
+					.wgt-input-text
+						.wgt-input-text-label Filepath:
+						.wgt-input-text-container.js-bool
+							.wgt-input-text-value //../../
+							.wgt-input-text-action
+								img.icon(src="assets/img/icons/icon_splitscreen.png")
+
+					.wgt-input-text
+						.wgt-input-text-container.js-bool
+							.wgt-input-text-placeholder Choose a path...
+							.wgt-input-text-action
+								img.icon(src="assets/img/icons/icon_renderlayer.png")
+
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
 script(src="assets/js/tutti.min.js")

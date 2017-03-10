@@ -91,12 +91,81 @@ ul.wgt-menu-simple
 			color: $global-color-text-active
 
 
+/* Radio */
+.wgt-radio
+	display: flex
+	align-items: center
+	justify-content: space-around
+	margin: $wgt-margin
+	padding: 0
+	list-style: none
+	color: $wgt-dropdown-text
+	border-radius: $wgt-border-radius
+	border: thin solid lighten($wgt-dropdown-background, 15%)
+	+wgt-defaults
+	+wgt-box-shadow
+	+wgt-text-shadow
+
+	li.wgt-radio-value
+		padding: 3px
+		flex: 1
+		text-align: center
+		border-left: thin solid lighten($wgt-dropdown-background, 15%)
+		background-color: $wgt-dropdown-background
+
+		&:first-child
+			border-top-left-radius: 3px
+			border-bottom-left-radius: 3px
+			border-left: none
+		&:last-child
+			border-top-right-radius: 3px
+			border-bottom-right-radius: 3px
+
+		&.enabled
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+
+
+/* Input Text */
+.wgt-input-text
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+
+	&-label, &-container
+		flex: 1
+	&-label
+		flex: 1
+		color: $global-color-text
+		+wgt-text-shadow
+
+	&-container
+		display: flex
+		color: $wgt-input-text
+		border-bottom: 2px solid $wgt-input-text
+
+		&.enabled
+			color: $global-color-accent-active
+			border-color: $global-color-accent
+
+	&-value, &-placeholder
+		padding: 3px 0
+
+	&-placeholder
+		color: rgba($wgt-input-text, .5)
+
+	&-action
+		display: flex
+		align-items: center
+		margin-left: auto
+		padding: 0 5px
+
 /* Checkbox */
 .wgt-checkbox
 	display: flex
 	align-items: center
 	height: $wgt-height
-	user-select: none
+	+wgt-defaults
 
 	&-name
 		color: $global-color-text
@@ -143,8 +212,7 @@ ul.wgt-menu-simple
 	display: flex
 	align-items: center
 	margin: $wgt-margin
-	cursor: default
-	user-select: none
+	+wgt-defaults
 
 	&-label
 		flex: 1
@@ -207,8 +275,7 @@ ul.wgt-menu-simple
 	margin: $wgt-margin
 	border-radius: $wgt-border-radius
 	padding: 0 12px
-	cursor: default
-	user-select: none
+	+wgt-defaults
 	+wgt-box-shadow
 
 	&:hover
@@ -232,10 +299,10 @@ ul.wgt-menu-simple
 	height: $wgt-height
 	display: flex
 	align-items: flex-end
+	+wgt-defaults
 
 .wgt-separator
 	display: inline-block
-	height: $wgt-height
 	margin: $wgt-margin
 
 
@@ -244,8 +311,7 @@ ul.wgt-menu-simple
 	display: flex
 	align-items: center
 	margin: $wgt-margin
-	cursor: default
-	user-select: none
+	+wgt-defaults
 
 	&-label
 		flex: 1
