@@ -1,6 +1,7 @@
 
 html
-	background-color: white
+	background-color: $global-web-background
+	color: $global-web-text
 	font:
 		family: 'Droid Sans'
 		weight: 400
@@ -22,15 +23,15 @@ section.ui-section
 
 	&.intro
 		display: flex
-		border-bottom: thin solid rgba(black, .2)
+		border-bottom: thin solid rgba($global-web-text, .2)
 		padding-bottom: 10px
 		font-size: 1.2em
 
 		.credits
 			margin-left: auto
-			color: rgba(black, .5)
+			color: rgba($global-web-text, .5)
 			a
-				color: rgba(black, .5)
+				color: rgba($global-web-text, .5)
 
 		.theme-select
 			a
