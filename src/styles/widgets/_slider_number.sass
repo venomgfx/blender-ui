@@ -29,10 +29,17 @@
 			color: $global-color-accent-active
 			background-color: $global-color-accent
 
+			.wgt-slider-number-arrow
+				border-right-color: $global-color-accent-active
+
+			.wgt-slider-number-value+.wgt-slider-number-arrow
+				border-left-color: $global-color-accent-active
+				border-right-color: transparent
+
 	&-value
 		margin-left: auto
 
-		&+ .wgt-slider-number-arrow
+		&+.wgt-slider-number-arrow
 			left: initial
 			right: 5px
 			border-left-color: $global-color-background
