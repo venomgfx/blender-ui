@@ -1,0 +1,33 @@
+/* Input Text */
+.wgt-input-text
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+
+	&-label, &-container
+		flex: 1
+	&-label
+		flex: 1
+		color: $global-color-text
+		+wgt-text-shadow
+
+	&-container
+		display: flex
+		color: $global-color-text
+		border-bottom: 2px solid $global-color-text
+
+		&.enabled
+			color: $global-color-accent-active
+			border-color: $global-color-accent
+
+	&-value, &-placeholder
+		padding: 3px 0
+
+	&-placeholder
+		color: rgba($global-color-text, .5)
+
+	&-action
+		display: flex
+		align-items: center
+		margin-left: auto
+		padding: 0 5px

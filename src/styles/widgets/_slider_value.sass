@@ -1,0 +1,57 @@
+/* Slider: Value */
+.wgt-slider-value
+	margin: 10px 0
+	height: $wgt-height
+
+	&-info, &-slider
+		display: flex
+		align-items: center
+
+	&-slider
+		height: 3px
+		margin-top: 5px
+		background-color: darken($global-color-background, 10%)
+		border-radius: 999em
+		position: relative
+
+		&.enabled
+			background-image: linear-gradient(to left, darken($global-color-background, 10%) 35%, $global-color-accent 35%)
+
+			& .wgt-slider-value-slider-manipulator
+				left: 65%
+				background-color: $global-color-accent
+
+		&-manipulator
+			position: relative
+			width: 7px
+			height: 7px
+			border-radius: 50%
+			border: 2px solid transparent
+			background-color: $wgt-input-background
+			+wgt-box-shadow
+
+			&:hover
+				border-color: lighten($global-color-accent, 20%)
+				background-color: lighten($global-color-accent, 10%)
+
+			&:active
+				border-color: white
+				background-color: $global-color-accent
+
+	&-label, &-value
+		color: $global-color-text
+		+wgt-text-shadow
+
+	&-label
+		cursor: default
+
+	&-value
+		margin-left: auto
+
+		&:hover
+			color: $global-color-text-active
+
+		&:active
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+			border-bottom-color: $global-color-accent

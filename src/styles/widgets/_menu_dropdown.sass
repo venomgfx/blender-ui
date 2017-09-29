@@ -1,0 +1,62 @@
+/* Dropdown Menu */
+.wgt-dropdown
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+	+wgt-defaults
+
+	&.enabled
+		.wgt-dropdown-container
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+
+	&-label
+		flex: 1
+		white-space: nowrap
+		color: $global-color-text
+		padding-right: 5px
+		+wgt-text-shadow
+
+	&-label + .wgt-dropdown-container
+		margin-left: auto
+		width: auto
+
+	&-container
+		display: flex
+		flex: 1
+		align-items: center
+		color: $wgt-input-text
+		background-color: $wgt-input-background
+		height: $wgt-height
+		min-width: 100px
+		padding-right: 25px
+		border-radius: $wgt-border-radius
+		+wgt-box-shadow
+		&:hover
+			background-color: lighten($wgt-input-background, 5%)
+
+	&-name
+		margin-left: 5px
+
+	&-icon
+		margin: 0 5px
+
+	&-arrows
+		position: relative
+		margin-left: auto
+
+		&:before, &:after
+			display: block
+			position: absolute
+			right: -15px
+			content: ''
+			width: 0
+			height: 0
+			border: 3px solid transparent
+
+		&:before
+			border-top-color: $wgt-input-text
+			top: 2px
+		&:after
+			border-bottom-color: $wgt-input-text
+			bottom: 2px

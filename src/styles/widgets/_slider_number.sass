@@ -1,0 +1,49 @@
+/* Slider: Number */
+.wgt-slider-number
+	display: flex
+	align-items: center
+	margin: $wgt-margin
+	+wgt-defaults
+
+	&-label
+		flex: 1
+		color: $global-color-text
+		+wgt-text-shadow
+
+	&-container
+		position: relative
+		display: flex
+		align-items: center
+		height: $wgt-height / 1.5
+		flex: 1
+		color: $wgt-input-text
+		background-color: $wgt-input-background
+		border-radius: 999em
+		padding: 3px 20px
+		+wgt-box-shadow
+
+		&:hover
+			background-color: lighten($wgt-input-background, 5%)
+
+		&:active
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+
+	&-value
+		margin-left: auto
+
+		&+ .wgt-slider-number-arrow
+			left: initial
+			right: 5px
+			border-left-color: $global-color-background
+			border-right-color: transparent
+
+	&-arrow
+		position: absolute
+		width: 0
+		height: 0
+		border: 4px solid transparent
+		border-right-color: $global-color-background
+		left: 5px
+		top: 50%
+		transform: translateY(-50%)

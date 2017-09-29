@@ -1,0 +1,32 @@
+/* Radio */
+.wgt-radio
+	display: flex
+	align-items: center
+	justify-content: space-around
+	margin: $wgt-margin
+	padding: 0
+	list-style: none
+	color: $global-color-text
+	border-radius: $wgt-border-radius
+	border: thin solid $wgt-input-background
+	+wgt-defaults
+	+wgt-text-shadow
+
+	li.wgt-radio-value
+		padding: 3px
+		flex: 1
+		text-align: center
+		border-left: thin solid $wgt-input-background
+
+		&:first-child
+			border-top-left-radius: 3px
+			border-bottom-left-radius: 3px
+			border-left: none
+		&:last-child
+			border-top-right-radius: 3px
+			border-bottom-right-radius: 3px
+
+		&.enabled
+			color: $global-color-accent-active
+			background-color: $global-color-accent
+			text-shadow: none
