@@ -1,6 +1,5 @@
 $('.js-bool').on('click', function(){
-	$('.js-bool').removeClass('enabled');
-	$(this).addClass('enabled');
+	$(this).toggleClass('enabled');
 });
 
 $('.tabs-bar__tab').on('click', function(){
