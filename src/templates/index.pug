@@ -29,10 +29,10 @@ html
 						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', '+']
 						each tab in tabs
 							if tab == 'Animation'
-								.tabs-bar__tab.enabled
+								.tabs-bar__tab.js-bool-exclusive.enabled
 									.tabs-bar__tab-title= tab
 							else
-								.tabs-bar__tab
+								.tabs-bar__tab.js-bool-exclusive
 									.tabs-bar__tab-title= tab
 
 					#top-bar__primary-right
@@ -159,7 +159,7 @@ html
 											li
 												.wgt-checkbox.js-bool.enabled
 													.wgt-checkbox-zone
-									ul
+									ul.expanded
 										- var collections = ['Foreground', 'Support Objects']
 										each collection in collections
 											li
@@ -180,7 +180,7 @@ html
 															.wgt-checkbox.js-bool.enabled
 																.wgt-checkbox-zone
 
-												ul
+												ul.expanded
 													- var overrides = ['Override.000', 'Override.001']
 													each override in overrides
 														li

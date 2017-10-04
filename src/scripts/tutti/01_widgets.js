@@ -11,6 +11,13 @@ $('.tabs-bar__tab').on('click', function(){
 });
 
 
+// Tabs: there can only be 1 tab enabled, so disable the rest
+$('.wgt-list-item').on('click', function(){
+	$('.wgt-list-item').removeClass('enabled');
+	$(this).addClass('enabled');
+});
+
+
 // Panels collapse
 $('.js-panel-collapse').on('click', function(){
 	$(this).parent().parent().toggleClass('enabled');
@@ -32,13 +39,12 @@ function toggleImages(image, from, to){
 	}
 
 	image.attr('src', icon_src);
-
 }
 
 
 // UI List item collapse
 $('.js-list-item-collapse').on('click', function(){
-	$(this).parent().siblings('ul').toggle();
+	$(this).parent().siblings('ul').toggleClass('expanded');
 
 	toggleImages($(this), '_right.png', '_down.png');
 });
