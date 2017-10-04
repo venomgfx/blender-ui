@@ -135,6 +135,72 @@ html
 						.wgt-progress_bar-circle__progress
 
 
+		h2 Widgets
+		section.ui-section.widgets
+			h3 UI Lists
+			.wgt-panel.enabled
+				.wgt-panel-header
+					.wgt-panel-header-collapse.js-panel-collapse
+					.wgt-panel-header-name UI List Widget
+
+				.wgt-panel-content
+					.wgt-list
+						ul
+							- var viewlayers = ['ViewLayer Final', 'ViewLayer Animation', 'Painting', 'Sculpting']
+							each viewlayer in viewlayers
+								li
+									.wgt-list-item
+										img.icon.js-list-item-collapse(
+											src="assets/img/icons/icon_tria_down.png")
+										img.icon(
+											src="assets/img/icons/icon_renderlayer.png")
+										= viewlayer
+										ul
+											li
+												.wgt-checkbox.js-bool.enabled
+													.wgt-checkbox-zone
+									ul
+										- var collections = ['Foreground', 'Support Objects']
+										each collection in collections
+											li
+												.wgt-list-item
+													img.icon.js-list-item-collapse(
+														src="assets/img/icons/icon_tria_down.png")
+													img.icon(
+														src="assets/img/icons/icon_collections.png")
+													= collection
+													ul
+														li
+															img.icon.js-icon-toggle-onoff(
+																src="assets/img/icons/icon_restrict_view_off.png")
+														li
+															img.icon.js-icon-toggle-onoff(
+																src="assets/img/icons/icon_restrict_select_off.png")
+														li
+															.wgt-checkbox.js-bool.enabled
+																.wgt-checkbox-zone
+
+												ul
+													- var overrides = ['Override.000', 'Override.001']
+													each override in overrides
+														li
+															.wgt-list-item
+																.icon
+																img.icon(
+																	src="assets/img/icons/icon_rna.png")
+																= override
+																ul
+																	li
+																		img.icon.js-icon-toggle-onoff(
+																			src="assets/img/icons/icon_restrict_view_off.png")
+																	li
+																		img.icon.js-icon-toggle-onoff(
+																			src="assets/img/icons/icon_restrict_select_off.png")
+																	li
+																		.wgt-checkbox.js-bool.enabled
+																			.wgt-checkbox-zone
+
+
 		h2 Panels & Widgets
 		section.ui-section.panels
 			.wgt-panel.enabled

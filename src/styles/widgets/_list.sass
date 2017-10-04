@@ -1,0 +1,39 @@
+/* Slider: Number */
+.wgt-list
+	+wgt-box-shadow
+	+wgt-defaults
+	border-radius: $wgt-border-radius
+	color: $wgt-tool-text
+	margin: $wgt-margin
+	overflow: hidden
+	// max-height: 400px
+	// overflow-y: auto
+
+	ul
+		background-color: rgba($wgt-tool-background, .33)
+		display: flex
+		flex-direction: column
+		list-style: none
+		padding: 0
+		margin: 0
+
+		li
+			display: flex
+			flex-direction: column
+			+wgt-global-hover(rgba($wgt-tool-background, .1))
+
+			ul
+				padding-left: 30px
+
+	img.icon
+		margin-right: 10px
+
+	&-item
+		align-items: center
+		display: flex
+		padding: 5px 10px
+
+		> ul
+			background-color: inherit
+			flex-direction: row
+			margin-left: auto
