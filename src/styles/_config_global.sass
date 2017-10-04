@@ -12,3 +12,13 @@ $wgt-border-radius: 3px
 =wgt-defaults
 	cursor: default
 	user-select: none
+
+=wgt-global-active
+	&:active
+		color: $global-color-accent-active
+		background-color: $global-color-accent
+
+=wgt-global-hover($color)
+	&:hover
+		background-color: lighten($color, 5%)
+
