@@ -1,8 +1,8 @@
 # Blender Mockups
-HTML+CSS UI mockups for Blender 2.8 by [Pablo Vazquez](http://www.pablovazquez.org)
+HTML+CSS UI mockups for Blender 2.8 by [Pablo Vazquez](http://www.pablovazquez.art)
 
 
-See [the online demo](http://pablovazquez.org/ui/dist/)
+See [the online demo](http://pablovazquez.art/ui/)
 
 ---
 
