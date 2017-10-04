@@ -11,24 +11,21 @@
 		+wgt-text-shadow
 
 	&-container
-		position: relative
-		display: flex
 		align-items: center
-		height: $wgt-height / 1.5
-		flex: 1
-		color: $wgt-input-text
 		background-color: $wgt-input-background
 		border-radius: 999em
+		color: $wgt-input-text
+		display: flex
+		flex: 1
+		height: $wgt-height / 1.5
 		padding: 3px 20px
+		position: relative
 		+wgt-box-shadow
 
-		&:hover
-			background-color: lighten($wgt-input-background, 5%)
+		+wgt-global-hover($wgt-input-background)
+		+wgt-global-active
 
 		&:active
-			color: $global-color-accent-active
-			background-color: $global-color-accent
-
 			.wgt-slider-number-arrow
 				border-right-color: $global-color-accent-active
 

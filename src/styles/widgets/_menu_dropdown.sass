@@ -32,8 +32,9 @@
 		padding-right: 25px
 		border-radius: $wgt-border-radius
 		+wgt-box-shadow
-		&:hover
-			background-color: lighten($wgt-input-background, 5%)
+
+		+wgt-global-hover($wgt-input-background)
+		+wgt-global-active
 
 	&-name
 		margin-left: 5px

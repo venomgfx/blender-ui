@@ -16,39 +16,40 @@
 		height: 100%
 		box-shadow: 0 0 0 1px rgba($wgt-input-background, .4)
 		user-select: none
-		+wgt-box-shadow
 
 		&:last-child
 			border-top-right-radius: $wgt-border-radius
 			border-bottom-right-radius: $wgt-border-radius
 
 	&-label
+		box-shadow: none
 		color: $global-color-text
 		padding-right: 10px
 		white-space: nowrap
-		box-shadow: none
 
 	&-id_list
 		background-color: $wgt-input-background
 		border-top-left-radius: $wgt-border-radius
 		border-bottom-left-radius: $wgt-border-radius
-		&:hover
-			background-color: lighten($wgt-input-background, 5%)
+
+		+wgt-global-hover($wgt-input-background)
+		+wgt-global-active
 
 		img
 			padding: 0 5px
 			margin: auto
 
 	&-name
-		color: $wgt-input-text
 		background-color: $wgt-input-background
-		padding: 0 5px
+		color: $wgt-input-text
 		flex: 1
-		min-width: 80px
 		font-size: .9em
+		min-width: 80px
+		padding: 0 5px
 		user-select: initial
-		&:hover
-			background-color: lighten($wgt-input-background, 5%)
+
+		+wgt-global-hover($wgt-input-background)
+
 		&:active span
 			color: $global-color-accent-active
 			background-color: $global-color-accent
@@ -56,8 +57,9 @@
 	&-action
 		color: $wgt-tool-text
 		background-color: $wgt-tool-background
-		&:hover
-			background-color: lighten($wgt-tool-background, 5%)
+
+		+wgt-global-hover($wgt-tool-background)
+		+wgt-global-active
 
 		&:last-child
 			border-top-right-radius: $wgt-border-radius

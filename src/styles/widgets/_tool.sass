@@ -1,5 +1,7 @@
 /* Tool */
 .wgt-tool
+	+wgt-box-shadow
+	+wgt-defaults
 	display: flex
 	align-items: center
 	height: $wgt-height
@@ -8,15 +10,9 @@
 	margin: $wgt-margin
 	border-radius: $wgt-border-radius
 	padding: 0 12px
-	+wgt-defaults
-	+wgt-box-shadow
 
-	&:hover
-		background-color: lighten($wgt-tool-background, 5%)
-
-	&:active
-		color: $global-color-accent-active
-		background-color: $global-color-accent
+	+wgt-global-hover($wgt-tool-background)
+	+wgt-global-active
 
 	&-name
 		padding-top: 3px
