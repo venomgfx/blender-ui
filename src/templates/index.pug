@@ -33,10 +33,20 @@ html
 						each tab in tabs
 							if tab == 'Animation'
 								.tabs-bar__tab.js-bool-exclusive.enabled
-									.tabs-bar__tab-title= tab
+									.tabs-bar__tab-title
+										= tab
+										span.action
+											img.icon(src="assets/img/icons/icon_panel_close.png")
+							if tab == '+'
+								.tabs-bar__tab.no-icon
+									.tabs-bar__tab-title
+										= tab
 							else
 								.tabs-bar__tab.js-bool-exclusive
-									.tabs-bar__tab-title= tab
+									.tabs-bar__tab-title
+										= tab
+										span.action
+											img.icon(src="assets/img/icons/icon_panel_close.png")
 
 					#top-bar__primary-right
 						.wgt-id-block
