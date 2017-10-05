@@ -3,13 +3,13 @@
 	+wgt-box-shadow
 	+wgt-defaults
 	border-radius: $wgt-border-radius
-	color: $wgt-tool-text
+	color: $global-color-text
 	margin: $wgt-margin
 	overflow: hidden
 	min-height: 200px
 	max-height: 400px
 	overflow-y: auto
-	background-color: $wgt-tool-background
+	background-color: darken($global-color-background, 8%)
 
 	ul
 		display: flex
@@ -19,6 +19,17 @@
 		margin: 0
 		position: relative
 
+		&:before
+			background-color: rgba($global-color-text, .33)
+			content: ''
+			position: absolute
+
+		&:before
+			height: 100%
+			top: 0
+			left: 18px
+			width: 1px
+
 		li
 			display: flex
 			flex-direction: column
@@ -26,41 +37,23 @@
 
 			ul
 				display: none
-				padding-left: 30px
+				margin-left: 25px
 
 				&.expanded
 					display: flex
-
-				&:before
-					background-color: $wgt-tool-text
-					content: ''
-					height: 100%
-					top: 0
-					left: 18px
-					position: absolute
-					width: 1px
-
-				li
-					&:before
-						background-color: $wgt-tool-text
-						content: ''
-						height: 1px
-						top: 15px
-						left: -11px
-						position: absolute
-						width: 100%
 
 	img.icon
 		margin-right: 10px
 
 	&-item
 		align-items: center
-		background-color: $wgt-tool-background
+		background-color: darken($global-color-background, 8%)
 		display: flex
 		padding: 5px 10px
 		position: relative
+		white-space: nowrap
 
-		+wgt-global-hover($wgt-tool-background)
+		+wgt-global-hover(darken($global-color-background, 5%))
 		+wgt-global-active
 
 		&.enabled
@@ -71,11 +64,19 @@
 		> ul
 			display: flex !important
 			flex-direction: row
-			margin-left: auto
+			margin-left: auto !important
 
 			&:before
 				display: none
 
-			li
-				&:before
-					display: none
+	&-toolbar
+		display: flex
+		align-items: center
+		justify-content: space-around
+
+		> ul
+			flex-direction: row
+
+		img.icon
+			margin-right: 0
+
