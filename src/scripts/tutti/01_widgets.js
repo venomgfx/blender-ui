@@ -11,56 +11,24 @@ $(document).on('click', 'body .tabs-bar__tab', function(){
 });
 
 
-// Tabs: there can only be 1 tab enabled, so disable the rest
-$(document).on('click', 'body .wgt-list-item', function(e){
-	e.stopPropagation();
 
-	$('.wgt-list-item').removeClass('enabled');
-	$(this).addClass('enabled');
+// Panels toggle collapse
+function panelCollapse(panel_element){
+	$(panel_element).parent().toggleClass('enabled');
+}
 
-	if ($(this).hasClass('viewlayer')){
-		$(".js-add-template[data-template='list-viewlayer']")
-			.addClass('disabled');
-
-		$(".js-add-template[data-template='list-collection'], \
-			 .js-add-template[data-template='list-override']")
-			.removeClass('disabled');
-	};
-
-	if ($(this).hasClass('collection')){
-		$(".js-add-template[data-template='list-viewlayer']")
-			.addClass('disabled');
-
-		$(".js-add-template[data-template='list-collection'], \
-			 .js-add-template[data-template='list-override']")
-			.removeClass('disabled');
-	};
-
-	if ($(this).hasClass('override')){
-		$(".js-add-template[data-template='list-viewlayer'], \
-			 .js-add-template[data-template='list-collection'], \
-			 .js-add-template[data-template='list-override']")
-			.addClass('disabled');
-	};
-
+$('.js-panel-collapse')
+	.on('mouseenter', function(e){
+		Mousetrap.bind('a', function(event, combo) {
+			panelCollapse($(e.target));
+		});
+	})
+	.on('mouseleave', function(e){
+		Mousetrap.unbind('a');
 });
 
-
-$(document).on('click', 'body .wgt-list', function(){
-
-	$('.wgt-list-item').removeClass('enabled');
-
-	$(".js-add-template[data-template='list-viewlayer']")
-		.removeClass('disabled');
-
-	$(".js-add-template[data-template='list-collection'], \
-		 .js-add-template[data-template='list-override']")
-		.addClass('disabled');
-});
-
-// Panels collapse
 $(document).on('click', 'body .js-panel-collapse', function(){
-	$(this).parent().toggleClass('enabled');
+	panelCollapse($(this));
 });
 
 
@@ -84,9 +52,14 @@ function toggleImages(image, from, to){
 
 // UI List item collapse
 $(document).on('click', 'body .js-list-item-collapse', function(){
-	$(this).parent().siblings('ul').toggleClass('expanded');
 
-	toggleImages($(this), '_right.png', '_down.png');
+	var $parent = $(this).parent();
+
+	if ($parent.hasClass('has-children')){
+		$parent.toggleClass('collapsed');
+		toggleImages($(this), '_right.png', '_down.png');
+	};
+
 });
 
 

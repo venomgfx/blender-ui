@@ -36,11 +36,11 @@
 			position: relative
 
 			ul
-				display: none
+				display: flex
 				margin-left: 25px
 
-				&.expanded
-					display: flex
+				&.hidden
+					display: none
 
 	img.icon
 		margin-right: 10px
@@ -59,6 +59,10 @@
 		&.enabled
 			color: $global-color-accent-active
 			background-color: $global-color-accent
+
+		&.collapsed
+			&~ul
+				display: none
 
 		// Buttons such as visibility, selectability. enable..bility?
 		> ul

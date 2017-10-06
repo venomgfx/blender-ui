@@ -159,28 +159,33 @@ html
 
 				.wgt-panel-content
 					.wgt-list-toolbar
-						.wgt-tool.disabled.js-add-template(data-template="list-viewlayer")
+						.wgt-tool.disabled.js-add-template(
+							data-template="list-viewlayer",
+							title="Add ViewLayer")
 							.wgt-tool-icon
 								img.icon(src="assets/img/icons/icon_renderlayer.png")
-							.wgt-tool-name
-								| ViewLayer
 
-						.wgt-tool.js-add-template(data-template="list-collection")
+						.wgt-tool.js-add-template(
+							data-template="list-collection",
+							title="Add Collection")
 							.wgt-tool-icon
 								img.icon(src="assets/img/icons/icon_collections.png")
-							.wgt-tool-name
-								| Collection
 
-						.wgt-tool.js-add-template(data-template="list-override")
+						.wgt-tool.js-add-template(
+							data-template="list-override",
+							title="Add Override")
 							.wgt-tool-icon
 								img.icon(src="assets/img/icons/icon_rna.png")
-							.wgt-tool-name
-								| Override
+
+						.wgt-tool.js-list-item-remove(
+							title="Remove item")
+							.wgt-tool-icon
+								img.icon(src="assets/img/icons/icon_zoomout.png")
 
 					.wgt-list
 						ul
 							li
-								.wgt-list-item.viewlayer.enabled
+								.wgt-list-item.viewlayer.enabled.collapsed
 									img.icon.js-list-item-collapse(
 										src="assets/img/icons/icon_tria_right.png")
 									img.icon(
@@ -335,6 +340,7 @@ html
 								img.icon(src="assets/img/icons/icon_renderlayer.png")
 
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+script(src="assets/js/mousetrap-v1.6.1.min.js")
 script(src="assets/js/tutti.min.js")
 
 // Templates
