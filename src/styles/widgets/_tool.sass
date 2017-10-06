@@ -2,13 +2,13 @@
 .wgt-tool
 	+wgt-box-shadow
 	+wgt-defaults
-	display: flex
 	align-items: center
-	height: $wgt-height
 	background-color: $wgt-tool-background
-	color: $wgt-tool-text
-	margin: $wgt-margin
 	border-radius: $wgt-border-radius
+	color: $wgt-tool-text
+	display: flex
+	height: $wgt-height
+	margin: $wgt-margin
 	padding: 0 12px
 
 	+wgt-global-hover($wgt-tool-background)
@@ -18,5 +18,29 @@
 		padding-top: 3px
 		padding-bottom: 3px
 
-	&-icon
-		padding-right: 10px
+	.wgt-tool-icon
+		&+.wgt-tool-name
+			padding-left: 10px
+
+
+.wgt-tool-group
+	+wgt-box-shadow
+	border-radius: $wgt-border-radius
+	display: flex
+	margin: $wgt-margin
+	overflow: hidden
+	padding: 0
+
+	&.vertical
+		flex-direction: column
+
+	&+.wgt-tool-group
+		margin-left: 5px
+
+	.wgt-tool
+		margin: 0
+		border-radius: 0
+		border-left: thin solid darken($wgt-tool-background, 10%)
+
+		&:first-child
+			border-left: none

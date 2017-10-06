@@ -8,7 +8,7 @@
 	overflow: hidden
 	min-height: 200px
 	max-height: 400px
-	overflow-y: auto
+	overflow: auto
 	background-color: darken($global-color-background, 8%)
 
 	ul
@@ -45,18 +45,25 @@
 	img.icon
 		margin-right: 10px
 
+		&.js-list-item-collapse
+			opacity: .5
+			pointer-events: none
+
 	&-item
 		align-items: center
 		background-color: darken($global-color-background, 8%)
 		display: flex
 		padding: 5px 10px
 		position: relative
-		white-space: nowrap
 
 		+wgt-global-hover(darken($global-color-background, 5%))
 		+wgt-global-active
 
-		&.enabled
+		&:hover > ul
+			background-color: $global-color-background
+
+		&:active, &:active ul,
+		&.enabled, &.enabled ul
 			color: $global-color-accent-active
 			background-color: $global-color-accent
 
@@ -64,11 +71,26 @@
 			&~ul
 				display: none
 
+		&.has-children
+			img.icon.js-list-item-collapse
+				opacity: 1
+				pointer-events: initial
+
+		span.name
+			+text-overflow-ellipsis
+			padding-right: 70px // hardcoded for 3 icons width, not nice
+
 		// Buttons such as visibility, selectability. enable..bility?
 		> ul
+			background-color: darken($global-color-background, 8%)
 			display: flex !important
 			flex-direction: row
 			margin-left: auto !important
+			padding: 3px 5px
+			position: absolute
+			right: 0
+			top: 0
+			transition: background-color 100ms ease-in-out
 
 			&:before
 				display: none
@@ -76,7 +98,6 @@
 	&-toolbar
 		display: flex
 		align-items: center
-		justify-content: space-around
 
 		> ul
 			flex-direction: row

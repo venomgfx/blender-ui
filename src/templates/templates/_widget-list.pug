@@ -8,7 +8,7 @@ script#tmp-list-viewlayer(type="text/x-custom-template")
 					src="assets/img/icons/icon_tria_right.png")
 				img.icon(
 					src="assets/img/icons/icon_renderlayer.png")
-				| ViewLayer
+				span.name New ViewLayer
 				ul
 					li
 						.wgt-checkbox.js-bool.enabled(
@@ -25,7 +25,7 @@ script#tmp-list-collection(type="text/x-custom-template")
 					src="assets/img/icons/icon_tria_right.png")
 				img.icon(
 					src="assets/img/icons/icon_collections.png")
-				| Collection
+				span.name New Collection
 
 				ul
 					li
@@ -49,7 +49,7 @@ script#tmp-list-override(type="text/x-custom-template")
 			.wgt-list-item.override
 				img.icon(
 					src="assets/img/icons/icon_rna.png")
-				| Override
+				span.name New Override
 				ul
 					li
 						.wgt-checkbox.js-bool.enabled(
@@ -63,12 +63,11 @@ script.
 	$(document).on('click', 'body .js-add-template', function() {
 
 		// Get the template name from data-template
-		var template = '#tmp-' + $(this).data('template')
-		var template_html = $(template).html();
+		var template = $(this).data('template');
+		var template_html = $('#tmp-' + template).html();
 
 		// Where to put it, a bit weak, could be specified
-		var $childof = $(this).parent().parent().find('.wgt-list');
-
+		var $childof = $(this).parent().parent().parent().find('.wgt-list');
 
 		// If there's an item selected, make it child of,
 		// otherwise add it to the childof specified above
@@ -81,11 +80,15 @@ script.
 				toggleImages($childof.find('img.icon:first'), '_right.png', '_down.png');
 			}
 
+			if (!$childof.hasClass('has-children')){
+				toggleImages($childof.find('img.icon:first'), '_right.png', '_down.png');
+			}
+
 			$childof.addClass('has-children');
 			$childof.parent().append(template_html);
 		} else {
 
-			if ($childof.data('template', 'list-viewlayer')) {
+			if (template == 'list-viewlayer') {
 				$childof.append(template_html);
 			}
 		}
@@ -148,8 +151,17 @@ script.
 			.addClass('disabled');
 	});
 
+
+	// Remove items
 	$(document).on('click', 'body .js-list-item-remove', function(){
 
-		$('.wgt-list-item.enabled').siblings('ul').remove();
-		$('.wgt-list-item.enabled').remove();
+		if ($('.wgt-list-item.enabled').length > 0){
+			$('.wgt-list-item.enabled').siblings('ul').remove();
+			$('.wgt-list-item.enabled').remove();
+		}
+
+		$(".js-add-template[data-template='list-viewlayer']")
+			.removeClass('disabled');
+
+		$(this).addClass('disabled');
 	});
