@@ -11,6 +11,9 @@
   background-color: rgba($global-web-text, .5)
   border-radius: 999em
 
+*
+	transition: all 75ms ease-in-out
+
 html
 	background-color: $global-web-background
 	color: $global-web-text
@@ -24,6 +27,11 @@ html
 body
 	margin: 0
 	padding: 0
+	opacity 1
+	transition: opacity .5s ease-in-out !important
+
+	&.loading
+		opacity: 0
 
 h2
 	display: inline-block
