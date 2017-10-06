@@ -31,13 +31,23 @@ gulp.task('templates', function() {
         .pipe(livereload());
 });
 
-/* Scripts */
-gulp.task('scripts', function() {
+/** Scripts
+  * tutti.min.js is where we concatenate all our js into
+  * Individual, already minified vendor scripts go in
+  * src/scripts/vendor/ and are copied "as is" to /dist/assets/js/
+*/
+gulp.task('scripts_tutti', function() {
     gulp.src('src/scripts/tutti/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(concat("tutti.min.js"))
         .pipe(uglify())
         .pipe(sourcemaps.write("./"))
+        .pipe(gulp.dest('dist/assets/js'))
+        .pipe(livereload());
+});
+
+gulp.task('scripts_vendor', function() {
+    gulp.src('src/scripts/vendor/**/*.js')
         .pipe(gulp.dest('dist/assets/js'))
         .pipe(livereload());
 });
@@ -48,8 +58,8 @@ gulp.task('watch',function() {
 
     gulp.watch('src/styles/**/*.sass',['styles']);
     gulp.watch('src/templates/**/*.pug',['templates']);
-    gulp.watch('src/scripts/**/*.js',['scripts']);
+    gulp.watch('src/scripts/**/*.js',['scripts_tutti', 'scripts_vendor']);
 });
 
 // Run 'gulp' to build everything at once
-gulp.task('default', ['styles', 'templates', 'scripts']);
+gulp.task('default', ['styles', 'templates', 'scripts_tutti', 'scripts_vendor']);
