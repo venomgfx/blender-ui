@@ -1,9 +1,9 @@
 /* Dropdown Menu */
 .wgt-dropdown
-	display: flex
-	align-items: center
-	margin: $wgt-margin
 	+wgt-defaults
+	align-items: center
+	display: flex
+	margin: $wgt-margin
 
 	&.enabled
 		.wgt-dropdown-container
@@ -29,7 +29,11 @@
 		background-color: $wgt-input-background
 		height: $wgt-height
 		min-width: 100px
-		padding-right: 25px
+		padding:
+			bottom: 2px
+			top: 2px
+			right: 25px
+			left: 5px
 		border-radius: $wgt-border-radius
 		+wgt-box-shadow
 
@@ -61,3 +65,56 @@
 		&:after
 			border-bottom-color: $wgt-input-text
 			bottom: 2px
+
+	&-list
+		+wgt-defaults
+		+wgt-box-shadow
+		background-color: $wgt-input-background
+		border-radius: $wgt-border-radius
+		color: $wgt-input-text
+		max-width: 220px
+		overflow: hidden
+
+		> ul
+			list-style: none
+			margin: 0
+			padding: 0
+
+			> li
+				+text-overflow-ellipsis
+				align-items: center
+				display: flex
+				padding: 5px 10px
+
+				+wgt-global-active
+
+				&:hover
+					background-color: $global-color-accent
+
+				&.active
+					background-color: $global-color-accent
+
+				img.icon
+					padding-right: 10px
+
+				.hotkey
+					display: flex
+					align-items: center
+					margin-left: auto
+
+					img
+						padding-left: 5px
+						padding-right: 0
+
+				em
+					font-style: normal
+					text-decoration: underline
+
+				&.separator
+					height: 1px
+					padding: 0
+					background-color: rgba($wgt-input-text, .2)
+
+				&.disabled
+					+wgt-disabled
+					opacity: .5

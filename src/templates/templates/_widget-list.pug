@@ -11,6 +11,10 @@ script#tmp-list-viewlayer(type="text/x-custom-template")
 				span.name New ViewLayer
 				ul
 					li
+						img.icon.js-icon-toggle-onoff(
+							title="Set this view layer as active for this workspace",
+							src="assets/img/icons/icon_restrict_render_off.png")
+					li
 						.wgt-checkbox.js-bool.enabled(
 							title="Enable or disable this view layer")
 							.wgt-checkbox-zone
@@ -67,7 +71,7 @@ script.
 		var template_html = $('#tmp-' + template).html();
 
 		// Where to put it, a bit weak, could be specified
-		var $childof = $(this).parent().parent().parent().find('.wgt-list');
+		var $childof = $(this).parent().parent().parent().find('.wgt-list-items');
 
 		// If there's an item selected, make it child of,
 		// otherwise add it to the childof specified above
@@ -138,7 +142,7 @@ script.
 
 	// When clicking on the list, disable non-top level elements
 	// e.g. Overrides can't be on top level in this list
-	$(document).on('click', 'body .wgt-list', function(){
+	$(document).on('click', 'body .wgt-list-items', function(){
 
 		$('.wgt-list-item').removeClass('enabled');
 

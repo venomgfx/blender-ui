@@ -28,24 +28,26 @@ html
 						li.wgt-menu-simple-item Help
 
 					.tabs-bar
-						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Compositing', 'Sequencer', 'Grease Pencil', '+']
-						each tab in tabs
+						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Sequencer', 'Grease Pencil', '+']
+						each tab, index in tabs
 							if tab == 'Animation'
 								.tabs-bar__tab.enabled
 									.tabs-bar__tab-title
-										= tab
+										span.tag(title="This workspace is using Scene settings")
+											img.icon(src="assets/img/icons/icon_restrict_render_off.png")
+										| Render
 										span.action
-											img.icon(src="assets/img/icons/icon_panel_close.png")
+											img.icon.close(src="assets/img/icons/icon_panel_close.png")
 							if tab == '+'
 								.tabs-bar__tab.no-icon
 									.tabs-bar__tab-title
-										= tab
+										img.icon(src="assets/img/icons/icon_zoomin.png")
 							else
 								.tabs-bar__tab
 									.tabs-bar__tab-title
 										= tab
 										span.action
-											img.icon(src="assets/img/icons/icon_panel_close.png")
+											img.icon.close(src="assets/img/icons/icon_panel_close.png")
 
 					#top-bar__primary-right
 						.wgt-id-block
@@ -119,8 +121,7 @@ html
 
 
 		h2 Widgets
-		section.ui-section.widgets
-			h3 UI Lists
+		section.ui-section.panels
 
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
@@ -130,7 +131,11 @@ html
 				.wgt-panel-content
 					.wgt-list-container
 						.wgt-list-toolbar
+
+							.wgt-label Add:
+
 							ul.wgt-tool-group
+
 								li.wgt-tool.disabled.js-add-template(
 									data-template="list-viewlayer",
 									title="Add ViewLayer")
@@ -155,12 +160,8 @@ html
 									.wgt-tool-icon
 										img.icon(src="assets/img/icons/icon_zoomout.png")
 
-								//- .wgt-tool.js-list-item-remove(
-								//- 	title="Filter")
-								//- 	.wgt-tool-icon
-								//- 		img.icon(src="assets/img/icons/icon_zoomout.png")
 
-						.wgt-list
+						.wgt-list-items
 							ul
 								li
 									.wgt-list-item.viewlayer.enabled.has-children
@@ -170,6 +171,10 @@ html
 											src="assets/img/icons/icon_renderlayer.png")
 										span.name Default ViewLayer
 										ul
+											li
+												img.icon.js-icon-toggle-onoff(
+													title="Set this view layer as active for this workspace",
+													src="assets/img/icons/icon_restrict_render_off.png")
 											li
 												.wgt-checkbox.js-bool.enabled(
 													title="Enable or disable this view layer")
@@ -209,6 +214,40 @@ html
 																.wgt-checkbox.js-bool.enabled(
 																	title="Enable or disable this override")
 																	.wgt-checkbox-zone
+
+					.wgt-list-resize
+
+			.wgt-panel.enabled
+				.wgt-panel-header.js-panel-collapse
+					.wgt-panel-header-collapse
+					.wgt-panel-header-name Dropdown Menu
+
+				.wgt-panel-content
+					.wgt-dropdown-list
+						ul
+							li
+								img.icon(src="assets/img/icons/icon_new.png")
+								| <em>N</em>ew
+
+								.hotkey Ctrl N
+
+							li
+								img.icon(src="assets/img/icons/icon_file_folder.png")
+								| <em>O</em>pen...
+								.hotkey Ctrl O
+
+							li
+								img.icon(src="assets/img/icons/icon_open_recent.png")
+								| Open&nbsp;<em>R</em>ecent...
+								.hotkey
+									| Ctrl Shift O
+									img.icon(src="assets/img/icons/icon_tria_right.png")
+
+							li.separator
+
+							li.disabled
+								img.icon(src="assets/img/icons/icon_file_refresh.png")
+								| Re<em>v</em>ert
 
 
 		h2 Panels & Widgets

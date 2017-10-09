@@ -1,53 +1,54 @@
 /* Slider: Number */
 .wgt-list
-	+wgt-box-shadow
-	+wgt-defaults
-	border-radius: $wgt-border-radius
-	color: $global-color-text
-	margin: $wgt-margin
-	overflow: hidden
-	min-height: 200px
-	max-height: 400px
-	overflow: auto
-	background-color: darken($global-color-background, 8%)
+	&-items
+		+wgt-box-shadow
+		+wgt-defaults
+		background-color: darken($global-color-background, 8%)
+		border-radius: $wgt-border-radius
+		color: $global-color-text
+		margin: $wgt-margin
+		max-height: 250px
+		min-height: 150px
+		overflow: auto
+		padding-bottom: 5px
 
-	ul
-		display: flex
-		flex-direction: column
-		list-style: none
-		padding: 0
-		margin: 0
-		position: relative
-
-		&:before
-			background-color: rgba($global-color-text, .33)
-			content: ''
-			position: absolute
-
-		&:before
-			height: 100%
-			top: 0
-			left: 18px
-			width: 1px
-
-		li
+		ul
 			display: flex
 			flex-direction: column
+			list-style: none
+			padding: 0
+			margin: 0
 			position: relative
 
-			ul
+			&:before
+				background-color: rgba($global-color-text, .33)
+				content: ''
+				position: absolute
+
+			&:before
+				height: 100%
+				top: 0
+				left: 18px
+				width: 1px
+
+			li
 				display: flex
-				margin-left: 25px
+				flex-direction: column
+				position: relative
 
-				&.hidden
-					display: none
+				ul
+					display: flex
+					margin-left: 25px
 
-	img.icon
-		margin-right: 10px
+					&.hidden
+						display: none
 
-		&.js-list-item-collapse
-			opacity: .5
-			pointer-events: none
+		img.icon
+			margin-right: 10px
+
+			&.js-list-item-collapse
+				opacity: .5
+				pointer-events: none
 
 	&-item
 		align-items: center
@@ -96,12 +97,25 @@
 				display: none
 
 	&-toolbar
-		display: flex
 		align-items: center
+		display: flex
+		justify-content: flex-end
+
+		.wgt-label
+			margin-right: 10px
 
 		> ul
 			flex-direction: row
 
 		img.icon
 			margin-right: 0
+
+	&-resize
+		border-top: thin solid rgba($global-color-text, .25)
+		border-bottom: thin solid rgba($global-color-text, .25)
+		height: 2px
+		margin: 0 auto
+		position: relative
+		top: -12px
+		width: 40px
 

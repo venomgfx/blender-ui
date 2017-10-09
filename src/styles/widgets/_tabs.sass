@@ -31,29 +31,32 @@
 				background-color: darken($global-color-background, 5%)
 
 				span.action
-					opacity: 1
+					.close
+						opacity: 1
+
+			span.tag
+				margin-right: 8px
 
 			span.action
 				margin-left: 10px
-				opacity: 0
 
 				img.icon
 					padding: 2px
 					border-radius: 50%
 
-				&:hover
-					opacity: 1
+				.close
+					opacity: 0
 
+				&:hover
 					img.icon
 						background-color: lighten($global-color-background, 5%)
-				&:active
-					opacity: 1
 
+				&:active
 					img.icon
 						background-color: $global-color-accent
 
-
-			&.no-icon
+		&.no-icon
+			.tabs-bar__tab-title
 				padding-right: 10px
 
 		&.enabled .tabs-bar__tab-title
@@ -61,7 +64,7 @@
 			background-color: $global-color-background
 			box-shadow: inset 0 2px 0 $global-color-accent
 
-			span.action
+			.close
 				opacity: 1
 
 			&:hover
