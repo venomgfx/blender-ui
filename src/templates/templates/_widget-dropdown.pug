@@ -1,0 +1,43 @@
+// Dropdowns
+script#tmp-dropdown-file(type="text/x-custom-template")
+	#template-dropdown-file.wgt-dropdown-list
+		ul
+			li
+				img.icon(src="assets/img/icons/icon_new.png")
+				| <em>N</em>ew
+
+				.hotkey Ctrl N
+
+			li
+				img.icon(src="assets/img/icons/icon_file_folder.png")
+				| <em>O</em>pen...
+				.hotkey Ctrl O
+
+			li
+				img.icon(src="assets/img/icons/icon_open_recent.png")
+				| Open&nbsp;<em>R</em>ecent...
+				.hotkey
+					| Ctrl Shift O
+					img.icon(src="assets/img/icons/icon_tria_right.png")
+
+			li.separator
+
+			li.disabled
+				img.icon(src="assets/img/icons/icon_file_refresh.png")
+				| Re<em>v</em>ert
+
+// Logic & Functionality
+script.
+	// Add a new template based on .js-add-menu-template's data-template attribute
+	$(document).on('click', 'body .js-add-menu-template', function() {
+
+		// Get the template name from data-template
+		var template = $(this).data('template');
+		var template_html = $('#tmp-' + template).html();
+
+		$(this).append(template_html);
+	});
+
+	$('body').on('click', function(){
+		$('#template-dropdown-file').remove();
+	});

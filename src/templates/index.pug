@@ -23,7 +23,10 @@ html
 						src="assets/img/icons/icon_blender.png")
 
 					ul.wgt-menu-simple
-						li.wgt-menu-simple-item File
+						li.wgt-menu-simple-item.js-add-menu-template(
+							data-template="dropdown-file")
+							| File
+
 						li.wgt-menu-simple-item Window
 						li.wgt-menu-simple-item Help
 
@@ -73,7 +76,7 @@ html
 
 				#top-bar__secondary
 					#top-bar__secondary-mode
-						.wgt-dropdown.js-bool
+						.wgt-dropdown
 							.wgt-dropdown-container
 								.wgt-dropdown-icon
 									img.icon(src="assets/img/icons/icon_scene_data.png")
@@ -223,7 +226,7 @@ html
 					.wgt-panel-header-name Dropdown Menu
 
 				.wgt-panel-content
-					.wgt-dropdown-list
+					.wgt-dropdown-list.enabled
 						ul
 							li
 								img.icon(src="assets/img/icons/icon_new.png")
@@ -429,6 +432,7 @@ script(src="assets/js/tutti.min.js")
 
 // Templates
 include templates/_widget-list
+include templates/_widget-dropdown
 
 script.
 	$(document).ready(function(){

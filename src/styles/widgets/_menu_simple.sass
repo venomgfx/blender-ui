@@ -1,15 +1,28 @@
 /* Simple menu, such as the top File, Window, Help */
 ul.wgt-menu-simple
+	+wgt-text-shadow
+	+wgt-defaults
 	color: $global-color-text
 	list-style: none
-	padding: 0
-	white-space: nowrap
 	margin: $wgt-margin
-	+wgt-text-shadow
+	padding: 0
+	position: relative
+	white-space: nowrap
 
-	li
+	> li
 		display: inline-block
 		margin: 0 10px
 
 		&:hover
 			color: $global-color-text-active
+
+		&.enabled
+			.wgt-dropdown-list
+				display: block
+
+	.wgt-dropdown-list
+		left: 0
+		min-width: 230px
+		position: absolute
+		top: 150%
+		z-index: 1
