@@ -90,12 +90,20 @@ script.
 
 			$childof.addClass('has-children');
 			$childof.parent().append(template_html);
+
+			// If we are adding an override, style the item properly
+			if (template == 'list-override') {
+				$childof.addClass('has-override');
+			}
+
 		} else {
 
+			// Only ViewLayers can be on top level
 			if (template == 'list-viewlayer') {
 				$childof.append(template_html);
 			}
 		}
+
 	});
 
 
@@ -107,7 +115,6 @@ script.
 		// Set only current item as active
 		$('.wgt-list-item').removeClass('enabled');
 		$(this).addClass('enabled');
-
 
 		// Set uilist toolbar buttons enabled/disabled
 		$('.js-list-item-remove').removeClass('disabled');
@@ -159,9 +166,11 @@ script.
 	// Remove items
 	$(document).on('click', 'body .js-list-item-remove', function(){
 
-		if ($('.wgt-list-item.enabled').length > 0){
-			$('.wgt-list-item.enabled').siblings('ul').remove();
-			$('.wgt-list-item.enabled').remove();
+		var $active_item = $('.wgt-list-item.enabled');
+
+		if ($active_item.length > 0){
+			$active_item.siblings('ul').remove();
+			$active_item.remove();
 		}
 
 		$(".js-add-template[data-template='list-viewlayer']")
