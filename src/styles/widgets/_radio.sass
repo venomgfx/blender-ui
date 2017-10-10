@@ -1,10 +1,9 @@
 /* Radio */
 .wgt-radio
 	+wgt-defaults
-	+wgt-text-shadow
 	align-items: center
 	border-radius: $wgt-border-radius
-	color: $global-color-text
+	color: $wgt-input-text
 	display: flex
 	justify-content: space-around
 	list-style: none
@@ -13,13 +12,13 @@
 
 	li.wgt-radio-value
 		background-color: $wgt-input-background
-		border-left: thin solid $wgt-input-background
+		border-left: thin solid rgba($wgt-input-text, .2)
 		flex: 1
 		padding: 3px
 		text-align: center
 
-		&:hover
-			background-color: lighten($wgt-input-background, 5%)
+		+wgt-global-active
+		+wgt-global-hover($wgt-input-background)
 
 		&:first-child
 			border-top-left-radius: 3px
@@ -31,6 +30,6 @@
 			border-bottom-right-radius: 3px
 
 		&.enabled
+			+wgt-text-shadow
 			color: $global-color-accent-active
 			background-color: $global-color-accent
-			text-shadow: none

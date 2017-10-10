@@ -131,6 +131,9 @@ html
 		h2 Widgets
 		section.ui-section.panels
 
+			.wgt-scrollbar(title="Scrollbar")
+				.wgt-scrollbar-thumb
+
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
 					.wgt-panel-header-collapse
@@ -167,7 +170,6 @@ html
 									title="Remove item")
 									.wgt-tool-icon
 										img.icon(src="assets/img/icons/icon_zoomout.png")
-
 
 						.wgt-list-items
 							ul
@@ -225,10 +227,6 @@ html
 
 					.wgt-list-resize
 
-			.wgt-scrollbar
-				.wgt-scrollbar-thumb
-
-		section.ui-section.panels
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
 					.wgt-panel-header-collapse
@@ -240,7 +238,7 @@ html
 						.wgt-id-block-id_list
 							img.icon(src="assets/img/icons/icon_scene_data.png")
 						.wgt-id-block-name
-							span Scene
+							span Datablock Picker
 						.wgt-id-block-action
 							img.icon(src="assets/img/icons/icon_zoomin.png")
 						.wgt-id-block-action
@@ -250,28 +248,30 @@ html
 
 					// Tool Buttons
 					.wgt-tool
-						.wgt-tool-name Shrink/Fatten
-					.wgt-tool
 						.wgt-tool-icon
 							img.icon(src="assets/img/icons/icon_panel_close.png")
-						.wgt-tool-name Smooth Vertex
-					.wgt-tool.disabled
-						.wgt-tool-name Slide Edge
+						.wgt-tool-name Tool With Icon
+
+					.wgt-tool-group
+						.wgt-tool
+							.wgt-tool-name Without Icon
+						.wgt-tool.disabled
+							.wgt-tool-name Disabled Tool
 
 					.wgt-separator
 
 					// Checkboxes
 					.wgt-label Checkboxes:
 
-					.wgt-checkbox.disabled
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Wireframe
-					.wgt-checkbox.js-bool
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Draw All Edges
 					.wgt-checkbox.enabled.js-bool
 						.wgt-checkbox-zone
-						.wgt-checkbox-name Multiple Importance
+						.wgt-checkbox-name Checkbox Checked
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Un-checked
+					.wgt-checkbox.disabled
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Wireframe (disabled)
 
 
 			.wgt-panel.enabled
@@ -354,13 +354,13 @@ html
 
 					.wgt-input-text
 						.wgt-input-text-label Filepath:
-						.wgt-input-text-container.js-bool
+						.wgt-input-text-container
 							.wgt-input-text-value //../../
 							.wgt-input-text-action
 								img.icon(src="assets/img/icons/icon_splitscreen.png")
 
 					.wgt-input-text
-						.wgt-input-text-container.js-bool
+						.wgt-input-text-container
 							.wgt-input-text-placeholder Choose a path...
 							.wgt-input-text-action
 								img.icon(src="assets/img/icons/icon_renderlayer.png")
