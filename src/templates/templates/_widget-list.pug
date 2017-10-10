@@ -104,6 +104,10 @@ script.
 			}
 		}
 
+		gtag('event', 'button', {
+			'event_category': 'list-item-add',
+			'event_label': template
+		});
 	});
 
 
@@ -160,6 +164,10 @@ script.
 			 .js-add-template[data-template='list-override'], \
 			 .js-list-item-remove")
 			.addClass('disabled');
+
+		gtag('event', 'button', {
+			'event_category': 'list-item-deselect'
+		});
 	});
 
 
@@ -177,4 +185,9 @@ script.
 			.removeClass('disabled');
 
 		$(this).addClass('disabled');
+
+		gtag('event', 'button', {
+			'event_category': 'list-item-remove',
+			'event_label': $active_item.attr('class')
+		});
 	});

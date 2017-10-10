@@ -440,3 +440,10 @@ script.
 	$(document).ready(function(){
 		$('body').removeClass('loading');
 	});
+
+script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-2147150-3")
+script.
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-2147150-3');

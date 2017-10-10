@@ -28,7 +28,7 @@ script#tmp-dropdown-file(type="text/x-custom-template")
 
 // Logic & Functionality
 script.
-	// Add a new template based on .js-add-menu-template's data-template attribute
+	// Add a new dropdown menu template based on .js-add-menu-template's data-template attribute
 	$(document).on('click', 'body .js-add-menu-template', function() {
 
 		// Get the template name from data-template
@@ -36,6 +36,11 @@ script.
 		var template_html = $('#tmp-' + template).html();
 
 		$(this).append(template_html);
+
+		gtag('event', 'button', {
+			'event_category': 'menu-item',
+			'event_label': template
+		});
 	});
 
 	$('body').on('click', function(){

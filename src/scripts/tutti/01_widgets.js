@@ -1,6 +1,11 @@
 // e.g. Checkboxes
 $(document).on('click', 'body .js-bool', function(){
 	$(this).toggleClass('enabled');
+
+	gtag('event', 'button', {
+		'event_category': 'boolean',
+		'event_label': $(this).attr('class')
+	});
 });
 
 
@@ -8,6 +13,11 @@ $(document).on('click', 'body .js-bool', function(){
 $(document).on('click', 'body .tabs-bar__tab', function(){
 	$('.tabs-bar__tab').removeClass('enabled');
 	$(this).addClass('enabled');
+
+	gtag('event', 'button', {
+		'event_category': 'tab-enable',
+		'event_label': $(this).attr('class')
+	});
 });
 
 
@@ -29,6 +39,11 @@ $('.js-panel-collapse')
 
 $(document).on('click', 'body .js-panel-collapse', function(){
 	panelCollapse($(this));
+
+	gtag('event', 'button', {
+		'event_category': 'panel-collapse',
+		'event_label': $(this).attr('class')
+	});
 });
 
 
@@ -60,6 +75,10 @@ $(document).on('click', 'body .js-list-item-collapse', function(){
 		toggleImages($(this), '_right.png', '_down.png');
 	};
 
+	gtag('event', 'button', {
+		'event_category': 'list-item-collapse',
+		'event_label': $(this).attr('class')
+	});
 });
 
 
@@ -67,4 +86,9 @@ $(document).on('click', 'body .js-list-item-collapse', function(){
 $(document).on('click', 'body .js-icon-toggle-onoff', function(){
 
 	toggleImages($(this), '_off.png', '_on.png');
+
+	gtag('event', 'button', {
+		'event_category': 'icon-toggle',
+		'event_label': $(this).attr('class')
+	});
 });

@@ -3,6 +3,11 @@ function swapTheme(themeFile, linkIndex) {
 	cssLink.href = themeFile;
 
 	document.body.classList.toggle('alt');
+
+	gtag('event', 'theme', {
+		'event_category': 'swap',
+		'event_label': themeFile
+	});
 }
 
 if (window.location.search.indexOf('?theme=light') === 0){
