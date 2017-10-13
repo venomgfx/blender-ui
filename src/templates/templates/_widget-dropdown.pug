@@ -1,21 +1,20 @@
-// Dropdowns
+// Dropdown Menu
 script#tmp-dropdown-file(type="text/x-custom-template")
 	#template-dropdown-file.wgt-dropdown-list
 		ul
 			li
 				img.icon(src="assets/img/icons/icon_new.png")
-				| <em>N</em>ew
-
+				| #[em N]ew
 				.hotkey Ctrl N
 
 			li
 				img.icon(src="assets/img/icons/icon_file_folder.png")
-				| <em>O</em>pen...
+				| #[em O]pen...
 				.hotkey Ctrl O
 
 			li
 				img.icon(src="assets/img/icons/icon_open_recent.png")
-				| Open&nbsp;<em>R</em>ecent...
+				| Open&nbsp;#[em R]ecent...
 				.hotkey
 					| Ctrl Shift O
 					img.icon(src="assets/img/icons/icon_tria_right.png")
@@ -24,7 +23,8 @@ script#tmp-dropdown-file(type="text/x-custom-template")
 
 			li.disabled
 				img.icon(src="assets/img/icons/icon_file_refresh.png")
-				| Re<em>v</em>ert
+				| Re#[em v]ert
+
 
 // Logic & Functionality
 script.

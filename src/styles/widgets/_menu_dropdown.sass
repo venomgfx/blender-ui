@@ -10,6 +10,14 @@
 			color: $global-color-accent-active
 			background-color: $global-color-accent
 
+	&.icon-only
+		.wgt-dropdown-container
+			min-width: initial
+			padding: 2px
+
+		.wgt-dropdown-arrows
+			width: 15px
+
 	&-label
 		flex: 1
 		white-space: nowrap
@@ -29,11 +37,7 @@
 		background-color: $wgt-input-background
 		height: $wgt-height
 		min-width: 100px
-		padding:
-			bottom: 2px
-			top: 2px
-			right: 25px
-			left: 5px
+		padding: 2px 5px
 		border-radius: $wgt-border-radius
 		+wgt-box-shadow
 
@@ -49,11 +53,12 @@
 	&-arrows
 		position: relative
 		margin-left: auto
+		width: 22px
 
 		&:before, &:after
 			display: block
 			position: absolute
-			right: -15px
+			right: 7px
 			content: ''
 			width: 0
 			height: 0

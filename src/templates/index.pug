@@ -1,139 +1,165 @@
-html
-	head
-		title Blender UI Mockups by Pablo Vazquez
-		link(href="assets/css/main.css", rel="stylesheet")
-		link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700", rel="stylesheet")
+extends layout.pug
 
-		link(href="assets/img/favicon_bh_facu.png", rel="shortcut icon")
+block content
+	section.ui-section.intro-text
+		div
+			h2 Hello, curious.
+			p.
+				#[strong What:] This is a collection of interactive user interface #[em proposals] for #[a(href="https://www.blender.org/") Blender].
+			p.
+				#[strong Play:] Some buttons may be fun to press, most are not. This is my way to share mockups with the
+				developers. None of this is official at the moment. Changes must be agreed on by the rest of
+				the #[a(href="https://wiki.blender.org/index.php/Dev:Doc/Process/Module_Owners/List") Interface Design] module owners.
+			p.
+				#[strong Help:] Code contributions are welcome if you know some #[a(href="https://github.com/venomgfx/blender-ui") Sass, Pug and basic JavaScript].
+				If you don't know those words but still have cool UI ideas poke me #[a(href="https://twitter.com/PabloVazquez_") @PabloVazquez_].
 
-	body.loading
-		section.ui-section.intro
-			.theme-select Flatty Theme Variants:
-				a.theme-main(href="javascript:void(0);", onclick="swapTheme('assets/css/main.css', 0);") Dark
-				a.theme-alt(href="javascript:void(0);", onclick="swapTheme('assets/css/main_alt.css', 0);") Light
+		div
+			h2 Must Check
+			ul
+				li
+					a(href="https://developer.blender.org/project/view/12/") Project on developer.blender.org
+				li
+					a(href="https://lists.blender.org/mailman/listinfo/bf-interface") Mailing List
+				li
+					| #blender-ui channel on IRC [freenode]
+				hr
+				li
+					a(href="https://developer.blender.org/T51844") Manipulators Suggestions
 
-			.credits
-				| HTML+CSS+JS Blender mockups by <a href="http://pablovazquez.art">Pablo Vazquez</a>
+		hr
+
+	section.ui-section
+		h1 Components
+		p.
+			Library of generic, dummy widgets to build Blender's interface from.
 
 		h2 Top Bar
-		section.ui-section
-			#top-bar
-				#top-bar__primary
-					img.icon.blender-logo(
-						src="assets/img/icons/icon_blender.png")
+		p.
+			Global, persistent top bar showing:
 
-					ul.wgt-menu-simple
-						li.wgt-menu-simple-item.js-add-menu-template(
-							data-template="dropdown-file")
-							| File
+		ul
+			li #[strong Application Menu:] General menu and Blender icon to call the splash
+			li #[strong Workspaces:] Tabbed interface listing all available workspaces, "+" to add more
+			li #[strong Scene picker]
+			li.
+				#[strong Window buttons:] Blender could become borderless if we embed
+				window buttons in the top bar (like Firefox Quantum, Chrome, Safari)
 
-						li.wgt-menu-simple-item.js-add-menu-template(
-							data-template="dropdown-file")
-							| Window
+		#top-bar
+			#top-bar__primary
+				img.icon.blender-logo(
+					src="assets/img/icons/icon_blender.png")
 
-						li.wgt-menu-simple-item.js-add-menu-template(
-							data-template="dropdown-file")
-							| Help
+				ul.wgt-menu-simple
+					li.wgt-menu-simple-item.js-add-menu-template(
+						data-template="dropdown-file")
+						| File
 
-					.tabs-bar
-						- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Sequencer', 'Grease Pencil', '+']
-						each tab, index in tabs
-							if tab == 'Animation'
-								.tabs-bar__tab.enabled
-									.tabs-bar__tab-title
-										span.tag(title="This workspace is using Scene settings")
-											img.icon(src="assets/img/icons/icon_restrict_render_off.png")
-										| Render
-										span.action
-											img.icon.close(src="assets/img/icons/icon_panel_close.png")
-							if tab == '+'
-								.tabs-bar__tab.no-icon
-									.tabs-bar__tab-title
-										img.icon(src="assets/img/icons/icon_zoomin.png")
-							else
-								.tabs-bar__tab
-									.tabs-bar__tab-title
-										= tab
-										span.action
-											img.icon.close(src="assets/img/icons/icon_panel_close.png")
+					li.wgt-menu-simple-item.js-add-menu-template(
+						data-template="dropdown-file")
+						| Window
 
-					#top-bar__primary-right
-						.wgt-id-block
-							.wgt-id-block-id_list
+					li.wgt-menu-simple-item.js-add-menu-template(
+						data-template="dropdown-file")
+						| Help
+
+				.tabs-bar
+					- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Sequencer', 'Grease Pencil', '+']
+					each tab, index in tabs
+						if tab == 'Animation'
+							.tabs-bar__tab.enabled
+								.tabs-bar__tab-title
+									span.tag(title="This workspace is using Scene settings")
+										img.icon(src="assets/img/icons/icon_restrict_render_off.png")
+									| Render
+									span.action
+										img.icon.close(src="assets/img/icons/icon_panel_close.png")
+						if tab == '+'
+							.tabs-bar__tab.no-icon
+								.tabs-bar__tab-title
+									img.icon(src="assets/img/icons/icon_zoomin.png")
+						else
+							.tabs-bar__tab
+								.tabs-bar__tab-title
+									= tab
+									span.action
+										img.icon.close(src="assets/img/icons/icon_panel_close.png")
+
+				#top-bar__primary-right
+					.wgt-id-block
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_scene_data.png")
+						.wgt-id-block-name
+							span Scene
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_zoomin.png")
+						.wgt-id-block-action
+							img.icon(src="assets/img/icons/icon_panel_close.png")
+
+					#notifications-toggle
+						#notifications-toggle-icon
+						.flyover
+
+
+					#window-buttons
+						#window-buttons__button.close
+						#window-buttons__button.min
+						#window-buttons__button.max
+
+			#top-bar__secondary
+				#top-bar__secondary-mode
+					.wgt-dropdown
+						.wgt-dropdown-label
+							| Mode:
+
+						.wgt-dropdown-container
+							.wgt-dropdown-icon
 								img.icon(src="assets/img/icons/icon_scene_data.png")
-							.wgt-id-block-name
-								span Scene
-							.wgt-id-block-action
-								img.icon(src="assets/img/icons/icon_zoomin.png")
-							.wgt-id-block-action
-								img.icon(src="assets/img/icons/icon_panel_close.png")
+							.wgt-dropdown-name Object
+							.wgt-dropdown-arrows
 
-						#notifications-toggle
-							#notifications-toggle-icon *
+				#top-bar__secondary-main
+					.wgt-tool
+						.wgt-tool-icon
+							img.icon(src="assets/img/icons/icon_renderlayer.png")
+						.wgt-tool-name Subdivide
 
-							.flyover
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Multiple Importance
 
-					// Not for now
-						#window-buttons
-							#window-buttons__button.close
-							#window-buttons__button.min
-							#window-buttons__button.max
+					.wgt-checkbox.disabled
+						.wgt-checkbox-zone
+						.wgt-checkbox-name Quad/Tri
 
-				#top-bar__secondary
-					#top-bar__secondary-mode
-						.wgt-dropdown
-							.wgt-dropdown-container
-								.wgt-dropdown-icon
-									img.icon(src="assets/img/icons/icon_scene_data.png")
-								.wgt-dropdown-name Object Mode
-								.wgt-dropdown-arrows
+					.wgt-dropdown
+						.wgt-dropdown-label Quad Type:
+						.wgt-dropdown-container
+							.wgt-dropdown-name Path
+							.wgt-dropdown-arrows
 
-					#top-bar__secondary-main
-						.wgt-tool
-							.wgt-tool-icon
-								img.icon(src="assets/img/icons/icon_renderlayer.png")
-							.wgt-tool-name Subdivide
+					.wgt-tool.more
+						.wgt-tool-name More...
 
-						.wgt-checkbox.enabled.js-bool
-							.wgt-checkbox-zone
-							.wgt-checkbox-name Multiple Importance
+				#top-bar__secondary-layout
+					.wgt-id-block
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_splitscreen.png")
+						.wgt-id-block-name
+							span Default Layout
 
-						.wgt-checkbox.disabled
-							.wgt-checkbox-zone
-							.wgt-checkbox-name Quad/Tri
-
-						.wgt-dropdown
-							.wgt-dropdown-label Quad Type:
-							.wgt-dropdown-container
-								.wgt-dropdown-name Path
-								.wgt-dropdown-arrows
-
-						.wgt-tool.more
-							.wgt-tool-name More...
-
-					#top-bar__secondary-layout
-						.wgt-id-block
-							.wgt-id-block-id_list
-								img.icon(src="assets/img/icons/icon_renderlayer.png")
-							.wgt-id-block-name
-								span RenderLayer
-						.wgt-id-block
-							.wgt-id-block-id_list
-								img.icon(src="assets/img/icons/icon_splitscreen.png")
-							.wgt-id-block-name
-								span Default Layout
-							//- .wgt-id-block-action
-							//- 	img.icon(src="assets/img/icons/icon_zoomin.png")
-							//- .wgt-id-block-action
-							//- 	img.icon(src="assets/img/icons/icon_panel_close.png")
+					.wgt-id-block
+						.wgt-id-block-id_list
+							img.icon(src="assets/img/icons/icon_renderlayer.png")
+						.wgt-id-block-name
+							span View Layer
 
 
+	section.ui-section
 		h2 Widgets
-		section.ui-section.panels
 
-			.wgt-scrollbar(title="Scrollbar")
-				.wgt-scrollbar-thumb
-
+		.panels
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
 					.wgt-panel-header-collapse
@@ -226,6 +252,7 @@ html
 																	.wgt-checkbox-zone
 
 					.wgt-list-resize
+
 
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
@@ -324,6 +351,7 @@ html
 						li.wgt-radio-value.js-bool.enabled RGB
 						li.wgt-radio-value.js-bool RGBA
 
+
 			.wgt-panel.enabled
 				.wgt-panel-header.js-panel-collapse
 					.wgt-panel-header-collapse
@@ -365,85 +393,52 @@ html
 							.wgt-input-text-action
 								img.icon(src="assets/img/icons/icon_renderlayer.png")
 
-			.wgt-panel.enabled
-				.wgt-panel-header.js-panel-collapse
-					.wgt-panel-header-collapse
-					.wgt-panel-header-name Dropdown Menu
 
-				.wgt-panel-content
-					.wgt-dropdown-list.enabled
-						ul
-							li
-								img.icon(src="assets/img/icons/icon_new.png")
-								| <em>N</em>ew
-
-								.hotkey Ctrl N
-
-							li
-								img.icon(src="assets/img/icons/icon_file_folder.png")
-								| <em>O</em>pen...
-								.hotkey Ctrl O
-
-							li
-								img.icon(src="assets/img/icons/icon_open_recent.png")
-								| Open&nbsp;<em>R</em>ecent...
-								.hotkey
-									| Ctrl Shift O
-									img.icon(src="assets/img/icons/icon_tria_right.png")
-
-							li.separator
-
-							li.disabled
-								img.icon(src="assets/img/icons/icon_file_refresh.png")
-								| Re<em>v</em>ert
+			.wgt-scrollbar(title="Scrollbar")
+				.wgt-scrollbar-thumb
 
 
+	section.ui-section
 		h2 Status Bar
-		section.ui-section
-			#status-bar
-				#status-bar__filepath
-					| */home/koro/Desktop/shouldnt_save_on_desktop.blend
-				#status-bar__stats
-					ul
-						li Verts:88,521
-						li Faces:87,202
-						li Tris:166,270
-						li Objects:1/127
-						li Lamps:0/4
-						li Mem:731.70M
-						li camrig_02
 
-				#status-bar__jobs
-					.wgt-progress_bar-circle__container
-						.wgt-progress_bar-circle__text 84%
-						.wgt-progress_bar-circle__inner
-						.wgt-progress_bar-circle__progress.done_84
-						.wgt-progress_bar-circle__progress.left_84
+		#status-bar
+			#status-bar__filepath
+				| [Caminandes] */home/koro/Desktop/shouldnt_save_on_desktop.blend
+			#status-bar__stats
+				ul
+					li Verts:88,521
+					li Faces:87,202
+					li Tris:166,270
+					li Objects:1/127
+					li Lamps:0/4
+					li Mem:731.70M
+					li camrig_02
 
-					.wgt-progress_bar-circle__container
-						.wgt-progress_bar-circle__text 36%
-						.wgt-progress_bar-circle__inner
-						.wgt-progress_bar-circle__progress.done_36
-						.wgt-progress_bar-circle__progress
+			#status-bar__jobs
+				.wgt-progress_bar-circle__container
+					.wgt-progress_bar-circle__text 84%
+					.wgt-progress_bar-circle__inner
+					.wgt-progress_bar-circle__progress.done_84
+					.wgt-progress_bar-circle__progress.left_84
 
+				.wgt-progress_bar-circle__container
+					.wgt-progress_bar-circle__text 36%
+					.wgt-progress_bar-circle__inner
+					.wgt-progress_bar-circle__progress.done_36
+					.wgt-progress_bar-circle__progress
 
+		p.
+			Global, persistent bottom bar showing:
 
-script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
-script(src="assets/js/mousetrap-v1.6.1.min.js")
-script(src="assets/js/tutti.min.js")
+		ul
+			li #[strong Current File Path:] Could also display current show/project/asset name. Displays '*' when file is modified
+			li #[strong Tips/Tools descriptions:] Shown momentarily when hovering over specific tools
+			li #[strong Statistics:] Just like in the header of 2.7
+			li #[strong Jobs:] Running/pending background tasks e.g. baking, exporting, rendering
 
-// Templates
-include templates/_widget-list
-include templates/_widget-dropdown
+	hr
 
-script.
-	$(document).ready(function(){
-		$('body').removeClass('loading');
-	});
-
-script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-2147150-3")
-script.
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'UA-2147150-3');
+	section.ui-section
+		h1 Editors
+		h2
+			a(href="/viewport.html") Viewport

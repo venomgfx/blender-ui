@@ -14,6 +14,12 @@
 *
 	transition: all 75ms ease-in-out
 
+
+html, body
+	height: 100%
+	position: relative
+	width: 100%
+
 html
 	background-color: $global-web-background
 	color: $global-web-text
@@ -22,56 +28,89 @@ html
 		weight: 400
 		size: 12px
 	text-rendering: optimizeLegibility
-	min-width: 1200px
 
 body
 	margin: 0
-	padding: 0
+	min-width: 1200px
 	opacity 1
+	padding: 0
 	transition: opacity .5s ease-in-out !important
 
 	&.loading
 		opacity: 0
 
+h1
+	font-size: 1.8em
+
 h2
 	display: inline-block
-	margin: 15px 10px 0 10px
 	font-weight: 500
+
+	&+p
+		margin-top: 0
+
+hr
+	height: 1px
+	border: none
+	background-color: rgba($global-web-text, .2)
+
+a
+	color: rgba($global-web-text, .6)
+
+	&:hover
+		color: rgba($global-web-text, .9)
 
 section.ui-section
 	margin: 10px
 
-	&.intro
+	&.intro-header
+		background-color: darken($global-web-background, 5%)
+		color: rgba($global-web-text, .6)
 		display: flex
-		border-bottom: thin solid rgba($global-web-text, .2)
-		padding-bottom: 10px
 		font-size: 1.2em
-
-		a
-			color: rgba($global-web-text, .5)
+		margin: 0
+		padding: 10px
 
 		.credits
 			margin-left: auto
-			color: rgba($global-web-text, .5)
 
 		.theme-select
 			a
 				&.theme-main, &.theme-alt
 					margin: 0 5px
 				&.theme-main
+					color: $global-web-text
 					text-decoration: underline
 				&.theme-alt
 					text-decoration: none
 
-	&.panels
+	&.intro-text
+		border-bottom: thin solid rgba($global-web-text, .2)
+		display: flex
+
+		div
+			flex: 1
+			padding-right: 25px
+
+		ul
+			line-height: 1.4em
+			margin: 0 0 25px
+			padding-left: 20px
+
+		p
+			margin: 0 0 15px
+
+	.panels
 		display: flex
 		flex-wrap: wrap
 
 body.alt
 	section.ui-section .theme-select
 		a.theme-main
+			color: rgba($global-web-text, .5)
 			text-decoration: none
 		a.theme-alt
+			color: $global-web-text
 			text-decoration: underline
 
 .icon
