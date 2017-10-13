@@ -42,7 +42,7 @@ gulp.task('scripts_tutti', function() {
         .pipe(concat("tutti.min.js"))
         .pipe(uglify())
         .pipe(sourcemaps.write("./"))
-        .pipe(gulp.dest('dist/assets/js'))
+        .pipe(gulp.dest('dist/assets/js/generated'))
         .pipe(livereload());
 });
 

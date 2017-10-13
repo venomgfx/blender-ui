@@ -3,7 +3,7 @@
 dist/*.html
 dist/templates
 dist/assets/css/*
-dist/assets/js/*
+dist/assets/js/generated/*
 
 node_modules
 .sass-cache/
