@@ -1,6 +1,6 @@
 .DS_Store
 
-dist/*.html
+dist/**/*.html
 dist/templates
 dist/assets/css/*
 dist/assets/js/generated/*

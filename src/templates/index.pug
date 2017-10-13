@@ -2,19 +2,21 @@ extends layout.pug
 
 block content
 	section.ui-section.intro-text
-		div
+		div(style="flex: 2")
 			h2 Hello, curious.
-			p.
-				#[strong What:] This is a collection of interactive user interface #[em proposals] for #[a(href="https://www.blender.org/") Blender].
-			p.
-				#[strong Play:] Some buttons may be fun to press, most are not. This is my way to share mockups with the
-				developers. None of this is official at the moment. Changes must be agreed on by the rest of
-				the #[a(href="https://wiki.blender.org/index.php/Dev:Doc/Process/Module_Owners/List") Interface Design] module owners.
-			p.
-				#[strong Help:] Code contributions are welcome if you know some #[a(href="https://github.com/venomgfx/blender-ui") Sass, Pug and basic JavaScript].
-				If you don't know those words but still have cool UI ideas poke me #[a(href="https://twitter.com/PabloVazquez_") @PabloVazquez_].
 
-		div
+			div.threeties
+				p.
+					#[strong What:] This is a collection of interactive user interface #[em proposals] for #[a(href="https://www.blender.org/") Blender].
+					developers. None of this is official, changes must be agreed on by the rest of
+					the #[a(href="https://wiki.blender.org/index.php/Dev:Doc/Process/Module_Owners/List") Interface Design] module owners.
+				p.
+					#[strong Play:] Some buttons may be fun to press, most are not. This is my way to share mockups with the
+				p.
+					#[strong Help:] Code contributions are welcome if you know some #[a(href="https://github.com/venomgfx/blender-ui") Sass, Pug and basic JavaScript].
+					If you don't know those words but still have cool UI ideas poke me #[a(href="https://twitter.com/PabloVazquez_") @PabloVazquez_].
+
+		div(style="flex: 1")
 			h2 Must Check
 			ul
 				li
@@ -30,10 +32,6 @@ block content
 		hr
 
 	section.ui-section
-		h1 Components
-		p.
-			Library of generic, dummy widgets to build Blender's interface from.
-
 		h2 Top Bar
 		p.
 			Global, persistent top bar showing:
@@ -49,7 +47,7 @@ block content
 		#top-bar
 			#top-bar__primary
 				img.icon.blender-logo(
-					src="assets/img/icons/icon_blender.png")
+					src="/assets/img/icons/icon_blender.png")
 
 				ul.wgt-menu-simple
 					li.wgt-menu-simple-item.js-add-menu-template(
@@ -71,31 +69,31 @@ block content
 							.tabs-bar__tab.enabled
 								.tabs-bar__tab-title
 									span.tag(title="This workspace is using Scene settings")
-										img.icon(src="assets/img/icons/icon_restrict_render_off.png")
+										img.icon(src="/assets/img/icons/icon_restrict_render_off.png")
 									| Render
 									span.action
-										img.icon.close(src="assets/img/icons/icon_panel_close.png")
+										img.icon.close(src="/assets/img/icons/icon_panel_close.png")
 						if tab == '+'
 							.tabs-bar__tab.no-icon
 								.tabs-bar__tab-title
-									img.icon(src="assets/img/icons/icon_zoomin.png")
+									img.icon(src="/assets/img/icons/icon_zoomin.png")
 						else
 							.tabs-bar__tab
 								.tabs-bar__tab-title
 									= tab
 									span.action
-										img.icon.close(src="assets/img/icons/icon_panel_close.png")
+										img.icon.close(src="/assets/img/icons/icon_panel_close.png")
 
 				#top-bar__primary-right
 					.wgt-id-block
 						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_scene_data.png")
+							img.icon(src="/assets/img/icons/icon_scene_data.png")
 						.wgt-id-block-name
 							span Scene
 						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_zoomin.png")
+							img.icon(src="/assets/img/icons/icon_zoomin.png")
 						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_panel_close.png")
+							img.icon(src="/assets/img/icons/icon_panel_close.png")
 
 					#notifications-toggle
 						#notifications-toggle-icon
@@ -115,14 +113,14 @@ block content
 
 						.wgt-dropdown-container
 							.wgt-dropdown-icon
-								img.icon(src="assets/img/icons/icon_scene_data.png")
+								img.icon(src="/assets/img/icons/icon_scene_data.png")
 							.wgt-dropdown-name Object
 							.wgt-dropdown-arrows
 
 				#top-bar__secondary-main
 					.wgt-tool
 						.wgt-tool-icon
-							img.icon(src="assets/img/icons/icon_renderlayer.png")
+							img.icon(src="/assets/img/icons/icon_renderlayer.png")
 						.wgt-tool-name Subdivide
 
 					.wgt-checkbox.enabled.js-bool
@@ -145,13 +143,13 @@ block content
 				#top-bar__secondary-layout
 					.wgt-id-block
 						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_splitscreen.png")
+							img.icon(src="/assets/img/icons/icon_splitscreen.png")
 						.wgt-id-block-name
 							span Default Layout
 
 					.wgt-id-block
 						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_renderlayer.png")
+							img.icon(src="/assets/img/icons/icon_renderlayer.png")
 						.wgt-id-block-name
 							span View Layer
 
@@ -177,40 +175,40 @@ block content
 									data-template="list-viewlayer",
 									title="Add ViewLayer")
 									.wgt-tool-icon
-										img.icon(src="assets/img/icons/icon_renderlayer.png")
+										img.icon(src="/assets/img/icons/icon_renderlayer.png")
 
 								li.wgt-tool.js-add-template(
 									data-template="list-collection",
 									title="Add Collection")
 									.wgt-tool-icon
-										img.icon(src="assets/img/icons/icon_collections.png")
+										img.icon(src="/assets/img/icons/icon_collections.png")
 
 								li.wgt-tool.js-add-template(
 									data-template="list-override",
 									title="Add Override")
 									.wgt-tool-icon
-										img.icon(src="assets/img/icons/icon_rna.png")
+										img.icon(src="/assets/img/icons/icon_rna.png")
 
 							ul.wgt-tool-group
 								li.wgt-tool.js-list-item-remove(
 									title="Remove item")
 									.wgt-tool-icon
-										img.icon(src="assets/img/icons/icon_zoomout.png")
+										img.icon(src="/assets/img/icons/icon_zoomout.png")
 
 						.wgt-list-items
 							ul
 								li
 									.wgt-list-item.viewlayer.enabled.has-children
 										img.icon.js-list-item-collapse(
-											src="assets/img/icons/icon_tria_down.png")
+											src="/assets/img/icons/icon_tria_down.png")
 										img.icon(
-											src="assets/img/icons/icon_renderlayer.png")
+											src="/assets/img/icons/icon_renderlayer.png")
 										span.name Default ViewLayer
 										ul
 											li
 												img.icon.js-icon-toggle-onoff(
 													title="Set this view layer as active for this workspace",
-													src="assets/img/icons/icon_restrict_render_off.png")
+													src="/assets/img/icons/icon_restrict_render_off.png")
 											li
 												.wgt-checkbox.js-bool.enabled(
 													title="Enable or disable this view layer")
@@ -220,20 +218,20 @@ block content
 										li
 											.wgt-list-item.collection.has-children.has-override
 												img.icon.js-list-item-collapse(
-													src="assets/img/icons/icon_tria_down.png")
+													src="/assets/img/icons/icon_tria_down.png")
 												img.icon(
-													src="assets/img/icons/icon_collections.png")
+													src="/assets/img/icons/icon_collections.png")
 												span.name Master Collection
 
 												ul
 													li
 														img.icon.js-icon-toggle-onoff(
 															title="Toggle visibility of the objects in this collection",
-															src="assets/img/icons/icon_restrict_view_off.png")
+															src="/assets/img/icons/icon_restrict_view_off.png")
 													li
 														img.icon.js-icon-toggle-onoff(
 															title="Toggle selectability of the objects in this collection",
-															src="assets/img/icons/icon_restrict_select_off.png")
+															src="/assets/img/icons/icon_restrict_select_off.png")
 													li
 														.wgt-checkbox.js-bool.enabled(
 															title="Enable or disable this collection")
@@ -243,7 +241,7 @@ block content
 												li
 													.wgt-list-item.override
 														img.icon(
-															src="assets/img/icons/icon_rna.png")
+															src="/assets/img/icons/icon_rna.png")
 														span.name Collection Override
 														ul
 															li
@@ -263,20 +261,20 @@ block content
 					// ID Block
 					.wgt-id-block
 						.wgt-id-block-id_list
-							img.icon(src="assets/img/icons/icon_scene_data.png")
+							img.icon(src="/assets/img/icons/icon_scene_data.png")
 						.wgt-id-block-name
 							span Datablock Picker
 						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_zoomin.png")
+							img.icon(src="/assets/img/icons/icon_zoomin.png")
 						.wgt-id-block-action
-							img.icon(src="assets/img/icons/icon_panel_close.png")
+							img.icon(src="/assets/img/icons/icon_panel_close.png")
 
 					.wgt-separator
 
 					// Tool Buttons
 					.wgt-tool
 						.wgt-tool-icon
-							img.icon(src="assets/img/icons/icon_panel_close.png")
+							img.icon(src="/assets/img/icons/icon_panel_close.png")
 						.wgt-tool-name Tool With Icon
 
 					.wgt-tool-group
@@ -313,7 +311,7 @@ block content
 					.wgt-dropdown
 						.wgt-dropdown-container
 							.wgt-dropdown-icon
-								img.icon(src="assets/img/icons/icon_scene_data.png")
+								img.icon(src="/assets/img/icons/icon_scene_data.png")
 							.wgt-dropdown-name Object Mode
 							.wgt-dropdown-arrows
 
@@ -385,13 +383,13 @@ block content
 						.wgt-input-text-container
 							.wgt-input-text-value //../../
 							.wgt-input-text-action
-								img.icon(src="assets/img/icons/icon_splitscreen.png")
+								img.icon(src="/assets/img/icons/icon_splitscreen.png")
 
 					.wgt-input-text
 						.wgt-input-text-container
 							.wgt-input-text-placeholder Choose a path...
 							.wgt-input-text-action
-								img.icon(src="assets/img/icons/icon_renderlayer.png")
+								img.icon(src="/assets/img/icons/icon_renderlayer.png")
 
 
 			.wgt-scrollbar(title="Scrollbar")
