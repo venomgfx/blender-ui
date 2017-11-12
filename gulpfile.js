@@ -24,6 +24,7 @@ gulp.task('styles', function() {
 /* Templates - pug */
 gulp.task('templates', function() {
     gulp.src('src/templates/**/*.pug')
+        .pipe(plumber())
         .pipe(pug({
             pretty: false
         }))
@@ -38,6 +39,7 @@ gulp.task('templates', function() {
 */
 gulp.task('scripts_tutti', function() {
     gulp.src('src/scripts/tutti/**/*.js')
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(concat("tutti.min.js"))
         .pipe(uglify())
@@ -48,6 +50,7 @@ gulp.task('scripts_tutti', function() {
 
 gulp.task('scripts_vendor', function() {
     gulp.src('src/scripts/vendor/**/*.js')
+        .pipe(plumber())
         .pipe(gulp.dest('dist/assets/js'))
         .pipe(livereload());
 });
