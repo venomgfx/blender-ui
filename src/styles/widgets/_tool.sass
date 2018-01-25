@@ -26,11 +26,10 @@
 .wgt-tool-group
 	+wgt-box-shadow
 	align-items: center
-	border-radius: $wgt-border-radius
 	display: flex
 	margin: $wgt-margin
-	overflow: hidden
 	padding: 0
+	position: relative
 
 	&.vertical
 		flex-direction: column
@@ -46,3 +45,9 @@
 
 		&:first-child
 			border-left: none
+			border-bottom-left-radius: $wgt-border-radius
+			border-top-left-radius: $wgt-border-radius
+
+		&:last-child
+			border-bottom-right-radius: $wgt-border-radius
+			border-top-right-radius: $wgt-border-radius

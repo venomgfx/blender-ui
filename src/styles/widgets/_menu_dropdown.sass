@@ -19,11 +19,13 @@
 			width: 15px
 
 	&-label
-		flex: 1
-		white-space: nowrap
-		color: $global-color-text
-		padding-right: 5px
 		+wgt-text-shadow
+		color: $global-color-text
+		flex: 1
+		min-width: 50px
+		padding-left: 10px
+		padding-right: 5px
+		white-space: nowrap
 
 	&-label + .wgt-dropdown-container
 		margin-left: auto
@@ -78,7 +80,7 @@
 		border-radius: $wgt-border-radius
 		color: $wgt-input-text
 		max-width: 220px
-		position: relative
+		position: absolute
 		overflow: hidden
 
 		> ul
