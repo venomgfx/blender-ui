@@ -15,37 +15,27 @@ block content
 
 			ul.wgt-menu-simple
 				li.wgt-menu-simple-item.js-add-menu-template(
-					data-template="dropdown-file")
+					data-template="outliner-menu-view")
 					| View
 
 				li.wgt-menu-simple-item.js-add-menu-template(
-					data-template="dropdown-file")
-					| Search
+					data-template="outliner-menu-edit")
+					| Edit
 
 			.wgt-dropdown
 				.wgt-dropdown-container
-					.wgt-dropdown-name Active View Layer
+					.wgt-dropdown-name View Layer
 					.wgt-dropdown-arrows
 
 			ul.wgt-tool-group
-				li.wgt-tool.js-bool.js-menu-outliner-filter-type(title="Filter by Type...")
+				li.wgt-tool.js-bool(title="Search...")
 					.wgt-tool-icon
-						img.icon(src="/assets/img/icons/icon_filter.png")
-
-			ul.wgt-regular-group
-				li.wgt-regular.enabled.js-bool(title="Search...")
-					.wgt-regular-icon
 						img.icon(src="/assets/img/icons/icon_viewzoom.png")
 
 			ul.wgt-regular-group
-				li.wgt-regular.enabled.js-bool(title="Filter Collections")
+				li.wgt-regular.js-bool.js-menu-outliner-filter-type(title="Filter by Type...")
 					.wgt-regular-icon
-						img.icon(src="/assets/img/icons/icon_collections.png")
-
-			ul.wgt-regular-group
-				li.wgt-regular.js-bool(title="Filter Groups")
-					.wgt-regular-icon
-						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_GROUP.png")
+						img.icon(src="/assets/img/icons/icon_filter.png")
 
 			//- ul.wgt-regular-group
 			//- 	li.wgt-regular.enabled.js-bool(title="Add Collection")
@@ -100,13 +90,13 @@ block content
 				//- 	.wgt-regular-icon
 				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FORCEFIELD.png")
 
-			ul.wgt-radio.js-bool-exclusive
-				li.wgt-radio-value.enabled.js-bool(title="Filter Visible")
-					img.icon(src="/assets/img/icons/icon_restrict_view_off.png")
-				li.wgt-radio-value.js-bool(title="Filter Selected")
-					img.icon(src="/assets/img/icons/icon_restrict_select_off.png")
-				li.wgt-radio-value.js-bool(title="Filter Active")
-					img.icon(src="/assets/img/icons/ICON_RESTRICT_ACTIVE_OFF.png")
+			//- ul.wgt-radio.js-bool-exclusive
+			//- 	li.wgt-radio-value.enabled.js-bool(title="Filter Visible")
+			//- 		img.icon(src="/assets/img/icons/icon_restrict_view_off.png")
+			//- 	li.wgt-radio-value.js-bool(title="Filter Selected")
+			//- 		img.icon(src="/assets/img/icons/icon_restrict_select_off.png")
+			//- 	li.wgt-radio-value.js-bool(title="Filter Active")
+			//- 		img.icon(src="/assets/img/icons/ICON_RESTRICT_ACTIVE_OFF.png")
 
 		.ed-region-window
 
@@ -204,6 +194,39 @@ block content
 					.hotkey
 						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_SURFACE.png")
 
+
+	// View Menu
+	script#tmp-outliner-menu-edit(type="text/x-custom-template")
+		#template-outliner-menu-edit.wgt-dropdown-list.js-hide-on-click
+			ul
+				li
+					img.icon(src="/assets/img/icons/icon_new.png")
+					| #[em N]ew Collection
+					.hotkey Ctrl N
+
+				li
+					img.icon(src="/assets/img/icons/icon_file_folder.png")
+					| #[em L]ink Collection
+					.hotkey Ctrl O
+
+
+	// Edit Menu
+	script#tmp-outliner-menu-view(type="text/x-custom-template")
+		#template-outliner-menu-view.wgt-dropdown-list.js-hide-on-click
+			ul
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label
+						| #[em S]ort Alphabetically
+					.hotkey Ctrl N
+
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label
+						| #[em S]how Restriction Columns
+					.hotkey Ctrl O
 
 
 block scripts
