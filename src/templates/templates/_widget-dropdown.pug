@@ -1,6 +1,6 @@
 // Dropdown Menu
 script#tmp-dropdown-file(type="text/x-custom-template")
-	#template-dropdown-file.wgt-dropdown-list
+	#template-dropdown-file.wgt-dropdown-list.js-hide-on-click
 		ul
 			li
 				img.icon(src="/assets/img/icons/icon_new.png")
@@ -44,5 +44,5 @@ script.
 	});
 
 	$('body').on('click', function(){
-		$('#template-dropdown-file').remove();
+		$('.js-hide-on-click').remove();
 	});
