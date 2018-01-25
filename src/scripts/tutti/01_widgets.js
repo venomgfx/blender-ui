@@ -1,6 +1,26 @@
 // e.g. Checkboxes
 $(document).on('click', 'body .js-bool', function(){
-	$(this).toggleClass('enabled');
+
+	var $this = $(this);
+
+	// If the parent element has js-bool-exclusive, it means that
+	// only one element should have the status 'enabled' at a time
+	if ($this.parent().hasClass('js-bool-exclusive')){
+
+		// Remove 'enabled' from all siblings of the element
+		$this.siblings().removeClass('enabled');
+
+		// Only toggle 'enabled' if it's not already enabled
+		// This prevents from having radio buttons without one as active
+		if (!$this.hasClass('enabled')){
+			$this.toggleClass('enabled');
+		}
+
+	} else {
+
+		// A regular js-bool non exclusive, like checkboxes
+		$this.toggleClass('enabled');
+	}
 
 	gtag('event', 'button', {
 		'event_category': 'boolean',
