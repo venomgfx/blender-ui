@@ -1,0 +1,235 @@
+extends ../layout.pug
+
+block variables
+	- var page_title = "Outliner - ";
+	- var body_class = "ed-outliner";
+
+block content
+	.ed-container.outliner
+		.ed-region-header.header-top
+			.wgt-dropdown.icon-only
+				.wgt-dropdown-container
+					.wgt-dropdown-icon
+						img.icon(src="/assets/img/icons/icon_view_3d.png")
+					.wgt-dropdown-arrows
+
+			ul.wgt-menu-simple
+				li.wgt-menu-simple-item.js-add-menu-template(
+					data-template="dropdown-file")
+					| View
+
+				li.wgt-menu-simple-item.js-add-menu-template(
+					data-template="dropdown-file")
+					| Search
+
+			.wgt-dropdown
+				.wgt-dropdown-container
+					.wgt-dropdown-name Active View Layer
+					.wgt-dropdown-arrows
+
+			ul.wgt-tool-group
+				li.wgt-tool.js-bool.js-menu-outliner-filter-type(title="Filter by Type...")
+					.wgt-tool-icon
+						img.icon(src="/assets/img/icons/icon_filter.png")
+
+			ul.wgt-regular-group
+				li.wgt-regular.enabled.js-bool(title="Search...")
+					.wgt-regular-icon
+						img.icon(src="/assets/img/icons/icon_viewzoom.png")
+
+			ul.wgt-regular-group
+				li.wgt-regular.enabled.js-bool(title="Filter Collections")
+					.wgt-regular-icon
+						img.icon(src="/assets/img/icons/icon_collections.png")
+
+			ul.wgt-regular-group
+				li.wgt-regular.js-bool(title="Filter Groups")
+					.wgt-regular-icon
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_GROUP.png")
+
+			//- ul.wgt-regular-group
+			//- 	li.wgt-regular.enabled.js-bool(title="Add Collection")
+			//- 		.wgt-regular-label
+			//- 			| Types
+
+			//- 	li.wgt-regular.js-bool(title="Add Override")
+			//- 		.wgt-regular-icon
+			//- 			img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_MESH.png")
+
+			//- 	li.wgt-regular.js-bool(title="Add Override")
+			//- 		.wgt-regular-icon
+			//- 			img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_ARMATURE.png")
+
+			//- 	li.wgt-regular.js-bool(title="Add Override")
+			//- 		.wgt-regular-icon
+			//- 			img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_LAMP.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_CURVE.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_CAMERA.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_EMPTY.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FONT.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_LATTICE.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_SPEAKER.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_META.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_SURFACE.png")
+
+				//- li.wgt-regular.js-bool(title="Add Override")
+				//- 	.wgt-regular-icon
+				//- 		img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FORCEFIELD.png")
+
+			ul.wgt-radio.js-bool-exclusive
+				li.wgt-radio-value.enabled.js-bool(title="Filter Visible")
+					img.icon(src="/assets/img/icons/icon_restrict_view_off.png")
+				li.wgt-radio-value.js-bool(title="Filter Selected")
+					img.icon(src="/assets/img/icons/icon_restrict_select_off.png")
+				li.wgt-radio-value.js-bool(title="Filter Active")
+					img.icon(src="/assets/img/icons/ICON_RESTRICT_ACTIVE_OFF.png")
+
+		.ed-region-window
+
+	// Dropdown Menu
+	script#tmp-outliner-filter-type(type="text/x-custom-template")
+		#template-outliner-filter-type.wgt-dropdown-list
+			ul
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Armature
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_ARMATURE.png")
+
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Camera
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_CAMERA.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Curve
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_CURVE.png")
+
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Empty
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_EMPTY.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Font
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FONT.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Force Field
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FORCEFIELD.png")
+
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Lamp
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_LAMP.png")
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Lattice
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_LATTICE.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Light Probe
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_FORCEFIELD.png")
+
+				li
+					.wgt-checkbox.enabled.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Mesh
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_MESH.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Meta
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_META.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Speaker
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_SPEAKER.png")
+
+				li
+					.wgt-checkbox.js-bool
+						.wgt-checkbox-zone
+					.wgt-dropdown-label Surface
+					.hotkey
+						img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_SURFACE.png")
+
+
+
+block scripts
+	// Logic & Functionality
+	script.
+		// Add a new dropdown menu template based on .js-add-menu-template's data-template attribute
+		$(document).on('click', 'body .js-menu-outliner-filter-type', function() {
+
+			// Get the template name from data-template
+			//- var template = $(this).data('template');
+			var template_html = $('#tmp-outliner-filter-type').html();
+
+			$(this).parent().append(template_html);
+
+			//- gtag('event', 'button', {
+			//- 	'event_category': 'menu-item',
+			//- 	'event_label': template
+			//- });
+		});
+
+		$('body').on('click', function(e){
+
+			if (!$(e.target).hasClass('wgt-checkbox-zone')){
+				console.log('yes');
+				$('#template-outliner-filter-type').remove();
+			} else {
+				console.log('nope');
+			}
+		});

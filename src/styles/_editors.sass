@@ -1,4 +1,5 @@
 // Each editor lives in its own file
+@import editors/_outliner
 @import editors/_view_3d
 
 
@@ -36,11 +37,20 @@
 			flex-direction: row
 			padding: 0 7px
 
-			ul.wgt-menu-simple .wgt-dropdown-list
+			> div, > ul
+				margin-right: 5px
+				margin-left: 5px
+
+			.wgt-dropdown-list
 				bottom: 150%
 				left: -5px
 				top: initial
 				z-index: 999999999
+
+			&.header-top
+				.wgt-dropdown-list
+					bottom: initial
+					top: 150%
 
 		&-window
 			background-color: #222
