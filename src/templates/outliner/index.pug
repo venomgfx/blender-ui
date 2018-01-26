@@ -99,7 +99,33 @@ block content
 			//- 		img.icon(src="/assets/img/icons/ICON_RESTRICT_ACTIVE_OFF.png")
 
 		.ed-region-window
+			.list-flat-container
+				- var n = 1
+				ul
+					while n < 5
+						li
+							.list-flat-item
+								img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_EMPTY.png")
+								| Object.00
+								= n++
 
+				- var n1 = 1
+				ul.children.level-1
+					while n1 < 5
+						li
+							.list-flat-item
+								img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_MESH.png")
+								| Data.00
+								= n1++
+
+				- var n2 = 1
+				ul.children.level-2
+					while n2 < 5
+						li
+							.list-flat-item
+								img.icon(src="/assets/img/icons/ICON_OUTLINER_OB_ARMATURE.png")
+								| Modifiers.00
+								= n2++
 	// Dropdown Menu
 	script#tmp-outliner-filter-type(type="text/x-custom-template")
 		#template-outliner-filter-type.wgt-dropdown-list
