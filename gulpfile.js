@@ -61,9 +61,9 @@ gulp.task('scripts_vendor', function(done) {
 
 // While developing, run 'gulp watch'
 gulp.task('watch', function(done) {
-    gulp.watch('src/styles/**/*.sass',['styles']);
-    gulp.watch('src/templates/**/*.pug',['templates']);
-    gulp.watch('src/scripts/**/*.js',['scripts_tutti', 'scripts_vendor']);
+    gulp.watch('src/styles/**/*.sass', gulp.series('styles'));
+    gulp.watch('src/templates/**/*.pug', gulp.series('templates'));
+    gulp.watch('src/scripts/**/*.js', gulp.series('scripts_tutti', 'scripts_vendor'));
 
     done();
 });
