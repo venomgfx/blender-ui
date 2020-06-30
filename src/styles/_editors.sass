@@ -1,62 +1,63 @@
-// Each editor lives in its own file
-@import editors/_outliner
-@import editors/_view_3d
+// Each editor lives in its own file.
+@import editors/outliner
+@import editors/view_3d
 
 
-// Global to all editors
-[class^="ed-"]
+// Global to all editors.
+// [class^='ed-']
 
 .ed
-	&-container
-		bottom: 0
-		display: flex
-		flex-direction: column
-		left: 0
-		position: absolute
-		right: 0
-		top: $web-header-height
+  &-container
+    bottom: 0
+    display: flex
+    flex-direction: column
+    left: 0
+    position: absolute
+    right: 0
+    top: $web-header-height
 
-	&-region
+  &-region
 
-		&-ui,
-		&-header,
-		&-tools,
-		&-tool_props
-			background-color: darken($global-color-background, 5%)
-			display: flex
-			flex-direction: column
-			position: relative
-			z-index: 2
+    &-ui,
+    &-header,
+    &-tools,
+    &-tool-props
+      background-color: darken($global-color-background, 5%)
+      display: flex
+      flex-direction: column
+      position: relative
+      z-index: 2
 
-			.wgt-panel
-				margin: 5px
+      .wgt-panel
+        margin: 5px
 
-		&-header
-			align-items: center
-			border-top: thin solid darken($global-color-background, 10%)
-			flex-direction: row
-			padding: 0 7px
+    &-header
+      align-items: center
+      border-top: thin solid darken($global-color-background, 10%)
+      flex-direction: row
+      padding: 0 7px
 
-			> div, > ul
-				margin-right: 5px
-				margin-left: 5px
+      > div,
+      > ul
+        margin-left: 5px
+        margin-right: 5px
 
-			.wgt-dropdown-list
-				bottom: 150%
-				left: -5px
-				top: initial
-				z-index: 999999999
+      .wgt-dropdown-list
+        bottom: 150%
+        left: -5px
+        top: initial
+        z-index: 999999999
 
-			&.header-top
-				.wgt-dropdown-list
-					bottom: initial
-					top: 150%
+      &.header-top
+        .wgt-dropdown-list
+          bottom: initial
+          top: 150%
 
-		&-window
-			background-color: #222
-			display: flex
-			flex: 1
-			position: relative
+    &-window
+      background-color: #222
+      display: flex
+      flex: 1
+      position: relative
 
-			&-content
-				flex: 1
+      &-content
+        flex: 1

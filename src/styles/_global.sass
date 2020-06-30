@@ -1,6 +1,6 @@
 ::-webkit-scrollbar
-  width: 10px
   height: 10px
+  width: 10px
 
 ::-webkit-scrollbar-track
   background-color: rgba($global-web-background, .5)
@@ -12,249 +12,262 @@
   border-radius: 999em
 
 *
-	transition: all 75ms ease-in-out
+  transition: all 75ms ease-in-out
 
 
-html, body
-	height: 100%
-	position: relative
-	width: 100%
+html,
+body
+  height: 100%
+  position: relative
+  width: 100%
 
 html
-	background-color: $global-web-background
-	color: $global-web-text
-	font:
-		family: 'Droid Sans'
-		weight: 400
-		size: 12px
-	text-rendering: optimizeLegibility
+  background-color: $global-web-background
+  color: $global-web-text
+  font:
+    family: 'Droid Sans'
+    size: 12px
+    weight: 400
+  text-rendering: optimizeLegibility
 
 body
-	margin: 0
-	min-width: 1200px
-	opacity 1
-	padding: 0
-	transition: opacity .5s ease-in-out !important
+  margin: 0
+  min-width: 1200px
+  opacity: 1
+  padding: 0
+  transition: opacity .5s ease-in-out
 
-	&.loading
-		opacity: 0
+  &.loading
+    opacity: 0
 
 h1
-	font-size: 1.8em
+  font-size: 1.8em
 
 h2
-	display: inline-block
-	font-weight: 500
+  display: inline-block
+  font-weight: 500
 
-	&+p
-		margin-top: 0
+  &+p
+    margin-top: 0
 
 hr
-	height: 1px
-	border: none
-	background-color: rgba($global-web-text, .2)
+  background-color: rgba($global-web-text, .2)
+  border: 0
+  height: 1px
 
 a
-	color: rgba($global-web-text, .6)
+  color: rgba($global-web-text, .6)
 
-	&:hover
-		color: rgba($global-web-text, .9)
+  &:hover
+    color: rgba($global-web-text, .9)
 
-section.ui-section
-	margin: 10px
+section
+  &.ui-section
+    margin: 10px
 
-	&.intro-header
-		background-color: darken($global-web-background, 5%)
-		color: rgba($global-web-text, .6)
-		display: flex
-		font-size: 1.2em
-		justify-content: space-between
-		margin: 0
-		padding: 10px
+  &.intro-header
+    background-color: darken($global-web-background, 5%)
+    color: rgba($global-web-text, .6)
+    display: flex
+    font-size: 1.2em
+    justify-content: space-between
+    margin: 0
+    padding: 10px
 
-		.index
-			a
-				padding: 5px
+    .index
+      a
+        padding: 5px
 
-		.theme-select
-			a
-				&.theme-main, &.theme-alt
-					margin: 0 5px
-				&.theme-main
-					color: $global-web-text
-					text-decoration: underline
-				&.theme-alt
-					text-decoration: none
+    .theme-select
+      a
+        &.theme-main, &.theme-alt
+          margin: 0 5px
 
-	&.intro-text
-		border-bottom: thin solid rgba($global-web-text, .2)
-		display: flex
+        &.theme-main
+          color: $global-web-text
+          text-decoration: underline
 
-		div
-			flex: 1
-			padding-right: 25px
+        &.theme-alt
+          text-decoration: none
 
-		ul
-			line-height: 1.4em
-			margin: 0 0 25px
-			padding-left: 20px
+  &.intro-text
+    border-bottom: thin solid rgba($global-web-text, .2)
+    display: flex
 
-		p
-			margin: 0 0 15px
+    div
+      flex: 1
+      padding-right: 25px
 
-	.panels
-		display: flex
-		flex-wrap: wrap
+    ul
+      line-height: 1.4em
+      margin: 0 0 25px
+      padding-left: 20px
 
-	.threeties
-		display: flex
+    p
+      margin: 0 0 15px
 
-		p
-			margin-right: 15px
-			flex: 1
+  .panels
+    display: flex
+    flex-wrap: wrap
 
-body.alt
-	section.ui-section .theme-select
-		a.theme-main
-			color: rgba($global-web-text, .5)
-			text-decoration: none
-		a.theme-alt
-			color: $global-web-text
-			text-decoration: underline
+  .threeties
+    display: flex
+
+    p
+      flex: 1
+      margin-right: 15px
+
+.alt
+  // section.ui-section .theme-select
+  a
+    &.theme-main
+      color: rgba($global-web-text, .5)
+      text-decoration: none
+
+    &.theme-alt
+      color: $global-web-text
+      text-decoration: underline
 
 .icon
-	display: inline-block
-	height: 16px
-	width: 16px
+  display: inline-block
+  height: 16px
+  width: 16px
 
 .blender-logo
-	display: block
-	width: 16px
-	height: 16px
-	margin-left: 10px
+  display: block
+  height: 16px
+  margin-left: 10px
+  width: 16px
 
 #top-bar
-	display: flex
-	flex-direction: column
+  background-color: darken($global-color-background, 15%)
+  border-top-left-radius: 3px
+  border-top-right-radius: 3px
+  cursor: default
+  display: flex
+  flex-direction: column
 
-	cursor: default
+  #top-bar__primary
+    align-items: center
+    display: flex
+    height: $header-bar-primary-height
+    padding-top: 5px
 
-	background-color: darken($global-color-background, 15%)
-	border-top-left-radius: 3px
-	border-top-right-radius: 3px
+    &-right
+      align-items: center
+      display: flex
+      margin-left: auto
 
-	#top-bar__primary
-		height: $header-bar-primary-height
-		padding-top: 5px
-		display: flex
-		align-items: center
+  #top-bar__secondary
+    align-items: center
+    background-color: $global-color-background
+    display: flex
 
-		&-right
-			display: flex
-			align-items: center
-			margin-left: auto
+    &-mode,
+    &-main,
+    &-layout
+      align-items: center
+      display: flex
+      padding: 5px 10px
 
-	#top-bar__secondary
-		display: flex
-		align-items: center
-		background-color: $global-color-background
+    &-main
+      border-left: thin solid darken($global-color-background, 10%)
+      border-right: thin solid darken($global-color-background, 10%)
+      flex: 1
 
-		&-mode, &-main, &-layout
-			display: flex
-			align-items: center
-			padding: 5px 10px
+      .wgt-tool,
+      .wgt-checkbox
+        margin-right: 10px
 
-		&-main
-			flex: 1
+      .more
+        margin-left: auto
+        margin-right: 0
 
-			border-left: thin solid darken($global-color-background, 10%)
-			border-right: thin solid darken($global-color-background, 10%)
+    &-layout
+      margin-left: auto
 
-			.wgt-tool, .wgt-checkbox
-				margin-right: 10px
+  ul
+    &.menu-simple
+      margin: 0 5px
 
-			.more
-				margin-left: auto
-				margin-right: 0
+  .wgt-id-block
+    margin:
+      left: auto
+      right: 5px
 
-		&-layout
-			margin-left: auto
 
-	ul.menu-simple
-		margin: 0 5px
+  #window-buttons
+    display: flex
+    margin: 0 10px 0 5px
 
-	.wgt-id-block
-		margin:
-			left: auto
-			right: 5px
+    &__button
+      border-radius: 50%
+      box-shadow: 1px 1px 1px rgba(black, .15)
+      height: 12px
+      margin: 0
+      width: 12px
 
-	#window-buttons
-		display: flex
-		margin: 0 10px 0 5px
-		&__button
-			height: 12px
-			width: 12px
-			border-radius: 50%
-			margin: 0
-			box-shadow: 1px 1px 1px rgba(black, .15)
+      &:not(:last-child)
+        margin-right: 5px
 
-			&:not(:last-child)
-				margin-right: 5px
+      &.close
+        background-color: #ff5e56
 
-			&.close
-				background-color: #ff5e56
-			&.min
-				background-color: #ffbd30
-			&.max
-				background-color: #27c93f
+      &.min
+        background-color: #ffbd30
+
+      &.max
+        background-color: #27c93f
 
 
 #status-bar
-	display: flex
-	align-items: center
-	cursor: default
+  +wgt-text-shadow
+  align-items: center
+  background-color: $global-color-background
+  border-bottom-left-radius: 3px
+  border-bottom-right-radius: 3px
+  color: $global-color-text
+  cursor: default
+  display: flex
 
-	background-color: $global-color-background
-	border-bottom-left-radius: 3px
-	border-bottom-right-radius: 3px
-	color: $global-color-text
-	white-space: nowrap
-	+wgt-text-shadow
+  white-space: nowrap
 
-	&__filepath
-		margin-left: 10px
+  &__filepath
+    margin-left: 10px
 
-	&__stats
-		margin-left: auto
+  &__stats
+    margin-left: auto
 
-		ul
-			margin: 0
-			padding: 0
-			list-style-type: none
-			li
-				display: inline-block
-				padding-left: 4px
-				margin-left: 4px
-				&:before
-					content: '|'
-					position: relative
-					left: -4px
-					opacity: .5
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 0
 
-				&:first-child:before
-					display: none
+      li
+        display: inline-block
+        margin-left: 4px
+        padding-left: 4px
 
-	&__jobs
-		display: flex
-		margin: 5px
+        &::before
+          content: '|'
+          left: -4px
+          opacity: .5
+          position: relative
+
+        &:first-child::before
+          display: none
+
+  &__jobs
+    display: flex
+    margin: 5px
 
 #notifications
-	&-toggle
-		&-icon
-			width: 20px
-			height: 20px
-			text-align: center
-			display: flex
-			align-items: center
-			justify-content: center
-			color: $global-color-text
+  &-toggle
+    &-icon
+      align-items: center
+      color: $global-color-text
+      display: flex
+      height: 20px
+      justify-content: center
+      text-align: center
+      width: 20px
