@@ -1,56 +1,55 @@
-/* Panel */
+// Panel.
 .wgt-panel
-	display: flex
-	flex-direction: column
-	position: relative
-	margin-right: 10px
-	margin-bottom: 10px
-	min-width: 280px
-	width: 24%
+  display: flex
+  flex-direction: column
+  margin-bottom: 10px
+  margin-right: 10px
+  min-width: 280px
+  position: relative
+  width: 24%
 
-	&.enabled
-		.wgt-panel-content
-			display: block
+  &.enabled
+    .wgt-panel-content
+      display: block
 
-		.wgt-panel-header
-			border-bottom-left-radius: 0
-			border-bottom-right-radius: 0
+    .wgt-panel-header
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
 
-		.wgt-panel-header-collapse
-			border-top-color: $global-color-text
-			border-left-color: transparent
-			top: 3px
+    .wgt-panel-header-collapse
+      border-left-color: transparent
+      border-top-color: $global-color-text
+      top: 3px
 
-	&-header
-		align-items: center
-		background-color: $global-color-background
-		border-radius: $wgt-border-radius
-		color: $global-color-text
-		display: flex
-		font-size: 1.1em
-		padding: 5px 10px
+  &-header // .wgt-panel-header
+    align-items: center
+    background-color: $global-color-background
+    border-radius: $wgt-border-radius
+    color: $global-color-text
+    display: flex
+    font-size: 1.1em
+    padding: 5px 10px
 
-		&-collapse
-			position: relative
-			top: 0
-			width: 0
-			height: 0
-			border: 4px solid transparent
-			border-top-color: transparent
-			border-left-color: $global-color-text
-			margin-right: 5px
-			padding: 1px
+    // Triangle widget to collapse panel.
+    &-collapse
+      border: 4px solid transparent
+      border-left-color: $global-color-text
+      border-top-color: transparent
+      height: 0
+      margin-right: 5px
+      padding: 1px
+      position: relative
+      top: 0
+      width: 0
 
-		&-name
-			cursor: default
-			user-select: none
-			+wgt-text-shadow
+    &-name
+      +wgt-text-shadow
+      cursor: default
+      user-select: none
 
-	&-content
-		display: none
-		padding: 5px 10px
-		background-color: $global-color-background
-
-		border-bottom-left-radius: $wgt-border-radius
-		border-bottom-right-radius: $wgt-border-radius
-		box-shadow: inset 0 1px 5px rgba(black, .15)
+  &-content
+    background-color: $global-color-background
+    border-bottom-left-radius: $wgt-border-radius
+    border-bottom-right-radius: $wgt-border-radius
+    display: none
+    padding: 5px 10px
