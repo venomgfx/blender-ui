@@ -1,0 +1,57 @@
+\:root
+  --node-bg: #333
+  --node-border-radius: var(--wgt-border-radius)
+  --node-width: 15rem
+
+  --node-border-color: var(--node-bg)
+
+  --node-socket-size: .75rem
+  --node-socket-bg: cyan
+
+  --node-socket-default-color: hsl(0deg 0% 50%)
+  --node-socket-geometry-color: hsl(169deg 100% 50%)
+  --node-socket-normal-color: hsl(240deg 47% 58%)
+  --node-socket-vector-color: hsl(282deg 100% 65%)
+
+.nodes-grid
+  display: flex
+
+.node
+  background-color: var(--node-bg)
+  border: var(--border-width) solid var(--node-border-color)
+  border-radius: var(--node-border-radius)
+  box-shadow: var(--wgt-box-shadow)
+  display: flex
+  flex-direction: column
+  margin: var(--spacer)
+  width: var(--node-width)
+
+.node-header
+  padding: var(--spacer-sm) var(--spacer)
+
+.node-entry
+  align-items: center
+  display: flex
+  font-size: var(--font-size-sm)
+  padding: var(--spacer-xs) var(--spacer)
+  position: relative
+
+.node-entry-socket
+  background-color: var(--node-socket-default-color)
+  border: var(--border-width) solid var(--node-bg)
+  border-radius: 50%
+  display: block
+  content: ''
+  left: calc(calc(var(--node-socket-size) * -.5) - calc(var(--border-width) * 2))
+  height: var(--node-socket-size)
+  position: absolute
+  width: var(--node-socket-size)
+
+/* Build socket-type classes. */
+$socket-types: ('normal', 'geometry', 'vector')
+@each $type in $socket-types
+  .socket-type-#{$type}
+    background-color: var(--node-socket-#{$type}-color)
+
+.ui-section.nodes
+  display: flex

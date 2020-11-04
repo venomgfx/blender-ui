@@ -1,442 +1,82 @@
 extends layout.pug
 
 block content
-	section.ui-section.intro-text
-		div(style="flex: 2")
-			h2 Hello, curious.
-
-			div.threeties
-				p.
-					#[strong What:] This is a collection of interactive user interface #[em proposals] for #[a(href="https://www.blender.org/") Blender].
-					developers. None of this is official, changes must be agreed on by the rest of
-					the #[a(href="https://wiki.blender.org/index.php/Dev:Doc/Process/Module_Owners/List") Interface Design] module owners.
-				p.
-					#[strong Play:] Some buttons may be fun to press, most are not. This is my way to share mockups with the rest of the UI team and the community.
-				p.
-					#[strong Help:] Code contributions are welcome if you know some #[a(href="https://github.com/venomgfx/blender-ui") Sass, Pug and basic JavaScript].
-					If you don't know those words but still have cool UI ideas poke me #[a(href="https://twitter.com/PabloVazquez_") @PabloVazquez_].
-
-		div(style="flex: 1")
-			h2 Must Check
-			ul
-				li
-					a(href="https://developer.blender.org/project/view/12/") Project on developer.blender.org
-				li
-					a(href="https://lists.blender.org/mailman/listinfo/bf-interface") Mailing List
-				li
-					| #blender-ui channel on IRC [freenode]
-				hr
-				li
-					a(href="https://developer.blender.org/T51844") Manipulators Suggestions
-
-		hr
-
-	section.ui-section
-		h2 Top Bar
-		p.
-			Global, persistent top bar showing:
-
-		ul
-			li #[strong Application Menu:] General menu and Blender icon to call the splash
-			li #[strong Workspaces:] Tabbed interface listing all available workspaces, "+" to add more
-			li #[strong Scene picker]
-			li.
-				#[strong Window buttons:] Blender could become borderless if we embed
-				window buttons in the top bar (like Firefox Quantum, Chrome, Safari)
-
-		#top-bar
-			#top-bar__primary
-				img.icon.blender-logo(
-					src="/assets/img/icons/icon_blender.png")
-
-				ul.wgt-menu-simple
-					li.wgt-menu-simple-item.js-add-menu-template(
-						data-template="dropdown-file")
-						| File
-
-					li.wgt-menu-simple-item.js-add-menu-template(
-						data-template="dropdown-file")
-						| Window
-
-					li.wgt-menu-simple-item.js-add-menu-template(
-						data-template="dropdown-file")
-						| Help
-
-				.tabs-bar
-					- var tabs = ['Modeling', 'Shading', 'Animation', 'Painting', 'Sequencer', 'Grease Pencil', '+']
-					each tab, index in tabs
-						if tab == 'Animation'
-							.tabs-bar__tab.enabled
-								.tabs-bar__tab-title
-									span.tag(title="This workspace is using Scene settings")
-										img.icon(src="/assets/img/icons/icon_restrict_render_off.png")
-									| Render
-									span.action
-										img.icon.close(src="/assets/img/icons/icon_panel_close.png")
-						if tab == '+'
-							.tabs-bar__tab.no-icon
-								.tabs-bar__tab-title
-									img.icon(src="/assets/img/icons/icon_zoomin.png")
-						else
-							.tabs-bar__tab
-								.tabs-bar__tab-title
-									= tab
-									span.action
-										img.icon.close(src="/assets/img/icons/icon_panel_close.png")
-
-				#top-bar__primary-right
-					.wgt-id-block
-						.wgt-id-block-id_list
-							img.icon(src="/assets/img/icons/icon_scene_data.png")
-						.wgt-id-block-name
-							span Scene
-						.wgt-id-block-action
-							img.icon(src="/assets/img/icons/icon_zoomin.png")
-						.wgt-id-block-action
-							img.icon(src="/assets/img/icons/icon_panel_close.png")
-
-					#notifications-toggle
-						#notifications-toggle-icon
-						.flyover
-
-
-					#window-buttons
-						#window-buttons__button.close
-						#window-buttons__button.min
-						#window-buttons__button.max
-
-			#top-bar__secondary
-				#top-bar__secondary-mode
-					.wgt-dropdown
-						.wgt-dropdown-label
-							| Mode:
-
-						.wgt-dropdown-container
-							.wgt-dropdown-icon
-								img.icon(src="/assets/img/icons/icon_scene_data.png")
-							.wgt-dropdown-name Object
-							.wgt-dropdown-arrows
-
-				#top-bar__secondary-main
-					.wgt-tool
-						.wgt-tool-icon
-							img.icon(src="/assets/img/icons/icon_renderlayer.png")
-						.wgt-tool-name Subdivide
-
-					.wgt-checkbox.enabled.js-bool
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Multiple Importance
-
-					.wgt-checkbox.disabled
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Quad/Tri
-
-					.wgt-dropdown
-						.wgt-dropdown-label Quad Type:
-						.wgt-dropdown-container
-							.wgt-dropdown-name Path
-							.wgt-dropdown-arrows
-
-					.wgt-tool.more
-						.wgt-tool-name More...
-
-				#top-bar__secondary-layout
-					.wgt-id-block
-						.wgt-id-block-id_list
-							img.icon(src="/assets/img/icons/icon_splitscreen.png")
-						.wgt-id-block-name
-							span Default Layout
-
-					.wgt-id-block
-						.wgt-id-block-id_list
-							img.icon(src="/assets/img/icons/icon_renderlayer.png")
-						.wgt-id-block-name
-							span View Layer
-
-
-	section.ui-section
-		h2 Widgets
-
-		.panels
-			.wgt-panel.enabled
-				.wgt-panel-header.js-panel-collapse
-					.wgt-panel-header-collapse
-					.wgt-panel-header-name UI List Widget
-
-				.wgt-panel-content
-					.wgt-list-container
-						.wgt-list-toolbar
-
-							.wgt-label Add Elements:
-
-							ul.wgt-tool-group
-
-								li.wgt-tool.disabled.js-add-template(
-									data-template="list-viewlayer",
-									title="Add ViewLayer")
-									.wgt-tool-icon
-										img.icon(src="/assets/img/icons/icon_renderlayer.png")
-
-								li.wgt-tool.js-add-template(
-									data-template="list-collection",
-									title="Add Collection")
-									.wgt-tool-icon
-										img.icon(src="/assets/img/icons/icon_collections.png")
-
-								li.wgt-tool.js-add-template(
-									data-template="list-override",
-									title="Add Override")
-									.wgt-tool-icon
-										img.icon(src="/assets/img/icons/icon_rna.png")
-
-							ul.wgt-tool-group
-								li.wgt-tool.js-list-item-remove(
-									title="Remove item")
-									.wgt-tool-icon
-										img.icon(src="/assets/img/icons/icon_zoomout.png")
-
-						.wgt-list-items
-							ul
-								li
-									.wgt-list-item.viewlayer.enabled.has-children
-										img.icon.js-list-item-collapse(
-											src="/assets/img/icons/icon_tria_down.png")
-										img.icon(
-											src="/assets/img/icons/icon_renderlayer.png")
-										span.name Default ViewLayer
-										ul
-											li
-												img.icon.js-icon-toggle-onoff(
-													title="Set this view layer as active for this workspace",
-													src="/assets/img/icons/icon_restrict_render_off.png")
-											li
-												.wgt-checkbox.js-bool.enabled(
-													title="Enable or disable this view layer")
-													.wgt-checkbox-zone
-
-									ul
-										li
-											.wgt-list-item.collection.has-children.has-override
-												img.icon.js-list-item-collapse(
-													src="/assets/img/icons/icon_tria_down.png")
-												img.icon(
-													src="/assets/img/icons/icon_collections.png")
-												span.name Master Collection
-
-												ul
-													li
-														img.icon.js-icon-toggle-onoff(
-															title="Toggle visibility of the objects in this collection",
-															src="/assets/img/icons/icon_restrict_view_off.png")
-													li
-														img.icon.js-icon-toggle-onoff(
-															title="Toggle selectability of the objects in this collection",
-															src="/assets/img/icons/icon_restrict_select_off.png")
-													li
-														.wgt-checkbox.js-bool.enabled(
-															title="Enable or disable this collection")
-															.wgt-checkbox-zone
-
-											ul
-												li
-													.wgt-list-item.override
-														img.icon(
-															src="/assets/img/icons/icon_rna.png")
-														span.name Collection Override
-														ul
-															li
-																.wgt-checkbox.js-bool.enabled(
-																	title="Enable or disable this override")
-																	.wgt-checkbox-zone
-
-					.wgt-list-resize
-
-
-			.wgt-panel.enabled
-				.wgt-panel-header.js-panel-collapse
-					.wgt-panel-header-collapse
-					.wgt-panel-header-name Datablock, Tools & Checkboxes
-
-				.wgt-panel-content
-					// ID Block
-					.wgt-id-block
-						.wgt-id-block-id_list
-							img.icon(src="/assets/img/icons/icon_scene_data.png")
-						.wgt-id-block-name
-							span Datablock Picker
-						.wgt-id-block-action
-							img.icon(src="/assets/img/icons/icon_zoomin.png")
-						.wgt-id-block-action
-							img.icon(src="/assets/img/icons/icon_panel_close.png")
-
-					.wgt-separator
-
-					// Tool Buttons
-					.wgt-tool
-						.wgt-tool-icon
-							img.icon(src="/assets/img/icons/icon_panel_close.png")
-						.wgt-tool-name Tool With Icon
-
-					.wgt-tool-group
-						.wgt-tool
-							.wgt-tool-name Without Icon
-						.wgt-tool.disabled
-							.wgt-tool-name Disabled Tool
-
-					.wgt-separator
-
-					// Checkboxes
-					.wgt-label Checkboxes:
-
-					.wgt-checkbox.enabled.js-bool
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Checkbox Checked
-					.wgt-checkbox.js-bool
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Un-checked
-					.wgt-checkbox.disabled
-						.wgt-checkbox-zone
-						.wgt-checkbox-name Wireframe (disabled)
-
-
-			.wgt-panel.enabled
-				.wgt-panel-header.js-panel-collapse
-					.wgt-panel-header-collapse
-					.wgt-panel-header-name Dropdowns & Sliders
-
-				.wgt-panel-content
-					.wgt-label Dropdowns:
-
-					// Dropdowns
-					.wgt-dropdown
-						.wgt-dropdown-container
-							.wgt-dropdown-icon
-								img.icon(src="/assets/img/icons/icon_scene_data.png")
-							.wgt-dropdown-name Object Mode
-							.wgt-dropdown-arrows
-
-					.wgt-dropdown
-						.wgt-dropdown-container
-							.wgt-dropdown-name Iconless Dropdown
-							.wgt-dropdown-arrows
-
-					.wgt-dropdown
-						.wgt-dropdown-label With a Label:
-						.wgt-dropdown-container
-							.wgt-dropdown-name Value!
-							.wgt-dropdown-arrows
-
-					.wgt-separator
-
-					.wgt-slider-number
-						.wgt-slider-number-container
-							.wgt-slider-number-arrow
-							.wgt-slider-number-name Volume:
-							.wgt-slider-number-value 0.000
-							.wgt-slider-number-arrow
-
-					.wgt-slider-number
-						.wgt-slider-number-label Num Slider:
-						.wgt-slider-number-container
-							.wgt-slider-number-arrow
-							.wgt-slider-number-value 327
-							.wgt-slider-number-arrow
-
-					.wgt-separator
-
-					ul.wgt-radio
-						li.wgt-radio-value.js-bool BW
-						li.wgt-radio-value.js-bool.enabled RGB
-						li.wgt-radio-value.js-bool RGBA
-
-
-			.wgt-panel.enabled
-				.wgt-panel-header.js-panel-collapse
-					.wgt-panel-header-collapse
-					.wgt-panel-header-name Value Slider & Text Input
-
-				.wgt-panel-content
-					.wgt-slider-value
-						.wgt-slider-value-info
-							.wgt-slider-value-label Unmodified:
-							.wgt-slider-value-value 0%
-						.wgt-slider-value-slider
-							.wgt-slider-value-slider-manipulator
-
-					.wgt-slider-value
-						.wgt-slider-value-info
-							.wgt-slider-value-label Value Modified:
-							.wgt-slider-value-value 0.652
-						.wgt-slider-value-slider.enabled
-							.wgt-slider-value-slider-manipulator
-
-					.wgt-slider-value.disabled
-						.wgt-slider-value-info
-							.wgt-slider-value-value 0.245 cm
-						.wgt-slider-value-slider.enabled
-							.wgt-slider-value-slider-manipulator
-
-					.wgt-separator
-
-					.wgt-input-text
-						.wgt-input-text-label Filepath:
-						.wgt-input-text-container
-							.wgt-input-text-value //../../
-							.wgt-input-text-action
-								img.icon(src="/assets/img/icons/icon_splitscreen.png")
-
-					.wgt-input-text
-						.wgt-input-text-container
-							.wgt-input-text-placeholder Choose a path...
-							.wgt-input-text-action
-								img.icon(src="/assets/img/icons/icon_renderlayer.png")
-
-
-			.wgt-scrollbar(title="Scrollbar")
-				.wgt-scrollbar-thumb
-
-
-	section.ui-section
-		h2 Status Bar
-
-		#status-bar
-			#status-bar__filepath
-				| [Caminandes] */home/koro/Desktop/shouldnt_save_on_desktop.blend
-			#status-bar__stats
-				ul
-					li Verts:88,521
-					li Faces:87,202
-					li Tris:166,270
-					li Objects:1/127
-					li Lamps:0/4
-					li Mem:731.70M
-					li camrig_02
-
-			#status-bar__jobs
-				.wgt-progress_bar-circle__container
-					.wgt-progress_bar-circle__text 84%
-					.wgt-progress_bar-circle__inner
-					.wgt-progress_bar-circle__progress.done_84
-					.wgt-progress_bar-circle__progress.left_84
-
-				.wgt-progress_bar-circle__container
-					.wgt-progress_bar-circle__text 36%
-					.wgt-progress_bar-circle__inner
-					.wgt-progress_bar-circle__progress.done_36
-					.wgt-progress_bar-circle__progress
-
-		p.
-			Global, persistent bottom bar showing:
-
-		ul
-			li #[strong Current File Path:] Could also display current show/project/asset name. Displays '*' when file is modified
-			li #[strong Tips/Tools descriptions:] Shown momentarily when hovering over specific tools
-			li #[strong Statistics:] Just like in the header of 2.7
-			li #[strong Jobs:] Running/pending background tasks e.g. baking, exporting, rendering
-
-	hr
-
-	section.ui-section
-		h1 Editors
-		h2
-			a(href="/viewport/") Viewport
+  section.ui-section.nodes
+    .modifier-editor
+      .modifier
+        .modifier-header
+          .wgt.wgt-tool
+            .icon.icon-collapse a
+          .wgt.wgt-regular
+            .icon.icon-mod-icon b
+          .wgt.wgt-text Triangulate
+          .wgt.wgt-regular.active
+            .icon.icon-mesh c
+          .wgt.wgt-regular.active
+            .icon.icon-edit-mode d
+          .wgt.wgt-dropdown
+            .icon.icon-dropdown e
+          .wgt.wgt-tool
+            .icon.icon-x x
+          .wgt.wgt-drag
+            .icon.icon-drag .
+
+        .modifier-body
+          .wgt-label Settings are in the particle tab
+
+      .modifier.active
+        .modifier-header
+          .wgt.wgt-tool
+            .icon.icon-collapse a
+          .wgt.wgt-regular
+            .icon.icon-mod-icon b
+          .wgt.wgt-text Triangulate
+          .wgt.wgt-regular.active
+            .icon.icon-mesh c
+          .wgt.wgt-regular.active
+            .icon.icon-edit-mode d
+          .wgt.wgt-dropdown
+            .icon.icon-dropdown e
+          .wgt.wgt-tool
+            .icon.icon-x x
+          .wgt.wgt-drag
+            .icon.icon-drag .
+
+        .modifier-body
+          .wgt-label Settings are in the particle tab
+
+    .node-editor
+      .nodes-grid
+        .node
+          .node-header
+            span.node-label Scatter
+
+          .node-body
+            .node-entry
+              .node-entry-socket.socket-type-geometry
+              .node-entry-value Mesh
+
+            .node-entry
+              .node-entry-socket.socket-type-value
+              .node-entry-value Seed
+
+            .node-entry
+              .node-entry-socket.socket-type-normal
+              .node-entry-value Normal
+
+        .node
+          .node-header
+            span.node-label Attribute Mix
+
+          .node-body
+            .node-entry
+              .node-entry-socket.socket-type-geometry
+              .node-entry-value Mesh
+
+            .node-entry
+              .node-entry-socket.socket-type-value
+              .node-entry-value Seed
+
+            .node-entry
+              .node-entry-socket.socket-type-normal
+              .node-entry-value Normal

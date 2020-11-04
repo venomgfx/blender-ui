@@ -1,25 +1,18 @@
 // Each widget lives in its own file.
-@import widgets/checkbox
-@import widgets/id_block
-@import widgets/input_text
-@import widgets/label
-@import widgets/list
-@import widgets/menu_dropdown
-@import widgets/menu_simple
-@import widgets/panel
-@import widgets/progress_bar
-@import widgets/radio
-@import widgets/regular
-@import widgets/scrollbar
-@import widgets/separator
-@import widgets/slider_number
-@import widgets/slider_value
-@import widgets/tabs
-@import widgets/tool
-
+@import components/node
+@import components/modifier
+@import components/wgt-regular
+@import components/wgt-text
 
 // Disabled widgets are half transparent and non-clickable.
-[class^='wgt']
+.wgt
+  --wgt-active: var(--accent-color)
+
+  align-items: center
+  display: flex
+  justify-content: center
+  padding: var(--wgt-padding)
+
   &.disabled
     opacity: .5
     pointer-events: none

@@ -3,12 +3,12 @@
   width: 10px
 
 ::-webkit-scrollbar-track
-  background-color: rgba($global-web-background, .5)
+  background-color: rgba(var(--web-body-bg-color), .5)
   border-radius: 999em
   margin: 3px
 
 ::-webkit-scrollbar-thumb
-  background-color: rgba($global-web-text, .5)
+  background-color: rgba(var(--web-body-color), .5)
   border-radius: 999em
 
 *
@@ -22,12 +22,11 @@ body
   width: 100%
 
 html
-  background-color: $global-web-background
-  color: $global-web-text
+  background-color: var(--web-body-bg-color)
+  color: var(--web-body-color)
   font:
     family: 'Droid Sans'
-    size: 12px
-    weight: 400
+    size: var(--font-size)
   text-rendering: optimizeLegibility
 
 body
@@ -51,82 +50,19 @@ h2
     margin-top: 0
 
 hr
-  background-color: rgba($global-web-text, .2)
+  background-color: rgba(var(--web-body-color), .2)
   border: 0
   height: 1px
 
 a
-  color: rgba($global-web-text, .6)
+  color: rgba(var(--web-body-color), .6)
 
   &:hover
-    color: rgba($global-web-text, .9)
+    color: rgba(var(--web-body-color), .9)
 
 section
   &.ui-section
     margin: 10px
-
-  &.intro-header
-    background-color: darken($global-web-background, 5%)
-    color: rgba($global-web-text, .6)
-    display: flex
-    font-size: 1.2em
-    justify-content: space-between
-    margin: 0
-    padding: 10px
-
-    .index
-      a
-        padding: 5px
-
-    .theme-select
-      a
-        &.theme-main, &.theme-alt
-          margin: 0 5px
-
-        &.theme-main
-          color: $global-web-text
-          text-decoration: underline
-
-        &.theme-alt
-          text-decoration: none
-
-  &.intro-text
-    border-bottom: thin solid rgba($global-web-text, .2)
-    display: flex
-
-    div
-      flex: 1
-      padding-right: 25px
-
-    ul
-      line-height: 1.4em
-      margin: 0 0 25px
-      padding-left: 20px
-
-    p
-      margin: 0 0 15px
-
-  .panels
-    display: flex
-    flex-wrap: wrap
-
-  .threeties
-    display: flex
-
-    p
-      flex: 1
-      margin-right: 15px
-
-.alt
-  // section.ui-section .theme-select
-  a
-    &.theme-main
-      color: rgba($global-web-text, .5)
-      text-decoration: none
-
-    &.theme-alt
-      color: $global-web-text
-      text-decoration: underline
 
 .icon
   display: inline-block
@@ -138,136 +74,3 @@ section
   height: 16px
   margin-left: 10px
   width: 16px
-
-#top-bar
-  background-color: darken($global-color-background, 15%)
-  border-top-left-radius: 3px
-  border-top-right-radius: 3px
-  cursor: default
-  display: flex
-  flex-direction: column
-
-  #top-bar__primary
-    align-items: center
-    display: flex
-    height: $header-bar-primary-height
-    padding-top: 5px
-
-    &-right
-      align-items: center
-      display: flex
-      margin-left: auto
-
-  #top-bar__secondary
-    align-items: center
-    background-color: $global-color-background
-    display: flex
-
-    &-mode,
-    &-main,
-    &-layout
-      align-items: center
-      display: flex
-      padding: 5px 10px
-
-    &-main
-      border-left: thin solid darken($global-color-background, 10%)
-      border-right: thin solid darken($global-color-background, 10%)
-      flex: 1
-
-      .wgt-tool,
-      .wgt-checkbox
-        margin-right: 10px
-
-      .more
-        margin-left: auto
-        margin-right: 0
-
-    &-layout
-      margin-left: auto
-
-  ul
-    &.menu-simple
-      margin: 0 5px
-
-  .wgt-id-block
-    margin:
-      left: auto
-      right: 5px
-
-
-  #window-buttons
-    display: flex
-    margin: 0 10px 0 5px
-
-    &__button
-      border-radius: 50%
-      box-shadow: 1px 1px 1px rgba(black, .15)
-      height: 12px
-      margin: 0
-      width: 12px
-
-      &:not(:last-child)
-        margin-right: 5px
-
-      &.close
-        background-color: #ff5e56
-
-      &.min
-        background-color: #ffbd30
-
-      &.max
-        background-color: #27c93f
-
-
-#status-bar
-  +wgt-text-shadow
-  align-items: center
-  background-color: $global-color-background
-  border-bottom-left-radius: 3px
-  border-bottom-right-radius: 3px
-  color: $global-color-text
-  cursor: default
-  display: flex
-
-  white-space: nowrap
-
-  &__filepath
-    margin-left: 10px
-
-  &__stats
-    margin-left: auto
-
-    ul
-      list-style-type: none
-      margin: 0
-      padding: 0
-
-      li
-        display: inline-block
-        margin-left: 4px
-        padding-left: 4px
-
-        &::before
-          content: '|'
-          left: -4px
-          opacity: .5
-          position: relative
-
-        &:first-child::before
-          display: none
-
-  &__jobs
-    display: flex
-    margin: 5px
-
-#notifications
-  &-toggle
-    &-icon
-      align-items: center
-      color: $global-color-text
-      display: flex
-      height: 20px
-      justify-content: center
-      text-align: center
-      width: 20px

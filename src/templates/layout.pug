@@ -12,28 +12,20 @@ html
 		link(href="/assets/img/favicon_bh_facu.png", rel="shortcut icon")
 
 	body.loading(class=body_class)
-		section.ui-section.intro-header
-			.theme-select Flatty Theme Variants:
-				a.theme-main(href="javascript:void(0);", onclick="swapTheme('/assets/css/main.css', 0);") Dark
-				a.theme-alt(href="javascript:void(0);", onclick="swapTheme('/assets/css/main_alt.css', 0);") Light
+		//
+			section.ui-section.intro-header
+				.theme-select Themes:
+					a.theme-main(href="javascript:void(0);", onclick="swapTheme('/assets/css/main.css', 0);") Dark
+					a.theme-alt(href="javascript:void(0);", onclick="swapTheme('/assets/css/main_alt.css', 0);") Light
 
-			.index
-				a(href="/") Components
-				a(href="/viewport/") Viewport
-				a(href="/outliner/") Outliner
-
-			.credits
-				| #[a(href="https://github.com/venomgfx/blender-ui") HTML+CSS+JS] Blender mockups by #[a(href="https://pablovazquez.art") Pablo Vazquez]
+				.credits
+					| #[a(href="https://github.com/venomgfx/blender-ui") HTML+CSS+JS] Blender mockups by #[a(href="https://pablovazquez.art") Pablo Vazquez]
 
 		block content
 
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
 		script(src="/assets/js/mousetrap-v1.6.1.min.js")
 		script(src="/assets/js/generated/tutti.min.js")
-
-		// Templates
-		include templates/_widget-list
-		include templates/_widget-dropdown
 
 		script.
 			$(document).ready(function(){

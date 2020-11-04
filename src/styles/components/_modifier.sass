@@ -1,0 +1,34 @@
+.modifier-editor
+  display: flex
+  flex-direction: column
+  margin-right: var(--spacer)
+  padding-right: var(--spacer)
+  border-right: var(--editor-border-width) solid var(--editor-border-color)
+
+.modifier
+  --modifier-bg: #333
+  --modifier-border-radius: var(--wgt-border-radius)
+  --modifier-width: 18rem
+
+  --modifier-border-width: var(--border-width)
+  --modifier-border-color: var(--modifier-bg)
+  --modifier-border-color-active: var(--accent-color)
+
+  background-color: var(--modifier-bg)
+  border-radius: var(--modifier-border-radius)
+  margin: var(--spacer) var(--spacer) var(--spacer-xs)
+  min-width: var(--modifier-width)
+  padding: var(--spacer-xs)
+
+  &.active
+    border: .15rem solid var(--modifier-border-color-active)
+
+.modifier-header
+  display: flex
+  justify-content: space-between
+
+  .wgt-text
+    flex: 1
+
+.modifier-body
+  padding: var(--spacer-sm) var(--spacer-xs)
