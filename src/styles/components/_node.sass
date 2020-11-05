@@ -1,57 +1,177 @@
 \:root
+  --node-editor-bg: #202020
+  --node-editor-grid-color: #262626
+  --node-editor-grid-size: 1rem
+  --node-editor-grid-width: .075rem
+
+  --node-connection-distance: 5rem
+  --node-wire-thickness: 2px
+
   --node-bg: #333
   --node-border-radius: var(--wgt-border-radius)
-  --node-width: 15rem
+  --node-box-shadow: 0 0 1rem rgba(var(--shadow-color), .25), .25rem .25rem 1rem rgba(var(--shadow-color), .25)
+  --node-width: 14rem
 
-  --node-border-color: var(--node-bg)
+  --node-border-color: #434343
+  --node-active-border-color: var(--accent-color)
 
   --node-socket-size: .75rem
   --node-socket-bg: cyan
 
   --node-socket-default-color: hsl(0deg 0% 50%)
-  --node-socket-geometry-color: hsl(169deg 100% 50%)
-  --node-socket-normal-color: hsl(240deg 47% 58%)
+  --node-socket-geometry-color: hsl(166deg 100% 42%)
+  --node-socket-normal-color: hsl(240deg 47% 68%)
+  --node-socket-object-color: hsl(27deg 81% 65%)
   --node-socket-vector-color: hsl(282deg 100% 65%)
+
+.node-editor
+  background-color: var(--node-editor-bg)
+  padding: 0 var(--spacer-sm)
+  position: relative
+  height: 100vh
+  width: 100%
+
+.nodes-context
+  color: var(--wgt-color-inactive)
+  padding: var(--spacer-sm)
+  position: relative
+  z-index: 1
+
+  > ul
+    align-items: center
+    display: flex
+    list-style: none
+    margin: 0
+    padding: 0
+
+    > li
+      align-items: center
+      display: flex
+
+      &+li
+        margin-left: var(--spacer-xs)
+
+      &:last-child
+        color: var(--wgt-color)
+
+        .icon
+          opacity: 1
 
 .nodes-grid
   display: flex
+
+.nodes-grid-bg
+  background-image: linear-gradient(var(--node-editor-grid-color) var(--node-editor-grid-width), transparent var(--node-editor-grid-width)), linear-gradient(90deg, var(--node-editor-grid-color) var(--node-editor-grid-width), transparent var(--node-editor-grid-width))
+  background-size: var(--node-editor-grid-size) var(--node-editor-grid-size)
+  bottom: 0
+  left: 0
+  position: absolute
+  right: 0
+  top: 0
+  z-index: 0
 
 .node
   background-color: var(--node-bg)
   border: var(--border-width) solid var(--node-border-color)
   border-radius: var(--node-border-radius)
-  box-shadow: var(--wgt-box-shadow)
+  box-shadow: var(--node-box-shadow)
   display: flex
   flex-direction: column
   margin: var(--spacer)
+  position: relative
   width: var(--node-width)
 
+  /* Space between nodes when they are next to each other. */
+  &+.node
+    margin-left: var(--node-connection-distance)
+
+  &.active
+    border: var(--border-width-lg) solid var(--node-active-border-color)
+
 .node-header
-  padding: var(--spacer-sm) var(--spacer)
+  align-items: center
+  border-bottom: var(--wgt-border-width) solid var(--node-border-color)
+  border-top-left-radius: var(--node-border-radius)
+  border-top-right-radius: var(--node-border-radius)
+  display: flex
+  padding: var(--spacer-xs) var(--spacer)
+
+.node-label
+  cursor: default
+  font-size: var(--font-size-lg)
+  flex: 1
+
+=node-socket-align-left
+  left: calc(calc(var(--node-socket-size) * -.5) - calc(var(--border-width) * 2))
+  right: initial
+
+=node-socket-align-right
+  left: initial
+  right: calc(calc(var(--node-socket-size) * -.5) - calc(var(--border-width) * 2))
+
+  &:before
+    display: none
 
 .node-entry
   align-items: center
+  // color: var(--wgt-color-inactive)
+  color: var(--node-socket-color)
+  cursor: default
   display: flex
-  font-size: var(--font-size-sm)
   padding: var(--spacer-xs) var(--spacer)
   position: relative
 
+  &.is-connected
+    // color: var(--wgt-color)
+    position: relative
+
+    &:before
+      content: ''
+      background-color: var(--node-socket-color)
+      display: block
+      height: var(--node-wire-thickness)
+      left: calc(var(--node-connection-distance) * -1.2)
+      position: absolute
+      width: calc(var(--node-connection-distance) + var(--node-socket-size))
+      z-index: 1
+
+  &.is-output
+    justify-content: flex-end
+
+    &:before
+      display: none
+
+    .node-entry-socket
+      +node-socket-align-right
+
+  &.is-both-ways
+   justify-content: center
+
+   .node-entry-value+.node-entry-socket
+      +node-socket-align-right
+
+
 .node-entry-socket
-  background-color: var(--node-socket-default-color)
+  +node-socket-align-left
+
+  background-color: var(--node-socket-color, var(--node-socket-default-color))
   border: var(--border-width) solid var(--node-bg)
   border-radius: 50%
   display: block
   content: ''
-  left: calc(calc(var(--node-socket-size) * -.5) - calc(var(--border-width) * 2))
   height: var(--node-socket-size)
   position: absolute
+  transition: transform ease-in-out var(--transition-speed)
   width: var(--node-socket-size)
 
+  &:hover
+    transform: scale(1.1)
+
 /* Build socket-type classes. */
-$socket-types: ('normal', 'geometry', 'vector')
+$socket-types: ('normal', 'geometry', 'vector', 'object')
 @each $type in $socket-types
   .socket-type-#{$type}
-    background-color: var(--node-socket-#{$type}-color)
+    --node-socket-color: var(--node-socket-#{$type}-color)
 
 .ui-section.nodes
   display: flex

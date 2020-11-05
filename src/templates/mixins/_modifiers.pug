@@ -1,0 +1,51 @@
+mixin mod_decimate(classes)
+  .modifier(class=classes)
+    .modifier-header
+      .layout-row
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-collapse
+        .wgt.wgt-regular.no-emboss
+          .icon.icon-mod-decimate
+
+        .layout-row
+          .wgt.wgt-text Decimate
+          .wgt.wgt-regular.active
+            .icon.icon-restrict-screen
+          .wgt.wgt-regular.active
+            .icon.icon-restrict-render
+          .wgt.wgt-menu
+            .icon.icon-dropdown
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-x
+        .wgt.wgt-drag.no-emboss
+          .icon.icon-drag
+
+    block
+
+mixin mod_triangulate(classes)
+  .modifier(class=classes)
+    .modifier-header
+      .layout-row
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-collapse
+        .wgt.wgt-regular.no-emboss
+          .icon.icon-mod-triangulate
+
+        .layout-row
+          .wgt.wgt-text Triangulate
+          .wgt.wgt-regular
+            .icon.icon-mesh
+          .wgt.wgt-regular.active
+            .icon.icon-restrict-edit-mode
+          .wgt.wgt-regular.active
+            .icon.icon-restrict-screen
+          .wgt.wgt-regular.active
+            .icon.icon-restrict-render
+          .wgt.wgt-menu
+            .icon.icon-dropdown
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-x
+        .wgt.wgt-drag.no-emboss
+          .icon.icon-drag
+
+    block

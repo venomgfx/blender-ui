@@ -1,18 +1,65 @@
 // Each widget lives in its own file.
 @import components/node
 @import components/modifier
+@import components/wgt-label
+@import components/wgt-menu
 @import components/wgt-regular
 @import components/wgt-text
+@import components/wgt-tool
 
-// Disabled widgets are half transparent and non-clickable.
-.wgt
-  --wgt-active: var(--accent-color)
 
+.layout-row
   align-items: center
   display: flex
-  justify-content: center
-  padding: var(--wgt-padding)
+  position: relative
+  width: 100%
 
+  .wgt
+    border-radius: unset
+    height: 100%
+
+    &:first-child
+      border-bottom-left-radius: var(--wgt-border-radius)
+      border-top-left-radius: var(--wgt-border-radius)
+
+    &:last-child
+      border-bottom-right-radius: var(--wgt-border-radius)
+      border-top-right-radius: var(--wgt-border-radius)
+
+  &.expand
+    flex: 1
+
+  .layout-row
+    height: 100%
+
+.wgt
+  align-items: center
+  border: var(--wgt-border-width) solid var(--wgt-border-color)
+  border-radius: var(--wgt-border-radius)
+  box-shadow: var(--wgt-box-shadow)
+  color: var(--wgt-color-inactive)
+  display: flex
+  justify-content: center
+
+  &:hover
+    color: var(--wgt-color)
+
+    .icon
+      opacity: 1
+
+  &+.wgt
+    border-left-width: 0
+
+  &.active
+    .icon
+      opacity: 1
+
+  /* Disabled widgets are half transparent and non-clickable. */
   &.disabled
     opacity: .5
     pointer-events: none
+
+  &.no-emboss
+    background-color: transparent
+    border-width: 0
+    box-shadow: none

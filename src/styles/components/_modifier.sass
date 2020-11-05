@@ -1,14 +1,13 @@
 .modifier-editor
+  border-right: var(--editor-border-width) solid var(--editor-border-color)
   display: flex
   flex-direction: column
-  margin-right: var(--spacer)
-  padding-right: var(--spacer)
-  border-right: var(--editor-border-width) solid var(--editor-border-color)
+  padding: var(--spacer-sm)
 
 .modifier
   --modifier-bg: #333
   --modifier-border-radius: var(--wgt-border-radius)
-  --modifier-width: 18rem
+  --modifier-width: 25rem
 
   --modifier-border-width: var(--border-width)
   --modifier-border-color: var(--modifier-bg)
@@ -16,12 +15,15 @@
 
   background-color: var(--modifier-bg)
   border-radius: var(--modifier-border-radius)
-  margin: var(--spacer) var(--spacer) var(--spacer-xs)
+  margin: var(--spacer-xs) var(--spacer)
   min-width: var(--modifier-width)
   padding: var(--spacer-xs)
 
   &.active
-    border: .15rem solid var(--modifier-border-color-active)
+    border: var(--border-width-lg) solid var(--modifier-border-color-active)
+
+    .wgt-text
+      color: var(--wgt-color)
 
 .modifier-header
   display: flex
@@ -29,6 +31,9 @@
 
   .wgt-text
     flex: 1
+
+  .layout-row .layout-row
+    margin-left: var(--spacer-xs)
 
 .modifier-body
   padding: var(--spacer-sm) var(--spacer-xs)

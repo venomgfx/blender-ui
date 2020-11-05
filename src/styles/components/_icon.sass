@@ -1,6 +1,108 @@
 .icon
+  --icon-size: 20px
+
+  --icon-bg-margin-left: 3px
+  --icon-bg-margin-top: 8px
+  --icon-bg-gap-size: 1px
+  --icon-bg-size: 20px
+
+  /* Default values.*/
+  --icon-bg-column-x: 1
+  --icon-bg-column-y: 1
+
+  /* Calculate */
+  --icon-offset-gap-x: calc(var(--icon-bg-column-x) * var(--icon-bg-gap-size))
+  --icon-offset-size-x: calc(var(--icon-bg-column-x) * var(--icon-bg-size))
+
+  --icon-offset-gap-y: calc(var(--icon-bg-column-y) * var(--icon-bg-gap-size))
+  --icon-offset-size-y: calc(var(--icon-bg-column-y) * var(--icon-bg-size))
+
+  --icon-offset-x: calc(calc(calc(var(--icon-bg-margin-left) + calc(var(--icon-offset-gap-x) + var(--icon-offset-size-x))) * -1) + var(--icon-bg-size) + var(--icon-bg-gap-size))
+  --icon-offset-y: calc(calc(calc(var(--icon-bg-margin-top) + calc(var(--icon-offset-gap-y) + var(--icon-offset-size-y))) * -1) + var(--icon-bg-size) + var(--icon-bg-gap-size) )
+
+  /* Generate variable names based on column and assign them a number.
+   * This number will be used to multiply * times the size and offset the background image. */
+  $rows: 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','aa','ba','ca','da'
+
+  @each $row in $rows
+    $i: index($rows, $row)
+    --icon-svg-column-#{$row}: #{$i}
+
   align-items: center
-  display: flex
+  background-image: url('../../assets/img/blender_icons.svg')
+  background-position-x: var(--icon-offset-x)
+  background-position-y: var(--icon-offset-y)
+  background-repeat: no-repeat
+  display: inline-flex
   height: var(--icon-size)
   justify-content: center
+  opacity: .7
   width: var(--icon-size)
+
+  /* UI. */
+  &.icon-x
+    --icon-bg-column-x: 8
+    --icon-bg-column-y: var(--icon-svg-column-ca)
+
+  &.icon-dropdown
+    --icon-bg-column-x: 21
+    --icon-bg-column-y: var(--icon-svg-column-ca)
+
+  &.icon-drag
+    --icon-bg-column-x: 17
+    --icon-bg-column-y: var(--icon-svg-column-da)
+    +is_last_row_icon
+
+  &.icon-angle-right
+    --icon-bg-column-x: 3
+    --icon-bg-column-y: var(--icon-svg-column-ca)
+
+  &.icon-uncollapse
+    --icon-bg-column-x: 12
+    --icon-bg-column-y: var(--icon-svg-column-da)
+    +is_last_row_icon
+
+  &.icon-collapse
+    --icon-bg-column-x: 11
+    --icon-bg-column-y: var(--icon-svg-column-da)
+    +is_last_row_icon
+
+  /* Data. */
+  &.icon-mesh
+    --icon-bg-column-x: 2
+    --icon-bg-column-y: var(--icon-svg-column-t)
+
+  /* Restrict. */
+  &.icon.icon-restrict-view
+    --icon-bg-column-x: 21
+    --icon-bg-column-y: var(--icon-svg-column-u)
+
+  &.icon-restrict-edit-mode
+    --icon-bg-column-x: 2
+    --icon-bg-column-y: var(--icon-svg-column-y)
+
+  &.icon-restrict-screen
+    --icon-bg-column-x: 25
+    --icon-bg-column-y: var(--icon-svg-column-t)
+
+  &.icon-restrict-render
+    --icon-bg-column-x: 25
+    --icon-bg-column-y: var(--icon-svg-column-u)
+
+  /* Modifiers. */
+  &.icon-modifier
+    --icon-bg-column-x: 1
+    --icon-bg-column-y: var(--icon-svg-column-m)
+    --icon-bg-margin-left: 5px
+
+  &.icon-mod-decimate
+    --icon-bg-column-x: 4
+    --icon-bg-column-y: var(--icon-svg-column-m)
+
+  &.icon-mod-node
+    --icon-bg-column-x: 16
+    --icon-bg-column-y: var(--icon-svg-column-z)
+
+  &.icon-mod-triangulate
+    --icon-bg-column-x: 14
+    --icon-bg-column-y: var(--icon-svg-column-l)

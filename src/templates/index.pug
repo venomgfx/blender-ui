@@ -1,82 +1,96 @@
 extends layout.pug
+include mixins/_modifiers.pug
 
 block content
   section.ui-section.nodes
     .modifier-editor
-      .modifier
-        .modifier-header
-          .wgt.wgt-tool
-            .icon.icon-collapse a
-          .wgt.wgt-regular
-            .icon.icon-mod-icon b
-          .wgt.wgt-text Triangulate
-          .wgt.wgt-regular.active
-            .icon.icon-mesh c
-          .wgt.wgt-regular.active
-            .icon.icon-edit-mode d
-          .wgt.wgt-dropdown
-            .icon.icon-dropdown e
-          .wgt.wgt-tool
-            .icon.icon-x x
-          .wgt.wgt-drag
-            .icon.icon-drag .
-
-        .modifier-body
-          .wgt-label Settings are in the particle tab
-
       .modifier.active
         .modifier-header
-          .wgt.wgt-tool
-            .icon.icon-collapse a
-          .wgt.wgt-regular
-            .icon.icon-mod-icon b
-          .wgt.wgt-text Triangulate
-          .wgt.wgt-regular.active
-            .icon.icon-mesh c
-          .wgt.wgt-regular.active
-            .icon.icon-edit-mode d
-          .wgt.wgt-dropdown
-            .icon.icon-dropdown e
-          .wgt.wgt-tool
-            .icon.icon-x x
-          .wgt.wgt-drag
-            .icon.icon-drag .
+          .layout-row
+            .wgt.wgt-tool.no-emboss
+              .icon.icon-collapse
+            .wgt.wgt-regular.no-emboss
+              .icon.icon-mod-node
+            .layout-row.expand
+              .wgt.wgt-text MyNodesModifier
+              .wgt.wgt-regular
+                .icon.icon-restrict-edit-mode
+              .wgt.wgt-regular.active
+                .icon.icon-restrict-screen
+              .wgt.wgt-regular.active
+                .icon.icon-restrict-render
+              .wgt.wgt-menu
+                .icon.icon-dropdown
+            .wgt.wgt-tool.no-emboss
+              .icon.icon-x
+            .wgt.wgt-drag.no-emboss
+              .icon.icon-drag
 
-        .modifier-body
-          .wgt-label Settings are in the particle tab
+        //- .modifier-body
+        //-   .wgt-label Settings are in the particle tab
+
+      +mod_triangulate()
+      +mod_decimate()
 
     .node-editor
+      .nodes-grid-bg
+      .nodes-context
+        ul
+          li
+            .wgt.wgt-label
+              .icon.icon-mesh
+            span Suzanne
+          li
+            .icon.icon-angle-right
+          li
+            .wgt.wgt-label
+              .icon.icon-modifier
+            span MyNodesModifier
+
       .nodes-grid
         .node
           .node-header
-            span.node-label Scatter
+            span.node-label Modifier Input
+            .wgt.wgt-regular.no-emboss
+              .icon.icon-restrict-view
 
           .node-body
-            .node-entry
-              .node-entry-socket.socket-type-geometry
-              .node-entry-value Mesh
+            .node-entry.socket-type-geometry.is-output.is-connected
+              .node-entry-socket
+              .node-entry-value Geometry
 
-            .node-entry
-              .node-entry-socket.socket-type-value
-              .node-entry-value Seed
+            .node-entry.socket-type-object.is-output
+              .node-entry-socket
+              .node-entry-value Object
 
-            .node-entry
-              .node-entry-socket.socket-type-normal
-              .node-entry-value Normal
+            .node-entry.socket-type-value.is-output
+              .node-entry-socket
+              .node-entry-value Maximum Density
 
-        .node
+            .node-entry.socket-type-normal.is-output
+              .node-entry-socket
+              .node-entry-value Angle
+
+        .node.active
           .node-header
-            span.node-label Attribute Mix
+            span.node-label Points Distribution
+            .wgt.wgt-regular.no-emboss
+              .icon.icon-restrict-view
 
           .node-body
-            .node-entry
-              .node-entry-socket.socket-type-geometry
-              .node-entry-value Mesh
+            .node-entry.socket-type-geometry.is-both-ways.is-connected
+              .node-entry-socket
+              .node-entry-value Geometry
+              .node-entry-socket
 
-            .node-entry
-              .node-entry-socket.socket-type-value
-              .node-entry-value Seed
+            .node-entry.socket-type-value
+              .node-entry-socket
+              .node-entry-value Maximum Density
 
-            .node-entry
-              .node-entry-socket.socket-type-normal
-              .node-entry-value Normal
+            .node-entry.socket-type-value
+              .node-entry-socket
+              .node-entry-value Minimum Distance
+
+            .node-entry.socket-type-value
+              .node-entry-socket
+              .node-entry-value Density Attribute

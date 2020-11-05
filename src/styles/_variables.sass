@@ -2,27 +2,46 @@
   --web-body-bg-color: #222
   --web-body-color: #ddd
 
+  --transition-speed: 150ms
+
   --spacer: 1rem
   --spacer-sm: calc(var(--spacer) * .75)
   --spacer-xs: calc(var(--spacer) * .5)
   --spacer-xxs: calc(var(--spacer) * .25)
 
   --border-width: .1rem
+  --border-width-lg: .15rem
 
-  --shadow-color: #000
+  /* Split in 3 because it's usually used inside rgba(var(--shadow-color), .5). */
+  --shadow-color: 0,0,0
 
-  --font-size: 1rem
+  --font-size: .85rem
+  --font-size-lg: calc(var(--font-size) * 1.25)
   --font-size-sm: calc(var(--font-size) * .85)
+  --border-width: .15rem
+  --border-radius: .25rem
 
   --accent-color: hsl(217deg 47% 55%)
 
   --editor-border-color: #111
   --editor-border-width: var(--spacer-xxs)
 
-  --wgt-border-radius: .33rem
-  --wgt-box-shadow: 0 0 3rem rgba(var(--shadow-color), .5)
+  /* Widget General. */
+  --wgt-active: var(--accent-color)
+  --wgt-border-color: #373737
+  --wgt-border-radius: var(--border-radius)
+  --wgt-border-width: var(--border-width)
+  --wgt-box-shadow: .05rem .05rem 0 rgba(var(--shadow-color), .2)
+  --wgt-color: #fff
+  --wgt-color-inactive: #aaa
+  --wgt-color-disabled: #777
   --wgt-padding: .15rem
 
-  --wgt-text-bg: #222
+  --wgt-regular-bg: #585858
 
-  --icon-size: 16px
+  --wgt-text-bg: #1F1F1F
+  --wgt-text-border-color: #363636
+
+  --wgt-menu-bg: #2C2C2C
+  --wgt-menu-border-color: #363636
+
