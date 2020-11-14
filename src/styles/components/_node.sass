@@ -21,25 +21,27 @@
   // --node-socket-boolean-color: hsl(54deg 58% 45%)
   --node-socket-boolean-color: hsl(288deg 38% 75%)
   --node-socket-default-color: hsl(0deg 0% 50%)
-  --node-socket-float-color: hsl(0deg 0% 63%)
+  --node-socket-empty-color: hsl(0deg 0% 10%)
+  --node-socket-float-color: hsl(0deg 30% 73%)
   --node-socket-geometry-color: hsl(166deg 100% 42%)
   // --node-socket-image-color: hsl(120deg 59% 25%)
   --node-socket-image-color: hsl(0deg 100% 69%)
-  --node-socket-int-color: hsl(191deg 50% 65%)
+  --node-socket-int-color: hsl(198 85% 65% / 1)
   // --node-socket-int-color: hsl(132deg 80% 29%)
   --node-socket-normal-color: hsl(240deg 47% 68%)
   --node-socket-object-color: hsl(27deg 81% 65%)
   --node-socket-rgba-color: hsl(60deg 66% 47%)
   --node-socket-shader-color: hsl(120deg 47% 58%)
   // --node-socket-string-color: hsl(0deg 0% 39%)
-  --node-socket-string-color: hsl(215 100% 67% / 1)
+  --node-socket-string-color: hsl(212 100% 67% / 1)
   // --node-socket-vector-color: hsl(282deg 100% 65%)
   // --node-socket-vector-color: hsl(240deg 47% 58%)
-  --node-socket-vector-color: hsl(240 47% 67% / 1)
+  --node-socket-vector-color: hsl(240deg 50% 73%)
 
   /* To be overriden per socket. */
   --node-socket-color: var(--node-socket-default-color)
 
+  --node-category-color-color: var(--node-socket-rgba-color)
   --node-category-default-color: var(--node-socket-default-color)
   --node-category-geometry-color: var(--node-socket-geometry-color)
   --node-category-input-color: var(--node-socket-image-color)
@@ -202,7 +204,7 @@
       +node-socket-align-right
 
   &.is-both-ways
-   justify-content: center
+   // justify-content: center
 
    .node-entry-value+.node-entry-socket
       +node-socket-align-right
@@ -225,13 +227,13 @@
     transform: scale(1.1)
 
 /* Build socket-type classes. */
-$socket-types: ('boolean', 'default', 'float', 'geometry', 'image', 'int', 'normal', 'object', 'rgba', 'shader', 'string', 'vector')
+$socket-types: ('boolean', 'default', 'empty', 'float', 'geometry', 'image', 'int', 'normal', 'object', 'rgba', 'shader', 'string', 'vector')
 @each $type in $socket-types
   .socket-type-#{$type}
     --node-socket-color: var(--node-socket-#{$type}-color)
 
 /* Build node-category classes. */
-$node-categories: ('default', 'geometry', 'input', 'output', 'vector')
+$node-categories: ('color', 'default', 'geometry', 'input', 'output', 'vector')
 @each $cat in $node-categories
   .node-cat-#{$cat}
     --node-category-color: var(--node-category-#{$cat}-color)

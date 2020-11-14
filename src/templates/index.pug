@@ -127,13 +127,18 @@ block content
               .node-entry-socket
               .node-entry-value Object
 
-            .node-entry.socket-type-value.is-output
+            .node-entry.socket-type-float.is-output
               .node-entry-socket
               .node-entry-value Maximum Density
 
             .node-entry.socket-type-normal.is-output
               .node-entry-socket
               .node-entry-value Angle
+
+            .node-entry.socket-type-empty.is-output
+              .node-entry-socket
+              .node-entry-value
+                .icon.icon-plus
 
         .node.node-cat-geometry
           .node-header
@@ -205,6 +210,11 @@ block content
               .node-entry-socket
               .node-entry-value Geometry
 
+            .node-entry.socket-type-empty
+              .node-entry-socket
+              .node-entry-value
+                .icon.icon-plus
+
       .nodes-grid
         .node.node-cat-geometry
           .node-header
@@ -226,12 +236,61 @@ block content
 
             .node-entry.socket-type-int
               .node-entry-socket
-              .node-entry-value Integer
+              .node-entry-value Level
 
             .node-entry.socket-type-boolean
               .node-entry-socket
-              .node-entry-value Boolean
+              .node-entry-value Use Creases
 
             .node-entry.socket-type-boolean
               .node-entry-socket
-              .node-entry-value Boolean
+              .node-entry-value Boundary Smooth
+
+            .node-entry.socket-type-boolean
+              .node-entry-socket
+              .node-entry-value Smooth UVs
+
+        .node.node-cat-color
+          .node-header
+            .layout-row
+              span.node-label
+                | Mix RGB
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
+
+          .node-body
+            .node-entry.socket-type-float
+              .node-entry-socket
+              .node-entry-value Factor
+
+            .node-entry.is-both-ways.socket-type-rgba
+              .node-entry-socket
+              .node-entry-value Color A
+              .node-entry-socket
+
+            .node-entry.socket-type-rgba
+              .node-entry-socket
+              .node-entry-value Color B
+              .node-entry-socket
+
+        .node.node-cat-vector
+          .node-header
+            .layout-row
+              span.node-label
+                | Sine
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
+
+          .node-body
+            .node-entry.is-both-ways.socket-type-vector
+              .node-entry-socket
+              .node-entry-value Vector
+              .node-entry-socket
