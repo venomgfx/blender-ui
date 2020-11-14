@@ -2,8 +2,30 @@ extends layout.pug
 include mixins/_modifiers.pug
 
 block content
+  section.web-section
+    h2 Flareon Graph
   section.ui-section.nodes
-    .modifier-editor
+    .editor.modifier-editor
+      .editor-header
+        .wgt.wgt-menu
+          span.icon.icon-editor-properties
+          .icon.icon-dropdown
+
+        //- .layout-row
+          .layout-row.expand
+            .wgt.wgt-label
+              .icon.icon-mesh
+            .wgt.wgt-label Cube
+
+          .layout-row
+            .icon.icon-search
+            .wgt.wgt-text Search
+
+      .layout-row.row
+        .wgt.wgt-menu.expand
+          span Add Modifier
+          .icon.icon-dropdown
+
       .modifier.active
         .modifier-header
           .layout-row
@@ -32,7 +54,38 @@ block content
       +mod_triangulate()
       +mod_decimate()
 
-    .node-editor
+    .editor.node-editor
+      .editor-header
+        .wgt.wgt-menu
+          span.icon.icon-editor-node
+          .icon.icon-dropdown
+
+        .wgt.wgt-pulldown View
+        .wgt.wgt-pulldown Select
+        .wgt.wgt-pulldown Add
+        .wgt.wgt-pulldown Node
+
+        .wgt.wgt-menu
+          span Node Groups
+          .icon.icon-dropdown
+
+        .wgt.wgt-data-block
+          .layout-row
+            .wgt.wgt-menu
+              span.icon.icon-mod-node
+              .icon.icon-dropdown
+            .wgt.wgt-text
+              span MyNodesModifier
+            .wgt.wgt-tool
+              .icon.icon-fake-user
+            .wgt.wgt-tool
+              .icon.icon-duplicate
+            .wgt.wgt-tool
+              .icon.icon-x
+
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-pin
+
       .nodes-grid-bg
       .nodes-context
         ul
@@ -46,13 +99,24 @@ block content
             .wgt.wgt-label
               .icon.icon-modifier
             span MyNodesModifier
+          li
+            .icon.icon-angle-right
+          li
+            .wgt.wgt-label
+              .icon.icon-mod-node
+            span Geometry Nodes Group
 
       .nodes-grid
-        .node
+        .node.node-cat-input
           .node-header
-            span.node-label Modifier Input
-            .wgt.wgt-regular.no-emboss
-              .icon.icon-restrict-view
+            .layout-row
+              span.node-label Modifier Input
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
 
           .node-body
             .node-entry.socket-type-geometry.is-output.is-connected
@@ -71,11 +135,17 @@ block content
               .node-entry-socket
               .node-entry-value Angle
 
-        .node.active
+        .node.node-cat-geometry
           .node-header
-            span.node-label Points Distribution
-            .wgt.wgt-regular.no-emboss
-              .icon.icon-restrict-view
+            .layout-row
+              span.node-label(title="Points Distribution")
+                | Points Distribution
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
 
           .node-body
             .node-entry.socket-type-geometry.is-both-ways.is-connected
@@ -83,14 +153,85 @@ block content
               .node-entry-value Geometry
               .node-entry-socket
 
-            .node-entry.socket-type-value
+            .node-entry.socket-type-boolean
               .node-entry-socket
-              .node-entry-value Maximum Density
+              .node-entry-value Boolean
 
-            .node-entry.socket-type-value
+            .node-entry.socket-type-float
               .node-entry-socket
-              .node-entry-value Minimum Distance
+              .node-entry-value Float
 
-            .node-entry.socket-type-value
+            .node-entry.socket-type-rgba
               .node-entry-socket
-              .node-entry-value Density Attribute
+              .node-entry-value RGBA
+
+            .node-entry.socket-type-shader
+              .node-entry-socket
+              .node-entry-value Shader
+
+            .node-entry.socket-type-image
+              .node-entry-socket
+              .node-entry-value Image
+
+            .node-entry.socket-type-int
+              .node-entry-socket
+              .node-entry-value Integer
+
+            .node-entry.socket-type-string
+              .node-entry-socket
+              .node-entry-value String
+
+            .node-entry.socket-type-object
+              .node-entry-socket
+              .node-entry-value Object
+
+            .node-entry.socket-type-vector
+              .node-entry-socket
+              .node-entry-value Vector
+
+        .node.node-cat-output
+          .node-header
+            .layout-row
+              span.node-label Modifier Output
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
+
+          .node-body
+            .node-entry.socket-type-geometry.is-connected
+              .node-entry-socket
+              .node-entry-value Geometry
+
+      .nodes-grid
+        .node.node-cat-geometry
+          .node-header
+            .layout-row
+              span.node-label(title="Subdivision Surface")
+                | Subdivision Surface
+
+            .layout-row.node-action-buttons
+              .wgt.wgt-regular.no-emboss
+                .icon.icon-restrict-view
+              .wgt.wgt-menu.no-emboss
+                .icon.icon-dropdown
+
+          .node-body
+            .node-entry.is-both-ways.socket-type-geometry
+              .node-entry-socket
+              .node-entry-value Geometry
+              .node-entry-socket
+
+            .node-entry.socket-type-int
+              .node-entry-socket
+              .node-entry-value Integer
+
+            .node-entry.socket-type-boolean
+              .node-entry-socket
+              .node-entry-value Boolean
+
+            .node-entry.socket-type-boolean
+              .node-entry-socket
+              .node-entry-value Boolean

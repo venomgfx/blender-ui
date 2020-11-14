@@ -67,6 +67,32 @@
     --icon-bg-column-y: var(--icon-svg-column-da)
     +is_last_row_icon
 
+  &.icon-fake-user
+    --icon-bg-column-x: 25
+    --icon-bg-column-y: var(--icon-svg-column-aa)
+    &.on
+      --icon-bg-column-x: 26
+
+  &.icon-duplicate
+    --icon-bg-column-x: 21
+    --icon-bg-column-y: var(--icon-svg-column-da)
+    +is_last_row_icon
+
+  &.icon-trash
+    --icon-bg-column-x: 22
+    --icon-bg-column-y: var(--icon-svg-column-da)
+    +is_last_row_icon
+
+  &.icon-pin
+    --icon-bg-column-x: 17
+    --icon-bg-column-y: var(--icon-svg-column-ca)
+    &.on
+      --icon-bg-column-x: 18
+
+  &.icon-search
+    --icon-bg-column-x: 5
+    --icon-bg-column-y: var(--icon-svg-column-ca)
+
   /* Data. */
   &.icon-mesh
     --icon-bg-column-x: 2
@@ -99,10 +125,15 @@
     --icon-bg-column-x: 4
     --icon-bg-column-y: var(--icon-svg-column-m)
 
-  &.icon-mod-node
+  &.icon-editor-node, &.icon-mod-node
     --icon-bg-column-x: 16
     --icon-bg-column-y: var(--icon-svg-column-z)
 
   &.icon-mod-triangulate
     --icon-bg-column-x: 14
     --icon-bg-column-y: var(--icon-svg-column-l)
+
+  /* Editors. */
+  &.icon-editor-properties
+    --icon-bg-column-x: 4
+    --icon-bg-column-y: var(--icon-svg-column-z)
