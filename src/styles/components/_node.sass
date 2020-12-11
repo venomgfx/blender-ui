@@ -1,61 +1,76 @@
+$node-categories: ('attribute': var(--node-socket-attribute-color), 'color': var(--node-socket-rgba-color), 'converter': hsl(203deg, 100%, 70%), 'default': var(--node-socket-default-color), 'geometry': var(--node-socket-geometry-color), 'input': hsl(222deg, 70%, 50%), 'output': var(--node-category-input-color), 'shader': var(--node-socket-shader-color), 'vector': var(--node-socket-vector-color))
+$socket-types: ('attribute': hsl(212, 100%, 67%), 'boolean': hsl(288deg, 38%, 75%), 'default': hsl(0deg, 0%, 50%), 'empty': hsl(0deg, 0%, 80%), 'float': hsl(122, 20%, 74% / 1), 'geometry': hsl(166deg, 100%, 42%), 'image': hsl(43deg, 68%, 66%), 'int': hsl(122, 50%, 50% / 1), 'normal': hsl(240deg, 47%, 68%), 'object': hsl(27deg, 81%, 65%), 'rgba': hsl(60deg, 66%, 47%), 'shader': hsl(356deg, 66%, 66%), 'string': hsl(55deg, 50%, 70%), 'vector': hsl(240deg, 50%, 73%))
+
+//  Blender internal colors:
+
+// 'int': hsl(210deg, 50%, 70%)
+// 'shader': hsl(120deg, 47%, 58%)
+//  Colletion: rgba(0.90, 0.90, 0.90, 1.00)
+//  Object: rgba(0.85, 0.34, 0.10, 1.00)
+//  Object Data: rgba(0.00, 0.65, 0.36, 1.00)
+//  Modifiers: rgba(0.23, 0.47, 1.00, 1.00)
+//  Shading: rgba(0.82, 0.17, 0.21, 1.00)
+//  File Folders: rgba(0.76, 0.53, 0.15, 1.00)
+
 \:root
-  --node-editor-bg: #202020
-  --node-editor-grid-color: #262626
-  --node-editor-grid-size: 1rem
-  --node-editor-grid-width: .075rem
+  --node-editor-bg: #1A1A1A
+  --node-editor-grid-color: #282828
+  --node-editor-grid-size: 1.5rem
+  --node-editor-grid-width: 8%
 
   --node-connection-distance: 5rem
   --node-wire-thickness: 2px
 
-  --node-bg: #333
+  --node-bg: #282828
   --node-border-radius: var(--wgt-border-radius)
   --node-box-shadow: 0 0 1rem rgba(var(--shadow-color), .25), .25rem .25rem 1rem rgba(var(--shadow-color), .25)
-  --node-width: 15rem
+  --node-header-bg: #202020
+  --node-width: 18rem // 15rem
 
-  --node-border-color: #434343
-  --node-active-border-color: var(--accent-color)
+  --node-border-color: #1f1f1f
+  --node-active-border-color: #fff
+  --node-selected-border-color: #ED5700
+  --node-viewer-border-color: var(--accent-color)
 
-  --node-socket-size: .75rem
-  --node-socket-bg: cyan
+  --node-active-box-shadow: 0 0 0 var(--border-width-lg) var(--node-active-border-color)
+  --node-selected-box-shadow: 0 0 0 var(--border-width-lg) var(--node-selected-border-color)
+  --node-viewer-box-shadow:  0 0 0 calc(var(--border-width-lg) * 3) var(--node-viewer-border-color)
 
-  // --node-socket-boolean-color: hsl(54deg 58% 45%)
-  --node-socket-boolean-color: hsl(288deg 38% 75%)
-  --node-socket-default-color: hsl(0deg 0% 50%)
-  --node-socket-empty-color: hsl(0deg 0% 10%)
-  --node-socket-float-color: hsl(0deg 30% 73%)
-  --node-socket-geometry-color: hsl(166deg 100% 42%)
-  // --node-socket-image-color: hsl(120deg 59% 25%)
-  --node-socket-image-color: hsl(0deg 100% 69%)
-  --node-socket-int-color: hsl(198 85% 65% / 1)
-  // --node-socket-int-color: hsl(132deg 80% 29%)
-  --node-socket-normal-color: hsl(240deg 47% 68%)
-  --node-socket-object-color: hsl(27deg 81% 65%)
-  --node-socket-rgba-color: hsl(60deg 66% 47%)
-  --node-socket-shader-color: hsl(120deg 47% 58%)
-  // --node-socket-string-color: hsl(0deg 0% 39%)
-  --node-socket-string-color: hsl(212 100% 67% / 1)
-  // --node-socket-vector-color: hsl(282deg 100% 65%)
-  // --node-socket-vector-color: hsl(240deg 47% 58%)
-  --node-socket-vector-color: hsl(240deg 50% 73%)
+  --node-body-padding-v: var(--spacer-xs)
 
-  /* To be overriden per socket. */
-  --node-socket-color: var(--node-socket-default-color)
+  --node-entry-margin-v: .15rem
+  --node-entry-margin-h: var(--spacer)
+  --node-entry-separator-height: var(--spacer-sm)
 
-  --node-category-color-color: var(--node-socket-rgba-color)
-  --node-category-default-color: var(--node-socket-default-color)
-  --node-category-geometry-color: var(--node-socket-geometry-color)
-  --node-category-input-color: var(--node-socket-image-color)
-  --node-category-output-color: var(--node-category-input-color)
-  --node-category-vector-color: var(--node-socket-vector-color)
+  /* Node Categories. */
+  @each $cat, $color in $node-categories
+    --node-category-#{$cat}-color: #{$color}
 
   /* To be overriden per node category. */
   --node-category-color: var(--node-category-default-color)
 
-.node-editor
+  /* Node Sockets. */
+  --node-socket-size: .75rem
+  --node-socket-bg: cyan
+
+  @each $type, $color in $socket-types
+    --node-socket-#{$type}-color: #{$color}
+
+  /* To be overriden per socket. */
+  --node-socket-color: var(--node-socket-default-color)
+  --node-socket-connected-from-color: var(--node-socket-color)
+
+  /* To be used when socket types don't match. */
+  --node-socket-error: hsl(0deg 75% 50%)
+
+
+.nodes-editor
   background-color: var(--node-editor-bg)
   position: relative
-  height: 100vh
   width: 100%
+
+  *
+    user-select: none
 
 .nodes-context
   color: var(--wgt-color-inactive)
@@ -94,7 +109,7 @@
   padding: var(--spacer-sm)
 
 .nodes-grid-bg
-  background-image: linear-gradient(var(--node-editor-grid-color) var(--node-editor-grid-width), transparent var(--node-editor-grid-width)), linear-gradient(90deg, var(--node-editor-grid-color) var(--node-editor-grid-width), transparent var(--node-editor-grid-width))
+  background-image: radial-gradient(var(--node-editor-grid-color) var(--node-editor-grid-width), transparent var(--node-editor-grid-width))
   background-size: var(--node-editor-grid-size) var(--node-editor-grid-size)
   bottom: 0
   left: 0
@@ -106,11 +121,8 @@
 
 /* Individual node. */
 .node
-  background-color: var(--node-bg)
-  border: var(--border-width) solid var(--node-border-color)
-  border-top: calc(var(--wgt-border-width) * 1.5) solid var(--node-category-color)
-  border-radius: var(--node-border-radius)
-  box-shadow: var(--node-box-shadow)
+  --node-border-category: calc(var(--wgt-border-width) * 1.5) solid var(--node-category-color)
+
   display: flex
   flex-direction: column
   height: fit-content
@@ -118,28 +130,72 @@
   position: relative
   width: var(--node-width)
 
+  &:hover
+    .node-label-text
+      color: var(--wgt-color)
+
   /* Space between nodes when they are next to each other. */
   &+.node
     margin-left: var(--node-connection-distance)
 
-  &.active
-    border: var(--border-width-lg) solid var(--node-active-border-color)
+  &.is-active
+    box-shadow: var(--node-active-box-shadow), var(--node-box-shadow)
 
-  &.node-cat-input
+  &.is-selected
+    box-shadow: var(--node-selected-box-shadow), var(--node-box-shadow)
+
+  &.is-active, &.is-selected
+    border-radius: var(--node-border-radius)
+
+    .node-label-text
+      color: var(--wgt-color)
+
+  &.is-active, &.is-selected, &.is-viewer
+    &.node-shape-input
+      border-bottom-left-radius: var(--border-radius-lg)
+    &.node-shape-output
+      border-bottom-right-radius: var(--border-radius-lg)
+
+  &.is-viewer
+    border-radius: var(--node-border-radius)
+    box-shadow: var(--node-viewer-box-shadow), var(--node-box-shadow)
+
+    &.is-active
+      box-shadow: var(--node-active-box-shadow), var(--node-viewer-box-shadow), var(--node-box-shadow)
+
+    &.is-selected
+      box-shadow: var(--node-selected-box-shadow), var(--node-viewer-box-shadow), var(--node-box-shadow)
+
+  &.is-muted
+    .node-body
+      opacity: .5
+
+  /* Shape inputs and outputs nodes differently. */
+  &.node-shape-input .node-body
     border-bottom-left-radius: var(--border-radius-lg)
 
-  &.node-cat-output
+  &.node-shape-output .node-body
     border-bottom-right-radius: var(--border-radius-lg)
+
+.node-body
+  background-color: var(--node-bg)
+  border: var(--border-width) solid var(--node-border-color)
+  border-top: var(--node-border-category)
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+  border-radius: var(--node-border-radius)
+  box-shadow: var(--node-box-shadow)
+  padding-bottom: var(--node-body-padding-v)
+  padding-top: var(--node-body-padding-v)
 
 .node-header
   align-items: center
+  // background-color: var(--node-header-bg)
   border-bottom: var(--wgt-border-width) solid var(--node-border-color)
-  border-top-left-radius: var(--node-border-radius)
-  border-top-right-radius: var(--node-border-radius)
   display: flex
   justify-content: space-between
   line-height: 1.5rem
-  padding: var(--spacer-xs) var(--spacer)
+  padding: var(--spacer-xs)
   white-space: nowrap
 
   .layout-row
@@ -153,12 +209,34 @@
       opacity: initial
 
 .node-label
-  cursor: default
-  display: inline-block
+  align-items: center
+  background-color: var(--node-header-bg)
+  border-bottom: var(--wgt-border-width) solid var(--node-border-color)
+  border-top-left-radius: var(--node-border-radius)
+  border-top-right-radius: var(--node-border-radius)
+  cursor: grab
+  display: flex
+  padding: var(--spacer-xs) var(--spacer)
+
+  &:hover
+    .layout-row
+      opacity: 1
+
+  .layout-row
+    opacity: 0
+    width: initial
+
+.node-label-text
+  color: var(--wgt-color-inactive)
+  cursor: grab
+  // display: inline-block
+  flex: 1
   font-size: var(--font-size-lg)
   overflow: hidden
   padding-right: var(--spacer-xs)
   text-overflow: ellipsis
+  white-space: nowrap
+
 
 =node-socket-align-left
   left: calc(calc(var(--node-socket-size) * -.5) - calc(var(--border-width) * 2))
@@ -177,7 +255,7 @@
   color: var(--node-socket-color)
   cursor: default
   display: flex
-  padding: var(--spacer-xs) var(--spacer)
+  padding: var(--node-entry-margin-v) var(--node-entry-margin-h)
   position: relative
 
   &.is-connected
@@ -187,11 +265,12 @@
     &:before
       content: ''
       background-color: var(--node-socket-color)
+      background-image: linear-gradient(90deg, var(--node-socket-connected-from-color), var(--node-socket-color))
       display: block
       height: var(--node-wire-thickness)
-      left: calc(var(--node-connection-distance) * -1.2)
+      left: calc(var(--node-connection-distance) * -1.16666)
       position: absolute
-      width: calc(var(--node-connection-distance) + var(--node-socket-size))
+      width: calc(var(--node-connection-distance) + calc(var(--node-socket-size) * .5))
       z-index: 1
 
   &.is-output
@@ -200,15 +279,52 @@
     &:before
       display: none
 
+    .node-entry-value
+      justify-content: flex-end
+
     .node-entry-socket
       +node-socket-align-right
 
   &.is-both-ways
    // justify-content: center
 
+   /* If there is a socket after the value, align it to the right. */
    .node-entry-value+.node-entry-socket
       +node-socket-align-right
 
+  &.is-socket-not-compatible
+    &:before
+      --node-socket-color: var(--node-socket-error)
+      background-image: unset
+
+    &.vdashed:before
+      background-image: linear-gradient(90deg, var(--node-socket-error) 0%, var(--node-socket-error) 49%, var(--node-editor-bg) 50%, var(--node-editor-bg) 100%)
+      background-size: 10px 10px
+
+    &:after
+      color: var(--node-socket-error)
+      content: 'x'
+      font-weight: bold
+      left: calc(calc(calc(var(--node-connection-distance) + calc(var(--node-socket-size) * 1.66)) / 2) * -1)
+      position: absolute
+      text-shadow: 0 0 1px var(--node-editor-bg)
+      box-shadow: 0 0 0 8px var(--node-editor-bg)
+      background-color: var(--node-editor-bg)
+      top: calc(var(--node-socket-size) * .1)
+      z-index: 1
+
+    &.v2:after
+      content: '/'
+
+    &.v3:after
+      content: '//'
+      left: calc(calc(calc(var(--node-connection-distance) + calc(var(--node-socket-size) * 2.5)) / 2) * -1)
+
+
+  &.socket-type-empty
+    .node-entry-socket
+      border-color: var(--node-socket-empty-color)
+      background-color: black
 
 .node-entry-socket
   +node-socket-align-left
@@ -224,19 +340,73 @@
   width: var(--node-socket-size)
 
   &:hover
-    transform: scale(1.1)
+    transform: scale(1.2)
 
-/* Build socket-type classes. */
-$socket-types: ('boolean', 'default', 'empty', 'float', 'geometry', 'image', 'int', 'normal', 'object', 'rgba', 'shader', 'string', 'vector')
-@each $type in $socket-types
-  .socket-type-#{$type}
-    --node-socket-color: var(--node-socket-#{$type}-color)
+  &.is-socket-not-compatible
+    border-color: var(--node-socket-error)
+
+
+.node-entry-value
+  align-items: center
+  display: flex
+  flex: 1
+  width: 100%
+
+  > .wgt
+    flex: 1
+    justify-content: flex-start
+
+  /* Color the label with the socket's color. */
+  > .wgt-label
+    color: var(--node-socket-color)
+
 
 /* Build node-category classes. */
-$node-categories: ('color', 'default', 'geometry', 'input', 'output', 'vector')
-@each $cat in $node-categories
+@each $cat, $color in $node-categories
   .node-cat-#{$cat}
     --node-category-color: var(--node-category-#{$cat}-color)
 
+/* Build socket-type classes. */
+@each $type, $color in $socket-types
+  .socket-type-#{$type}
+    --node-socket-color: var(--node-socket-#{$type}-color)
+
+  /* Build socket-connected-to classes. */
+  .is-connected-from-#{$type}
+    --node-socket-connected-from-color: var(--node-socket-#{$type}-color)
+
 .ui-section.nodes
   display: flex
+
+/* Custom placeholders for demo purposes. */
+/* Long connection between nodes to demo viewer and reroute. */
+.placeholder-viewer-1
+  top: calc(4rem + calc(var(--border-width) / 2))
+
+  .node-entry
+    &:before
+      margin-left: calc(calc(var(--node-socket-size) / 2) * -1)
+      width: calc(var(--node-width) * 1.66)
+
+  .reroute
+    background-color: var(--node-editor-bg)
+    border-color: var(--node-socket-color)
+    border-radius: 999rem
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: calc(var(--node-socket-size) * 3)
+    z-index: 1
+
+    &:after
+      content: ''
+      display: block
+      // background-color: var(--node-socket-color)
+      background-image: linear-gradient(90deg, var(--node-socket-color) 50%, transparent 50%)
+      background-size: calc(var(--node-socket-size) / 2)
+      position: absolute
+      left: 53.33%
+      top: 50%
+      transform: translate(-50%, -50%)
+      width: calc(var(--node-socket-size) * 1.5)
+      height: var(--border-width)

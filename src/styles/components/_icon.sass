@@ -57,19 +57,24 @@
     --icon-bg-column-y: var(--icon-svg-column-da)
     +is_last_row_icon
 
+  &.icon-angle-left,
   &.icon-angle-right
     --icon-bg-column-x: 3
     --icon-bg-column-y: var(--icon-svg-column-ca)
 
-  &.icon-uncollapse
+  &.icon-angle-left
+    transform: scaleX(-1)
+
+  &.icon-collapse
     --icon-bg-column-x: 12
     --icon-bg-column-y: var(--icon-svg-column-da)
     +is_last_row_icon
+    &.on
+      --icon-bg-column-x: 11
 
-  &.icon-collapse
-    --icon-bg-column-x: 11
-    --icon-bg-column-y: var(--icon-svg-column-da)
-    +is_last_row_icon
+  &.icon-dots
+    --icon-bg-column-x: 23
+    --icon-bg-column-y: var(--icon-svg-column-ba)
 
   &.icon-fake-user
     --icon-bg-column-x: 25
@@ -87,11 +92,27 @@
     --icon-bg-column-y: var(--icon-svg-column-da)
     +is_last_row_icon
 
+  &.icon-info
+    --icon-bg-column-x: 7
+    --icon-bg-column-y: var(--icon-svg-column-z)
+
   &.icon-pin
     --icon-bg-column-x: 17
     --icon-bg-column-y: var(--icon-svg-column-ca)
     &.on
       --icon-bg-column-x: 18
+
+  &.icon-selected
+    --icon-bg-column-x: 22
+    --icon-bg-column-y: var(--icon-svg-column-u)
+    &.on
+      --icon-bg-column-x: 23
+
+  &.icon-mute
+    --icon-bg-column-x: 23
+    --icon-bg-column-y: var(--icon-svg-column-k)
+    &.on
+      --icon-bg-column-x: 22
 
   &.icon-search
     --icon-bg-column-x: 5

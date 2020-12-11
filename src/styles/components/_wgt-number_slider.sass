@@ -1,0 +1,29 @@
+.wgt.wgt-numslider
+  background-color: var(--wgt-numslider-bg)
+  border-color: var(--wgt-numslider-border-color)
+  border-radius: var(--wgt-numslider-border-radius)
+  color: var(--wgt-numslider-color)
+  justify-content: space-between
+
+  &:hover
+    .icon
+      opacity: 1
+
+  span, .icon
+    &:hover
+      background-color: var(--wgt-numslider-bg-hover)
+
+  span
+    align-items: center
+    cursor: col-resize
+    display: flex
+    flex: 1
+    height: 100%
+    justify-content: space-between
+    padding-left: var(--spacer-xs)
+    padding-right: var(--spacer-xs)
+
+  .icon
+    border-bottom-right-radius: var(--wgt-numslider-border-radius)
+    border-top-right-radius: var(--wgt-numslider-border-radius)
+    opacity: 0

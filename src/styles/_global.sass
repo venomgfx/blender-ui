@@ -55,10 +55,11 @@ hr
   height: 1px
 
 a
-  color: rgba(var(--web-body-color), .6)
+  color: var(--web-body-color)
+  opacity: .5
 
   &:hover
-    color: rgba(var(--web-body-color), .9)
+    opacity: 1
 
 .icon
   display: inline-block
@@ -73,3 +74,15 @@ a
 
 .web-section
   padding-left: 1rem
+
+  ul
+    display: flex
+    list-style: none
+    margin: 0
+    padding: 0
+
+    > li
+      padding: var(--spacer-xs)
+
+    > li:not(:first-child)
+      margin-left: var(--spacer)

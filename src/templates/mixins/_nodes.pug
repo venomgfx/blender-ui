@@ -1,0 +1,50 @@
+mixin node_header(classes)
+  //- .node-header
+  //-   .wgt.wgt-regular.no-emboss
+  //-     .icon.icon-collapse
+
+  //-   .layout-row
+  //-     .wgt.wgt-regular.no-emboss(
+  //-       class="js-toggle-viewer",
+  //-       title="View")
+  //-       .icon.icon-restrict-view
+  //-     .wgt.wgt-regular.no-emboss(
+  //-       class="js-toggle-bypass",
+  //-       title="Bypass")
+  //-         .icon.icon-mute
+  //-     .wgt.wgt-regular.no-emboss(
+  //-       class="js-toggle-info",
+  //-       title="Info")
+  //-       .icon.icon-info
+
+  //-   .wgt.wgt-menu.no-emboss
+  //-     .icon.icon-dots
+
+
+mixin node_label(classes)
+  .node-label
+    .wgt.wgt-regular.no-emboss
+      .icon.icon-collapse
+
+    .node-label-text
+      block
+
+    .layout-row
+      .wgt.wgt-regular.no-emboss(
+        class="js-toggle-viewer",
+        title="View")
+        .icon.icon-restrict-view
+
+      .wgt.wgt-regular.no-emboss(
+        class="js-toggle-bypass",
+        title="Bypass")
+          .icon.icon-mute.on
+
+      .wgt.wgt-regular.no-emboss(
+        class="js-toggle-info",
+        title="Info")
+        .icon.icon-info
+
+    .wgt.wgt-menu.no-emboss
+      .icon.icon-dots
+

@@ -1,0 +1,55 @@
+.sheet
+  --sheet-bg: var(--node-editor-bg)
+  --sheet-alt-bg: #262626
+  --sheet-bg-hover: #303030
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+.sheet-row
+  background-color: var(--sheet-bg)
+  color: var(--wgt-color-inactive)
+  font-family: monospace
+  font-size: var(--font-size-sm)
+  display: flex
+  margin: 0
+  padding: 0
+  transition: none
+
+  // Color odd rows.
+  &:nth-child(odd)
+    background-color: var(--sheet-alt-bg)
+
+  &:hover
+    color: var(--wgt-color)
+    background-color: var(--sheet-bg-hover)
+
+  *
+    transition: none
+
+  > li
+    list-style: none
+    padding: var(--spacer-xxs) var(--spacer-sm)
+    min-width: 100px
+
+    // First child is the index.
+    &:first-child
+      min-width: 2rem
+      text-align: right
+      visibility: hidden
+
+      &:after
+        content: attr(data-index)
+        visibility: visible
+
+    // The value inside the cell.
+    span
+      display: inline-block
+      max-width: 4rem
+      overflow: hidden
+      text-overflow: ellipsis
+
+.sheet-header
+  border-bottom: var(--border-width) var(--border-color) solid
+

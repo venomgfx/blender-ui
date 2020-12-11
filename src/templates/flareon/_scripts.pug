@@ -1,0 +1,79 @@
+script.
+  function setNodeActive(node){
+    $('.node').removeClass('is-selected is-active');
+    $(node).addClass('is-active');
+    console.log('active');
+  }
+
+  function setNodeSelected(node){
+    $(node).toggleClass('is-selected');
+    console.log('select');
+  }
+
+  function setNodeViewer(node){
+    $('.node, .js-toggle-viewer').removeClass('is-viewer is-selected is-active');
+
+    $(node).toggleClass('is-viewer');
+    $(node).addClass('is-active');
+
+    $(node).find('.js-toggle-viewer').addClass('is-active');
+
+    console.log('viewer');
+  }
+
+  function toggleNodeViewer(node){
+    $(node).toggleClass('is-viewer');
+    $(node).find('.js-toggle-viewer').toggleClass('is-active');
+  }
+
+
+  function clearNodeSelection(){
+    $('.node').removeClass('is-selected is-active');
+  }
+
+  function toggleNodeBypass(node){
+    $(node).toggleClass('is-muted');
+  }
+
+  $('.node').on('click', function(e){
+    let node = $(this);
+
+    if (e.ctrlKey & e.shiftKey) {
+       setNodeViewer(node);
+    } else if (e.shiftKey) {
+       setNodeSelected(node);
+    } else {
+      setNodeActive(node);
+    }
+  });
+
+  $('.js-toggle-viewer').on('click', function(){
+    let node = $(this).closest('.node');
+
+    if ($(node).hasClass('is-viewer')){
+      console.log('si');
+      toggleNodeViewer(node);
+    } else {
+      setNodeViewer(node);
+    }
+  });
+
+  $('.js-toggle-bypass').on('click', function(){
+    let node = $(this).closest('.node');
+
+    $(this).toggleClass('is-active');
+    $(this).find('.icon').toggleClass('on');
+
+    toggleNodeBypass(node);
+  });
+
+  $('.nodes-grid-bg').on('click', function(){
+    clearNodeSelection();
+  });
+
+  Mousetrap.bind(['m'], function(e) {
+    let node = $('.node.is-active, .node.is-selected');
+
+    toggleNodeBypass(node);
+  });
+

@@ -1,0 +1,139 @@
+extends ../../layout.pug
+include ../../mixins/_nodes.pug
+
+block content
+  section.ui-section
+    .editor.nodes-editor
+      .editor-header
+        .wgt.wgt-menu
+          span.icon.icon-editor-node
+          .icon.icon-dropdown
+
+        .wgt.wgt-menu
+          span Node Graph
+          .icon.icon-dropdown
+
+        .wgt.wgt-pulldown View
+        .wgt.wgt-pulldown Select
+        .wgt.wgt-pulldown Add
+        .wgt.wgt-pulldown Node
+
+        .wgt.wgt-menu
+          span Node Groups
+          .icon.icon-dropdown
+
+        .wgt.wgt-data-block
+          .layout-row
+            .wgt.wgt-menu
+              span.icon.icon-mod-node
+              .icon.icon-dropdown
+            .wgt.wgt-text
+              span GeometryNodes
+            .wgt.wgt-tool
+              .icon.icon-fake-user
+            .wgt.wgt-tool
+              .icon.icon-duplicate
+            .wgt.wgt-tool
+              .icon.icon-x
+
+        .wgt.wgt-tool.no-emboss
+          .icon.icon-pin
+
+      .nodes-grid-bg
+
+      .nodes-context
+        ul
+          li
+            .wgt.wgt-label
+              .icon.icon-mesh
+            span Suzanne
+          li
+            .icon.icon-angle-right
+          li
+            .wgt.wgt-label
+              .icon.icon-modifier
+            span GeometryNodes
+          li
+            .icon.icon-angle-right
+          li
+            .wgt.wgt-label
+              .icon.icon-mod-node
+            span Geometry Nodes
+
+      .nodes-grid
+        .node.node-cat-attribute
+          +node_label Attribute Randomize
+
+          .node-body
+            +node_header()
+
+            .node-entry.socket-type-geometry.is-output
+              .node-entry-value Geometry
+              .node-entry-socket
+
+            .wgt.wgt-separator
+
+            .node-entry
+              .node-entry-value
+                .wgt.wgt-menu
+                  span Float
+                  .icon.icon-dropdown
+
+            .wgt.wgt-separator
+
+            .node-entry.socket-type-geometry.is-input
+              .node-entry-socket
+              .node-entry-value Geometry
+              .node-entry-socket
+
+            .node-entry.socket-type-attribute
+              .node-entry-socket
+              .node-entry-value
+                .wgt.wgt-label Attribute
+                .wgt.wgt-text scale
+
+            .node-entry.socket-type-float
+              .node-entry-socket
+              .node-entry-value
+                .wgt.wgt-numslider
+                  .icon.icon-angle-left
+                  span
+                    label Min
+                    label 0.250
+                  .icon.icon-angle-right
+
+            .node-entry.socket-type-float
+              .node-entry-socket
+              .node-entry-value
+                .wgt.wgt-numslider
+                  .icon.icon-angle-left
+                  span
+                    label Max
+                    label 0.600
+                  .icon.icon-angle-right
+
+            .node-entry.socket-type-int
+              .node-entry-socket
+              .node-entry-value
+                .wgt.wgt-numslider
+                  .icon.icon-angle-left
+                  span
+                    label Seed
+                    label 0
+                  .icon.icon-angle-right
+
+        .node.node-empty.placeholder-viewer-1.socket-type-geometry
+          .node-entry.is-connected.is-connected-from-geometry
+          .node-entry-socket.reroute
+
+        .node.node-cat-output.node-shape-output
+          +node_label Modifier Output
+
+          .node-body
+            +node_header()
+
+            .node-entry.socket-type-geometry
+              .node-entry-socket
+              .node-entry-value Geometry
+
+  include ../_scripts.pug

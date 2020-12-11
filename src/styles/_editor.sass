@@ -2,8 +2,14 @@
   border-top: var(--editor-border-width) solid var(--editor-border-color)
 
 .editor-header
+  align-items: center
   background-color: var(--editor-header-bg)
   display: flex
   padding: var(--spacer-xs)
   position: relative
   z-index: 1
+
+  // The first level widgets, that are not type pulldown (header menus).
+  > .wgt+.wgt
+    // &:not(.wgt-pulldown)
+    margin-left: var(--spacer-xs)
